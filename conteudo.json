@@ -359,5 +359,9 @@
       "license": "CC BY 2.5",
       "licenseUrl": "https://creativecommons.org/licenses/by/2.5/"
     }
-  ]
+  ],
+  "capa": {
+    "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/bomba-capa-v1.png",
+    "caption": "Exemplo de conjunto de bomba centrífuga e motor. A construção varia conforme o modelo."
+  }
 }
