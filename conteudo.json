@@ -1,5 +1,5 @@
 {
-  "revisao": 2,
+  "revisao": 3,
   "fontes": {
     "bearing": {
       "title": "KSB • Aquecimento dos rolamentos",
@@ -115,6 +115,31 @@
       "title": "Hydraulic Institute • NPSH e regiões de operação",
       "url": "https://www.pumps.org/2022/12/07/the-basics-of-npsh-pump-operating-regions/",
       "note": "Distinguir NPSH disponível e requerido; margem e faixa de operação dependem da aplicação."
+    },
+    "ksb_ruido": {
+      "title": "KSB • Ruídos em bombas e sistemas",
+      "url": "https://www.ksb.com/en-global/centrifugal-pump-lexicon/article/noise-in-pumps-and-systems-1116102",
+      "note": "Influência do ponto de operação, cavitação, acionamento, fundação e tubulação."
+    },
+    "fluke_vibracao": {
+      "title": "Fluke • Desequilíbrio, desalinhamento, folgas e rolamentos",
+      "url": "https://www.fluke.com/en-gb/learn/blog/alignment/understanding-vibration-monitoring-common-faults-part-4",
+      "note": "Famílias de falhas; sinais externos não substituem análise de condição e inspeção."
+    },
+    "fluke_montagem": {
+      "title": "Fluke • Máquinas e falhas de montagem",
+      "url": "https://www.fluke.com.cn/学习/技术博客/振动/which-assets-should-be-screened-for-vibration",
+      "note": "Base, apoio, fixação e alinhamento na avaliação de vibração de máquinas."
+    },
+    "ksb_transientes": {
+      "title": "KSB • Golpe de aríete",
+      "url": "https://live-resources-e2e-sales.ksb.com/resource/blob/762108/b03ed4dd6aa0139a876090d66fe3b9f2/water-hammer-data.pdf",
+      "note": "Eventos transitórios de pressão e necessidade de avaliação do sistema."
+    },
+    "skf_lubrificacao": {
+      "title": "SKF • Aquecimento por lubrificação e refrigeração",
+      "url": "https://cdn.skfmediahub.skf.com/api/public/0901d19680c41453/pdf_preview_medium/0901d19680c41453_pdf_preview_medium.pdf",
+      "note": "Lubrificar mais não é uma correção automática; quantidade e produto dependem da aplicação."
     }
   },
   "sintomas": [
@@ -191,6 +216,35 @@
         "b03_19"
       ],
       "pagina_entrada": "b03-guia",
+      "blocos": []
+    },
+    {
+      "id": "abnormal_sound",
+      "title": "A bomba apresenta ruídos ou vibrações anormais",
+      "desc": "B04 • Sons diferentes ou movimento acima do habitual.",
+      "causes": [
+        "b04_01",
+        "b04_02",
+        "b04_03",
+        "b04_04",
+        "b04_05",
+        "b04_06",
+        "b04_07",
+        "b04_08",
+        "b04_09",
+        "b04_10",
+        "b04_11",
+        "b04_12",
+        "b04_13",
+        "b04_14",
+        "b04_15",
+        "b04_16",
+        "b04_17",
+        "b04_18",
+        "b04_19",
+        "b04_20"
+      ],
+      "pagina_entrada": "b04-guia",
       "blocos": []
     }
   ],
@@ -1683,6 +1737,628 @@
           "texto": "Após a correção e a liberação pela equipe responsável, comparar pressão e vazão medidas com a condição prevista, registrando velocidade, nível, fluido, local dos instrumentos e consumidores em uso. Verificar estabilidade, alarmes, vazamentos e faixa de operação do fabricante. Sinais de melhora não dispensam a confirmação técnica."
         }
       ]
+    },
+    {
+      "id": "b04_01",
+      "title": "B04.01 — Cavitação na bomba",
+      "why": "Pressão local insuficiente pode formar vapor no líquido e prejudicar a operação. Em situação severa, pode contribuir para grande perda de desempenho.",
+      "signs": "Som semelhante a pedras, vibração irregular, oscilação e possível redução da vazão; o som sozinho não confirma cavitação.",
+      "checks": [
+        "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade.",
+        "Registrar nível, temperatura do líquido e leituras de sucção disponíveis.",
+        "Solicitar comparação do NPSH disponível com o requerido e margem adequada ao serviço; não há uma margem universal."
+      ],
+      "action": "Corrigir as condições de sucção e operação identificadas na análise técnica, considerando temperatura, nível e perdas da instalação.",
+      "avoid": "Ruído sozinho não confirma cavitação. Não adotar margem de NPSH universal nem estrangular a sucção como correção.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "cav",
+        "inlet",
+        "hi_npsh"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação pela equipe, comparar ruído, vibração, temperatura e desempenho com os dados anteriores e os critérios do fabricante e normas aplicáveis. Registrar unidade, ponto e direção da medição, velocidade e condição de carga. Não há um limite único de vibração para todas as bombas."
+        }
+      ],
+      "codigo": "B04.01"
+    },
+    {
+      "id": "b04_02",
+      "title": "B04.02 — Entrada de ar ou formação de vórtice na sucção",
+      "why": "Ar pode entrar por conexões e vedações ou ser arrastado por vórtices na entrada. O requisito de submergência depende da instalação e do modelo.",
+      "signs": "Borbulhamento, fluxo pulsante ou pressão instável; pode coincidir com queda do nível ou entrada de ar por juntas.",
+      "checks": [
+        "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade.",
+        "Registrar oscilações, nível e bolhas apenas pelos indicadores acessíveis.",
+        "Solicitar avaliação de estanqueidade, submergência e geometria de entrada conforme o projeto."
+      ],
+      "action": "Corrigir a entrada de ar ou a condição de captação identificada pela equipe. Soluções para vórtices exigem avaliação da instalação; confirmar depois a estabilidade de pressão e vazão.",
+      "avoid": "Não apertar juntas nem procurar fugas abrindo a tubulação em operação.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "air",
+        "inlet",
+        "priming",
+        "xylem_b03"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação pela equipe, comparar ruído, vibração, temperatura e desempenho com os dados anteriores e os critérios do fabricante e normas aplicáveis. Registrar unidade, ponto e direção da medição, velocidade e condição de carga. Não há um limite único de vibração para todas as bombas."
+        }
+      ],
+      "codigo": "B04.02"
+    },
+    {
+      "id": "b04_03",
+      "title": "B04.03 — Filtro ou tubulação de sucção obstruído",
+      "why": "Sólidos e depósitos restringem a chegada de líquido e aumentam as perdas na sucção.",
+      "signs": "Ruído hidráulico, vazão reduzida, histórico de sujeira ou indicação de restrição; pode favorecer cavitação.",
+      "checks": [
+        "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade.",
+        "Há areia, sujeira ou alarme de filtro?",
+        "Comparar indicadores existentes de perda de pressão com os limites do componente e a vazão do momento."
+      ],
+      "action": "Limpar ou substituir o componente conforme o procedimento e investigar a origem dos sólidos. Confirmar a condição de sucção antes da partida.",
+      "avoid": "Não remover permanentemente o filtro previsto no projeto nem abrir tampas pressurizadas.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "inlet",
+        "goulds_b02",
+        "nov",
+        "xylem_b03"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação pela equipe, comparar ruído, vibração, temperatura e desempenho com os dados anteriores e os critérios do fabricante e normas aplicáveis. Registrar unidade, ponto e direção da medição, velocidade e condição de carga. Não há um limite único de vibração para todas as bombas."
+        }
+      ],
+      "codigo": "B04.03"
+    },
+    {
+      "id": "b04_04",
+      "title": "B04.04 — Operação com vazão muito baixa",
+      "area": [
+        "casing"
+      ],
+      "sources": [
+        "flow"
+      ],
+      "why": "Longe do ponto de projeto, a circulação interna pode se tornar instável. Com pouca vazão, a energia recebida pelo líquido pode elevar sua temperatura.",
+      "signs": "Ruído hidráulico e instabilidade com vazão abaixo da faixa permitida; pode haver aquecimento do líquido ou alarme de vazão mínima.",
+      "checks": [
+        "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade.",
+        "Consultar vazão mínima e faixa permitida no manual e na curva da bomba.",
+        "Registrar vazão e pressões disponíveis. Conferir a condição das válvulas e do retorno mínimo no procedimento da instalação."
+      ],
+      "action": "Solicitar ajuste do ponto de operação e verificação do sistema de vazão mínima. Não manter funcionamento sem vazão para testar.",
+      "avoid": "Não abrir ou fechar válvulas sem avaliar o processo e obter autorização.",
+      "codigo": "B04.04",
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação pela equipe, comparar ruído, vibração, temperatura e desempenho com os dados anteriores e os critérios do fabricante e normas aplicáveis. Registrar unidade, ponto e direção da medição, velocidade e condição de carga. Não há um limite único de vibração para todas as bombas."
+        }
+      ]
+    },
+    {
+      "id": "b04_05",
+      "codigo": "B04.05",
+      "title": "B04.05 — Operação fora do ponto ideal ou fluxo turbulento",
+      "why": "Condições hidráulicas inadequadas podem produzir forças variáveis, ruído e vibração. A faixa permitida é definida pelo fabricante.",
+      "signs": "Ruído ou vibração mudam com a demanda, a velocidade ou alterações da instalação.",
+      "checks": [
+        "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade.",
+        "Registrar as condições em que o sintoma já foi observado e as leituras disponíveis.",
+        "Solicitar comparação das curvas e da faixa operacional; não variar válvulas ou velocidade para provocar o ruído."
+      ],
+      "action": "Responsável técnico corrige controle, restrições ou dimensionamento quando a análise confirmar operação inadequada. Verifica a estabilidade na faixa aprovada.",
+      "avoid": "Estar afastado do melhor rendimento não confirma por si só um defeito; respeitar limites do modelo e do sistema.",
+      "sources": [
+        "ksb_ruido",
+        "hi_ponto"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação pela equipe, comparar ruído, vibração, temperatura e desempenho com os dados anteriores e os critérios do fabricante e normas aplicáveis. Registrar unidade, ponto e direção da medição, velocidade e condição de carga. Não há um limite único de vibração para todas as bombas."
+        }
+      ]
+    },
+    {
+      "id": "b04_06",
+      "codigo": "B04.06",
+      "title": "B04.06 — Golpe de aríete",
+      "why": "Mudanças rápidas no escoamento podem gerar ondas de pressão que solicitam a tubulação e os equipamentos.",
+      "signs": "Pancada associada à parada, partida ou fechamento de válvula; pode haver movimento da linha.",
+      "checks": [
+        "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade.",
+        "Registrar momento, sequência e alarmes do evento, sem reproduzi-lo.",
+        "Solicitar avaliação de transientes, comandos, válvulas e condições de proteção da linha."
+      ],
+      "action": "Engenharia identifica a origem do transiente e define a correção de comando, válvulas ou proteção apropriada ao sistema. A equipe valida os eventos de pressão por método aprovado.",
+      "avoid": "Não repetir partidas ou fechamentos para testar, instalar amortecedores por tentativa ou aproximar-se de tubulação com movimento anormal.",
+      "sources": [
+        "ksb_transientes"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação pela equipe, comparar ruído, vibração, temperatura e desempenho com os dados anteriores e os critérios do fabricante e normas aplicáveis. Registrar unidade, ponto e direção da medição, velocidade e condição de carga. Não há um limite único de vibração para todas as bombas."
+        }
+      ]
+    },
+    {
+      "id": "b04_07",
+      "codigo": "B04.07",
+      "title": "B04.07 — Válvula de retenção vibrando ou batendo",
+      "why": "Uma retenção pode oscilar ou bater por desgaste, montagem ou incompatibilidade com a condição de escoamento.",
+      "signs": "Trepidação ou batidas na região aproximada da válvula, às vezes durante mudanças de vazão ou parada.",
+      "checks": [
+        "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade.",
+        "Consultar o diagrama e registrar a região e o momento do ruído de um local seguro.",
+        "Solicitar análise hidráulica e inspeção isolada do dispositivo; diferenciar trepidação contínua de evento transitório."
+      ],
+      "action": "Manutenção e engenharia corrigem o defeito, a instalação ou a seleção identificada, respeitando o projeto. Validam a função de retenção e os transientes associados.",
+      "avoid": "Não golpear, travar aberta ou desmontar a retenção sob pressão.",
+      "sources": [
+        "ksb_transientes",
+        "nov"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação pela equipe, comparar ruído, vibração, temperatura e desempenho com os dados anteriores e os critérios do fabricante e normas aplicáveis. Registrar unidade, ponto e direção da medição, velocidade e condição de carga. Não há um limite único de vibração para todas as bombas."
+        }
+      ]
+    },
+    {
+      "id": "b04_08",
+      "codigo": "B04.08",
+      "title": "B04.08 — Rolamento desgastado ou danificado",
+      "why": "Dano no rolamento pode alterar o movimento do eixo e gerar ruído e vibração. Carga, montagem, contaminação e lubrificação precisam ser investigadas.",
+      "signs": "Ronco crescente, ruído áspero e possível aumento de temperatura ou vibração nos indicadores existentes.",
+      "checks": [
+        "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade.",
+        "Registrar evolução do som, alarmes e medições disponíveis sem tocar no mancal.",
+        "Solicitar análise de condição e inspeção; diferenciar rolamento de causas hidráulicas ou de montagem."
+      ],
+      "action": "Após confirmação e isolamento, manutenção substitui os componentes danificados conforme o manual, investiga a origem e verifica montagem e lubrificação.",
+      "avoid": "Ruído e aquecimento não bastam para condenar um rolamento. Não escutar encostando ferramentas na máquina.",
+      "sources": [
+        "fluke_vibracao",
+        "skf_lubrificacao"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação pela equipe, comparar ruído, vibração, temperatura e desempenho com os dados anteriores e os critérios do fabricante e normas aplicáveis. Registrar unidade, ponto e direção da medição, velocidade e condição de carga. Não há um limite único de vibração para todas as bombas."
+        }
+      ]
+    },
+    {
+      "id": "b04_09",
+      "codigo": "B04.09",
+      "title": "B04.09 — Lubrificação incorreta dos rolamentos",
+      "why": "Lubrificante inadequado, contaminado, insuficiente ou excessivo pode prejudicar o rolamento.",
+      "signs": "Ruído ou temperatura mudaram após lubrificação, troca de produto ou falha do sistema de óleo/graxa.",
+      "checks": [
+        "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade.",
+        "Consultar produto, quantidade, intervalo e histórico sem intervir na máquina.",
+        "Manutenção compara a condição real e o sistema de lubrificação com os requisitos do fabricante."
+      ],
+      "action": "Corrigir o produto, quantidade ou fornecimento identificado conforme o manual, com acesso e energias controlados. Avaliar danos e substituir componentes quando necessário.",
+      "avoid": "Não simplesmente acrescentar graxa, misturar produtos ou abrir mancais. Alguns rolamentos são selados e não recebem relubrificação.",
+      "sources": [
+        "skf_lubrificacao"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação pela equipe, comparar ruído, vibração, temperatura e desempenho com os dados anteriores e os critérios do fabricante e normas aplicáveis. Registrar unidade, ponto e direção da medição, velocidade e condição de carga. Não há um limite único de vibração para todas as bombas."
+        }
+      ]
+    },
+    {
+      "id": "b04_10",
+      "codigo": "B04.10",
+      "title": "B04.10 — Desalinhamento entre motor e bomba",
+      "why": "Eixos independentes desalinhados podem transmitir esforços prejudiciais ao acoplamento e aos apoios.",
+      "signs": "Vibração após montagem ou troca de motor, problemas recorrentes no acoplamento ou nos mancais.",
+      "checks": [
+        "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade.",
+        "Registrar intervenções e identificar se há acoplamento entre eixos independentes.",
+        "Manutenção verifica alinhamento, apoios e efeitos térmicos previstos com o conjunto isolado."
+      ],
+      "action": "Corrigir base, assentamento e alinhamento conforme tolerâncias e condições especificadas pelo fabricante, verificando o conjunto após a montagem.",
+      "avoid": "Não se aplica da mesma forma a um monobloco. Não retirar proteção em funcionamento nem usar tolerância universal.",
+      "sources": [
+        "fluke_vibracao",
+        "fluke_montagem"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação pela equipe, comparar ruído, vibração, temperatura e desempenho com os dados anteriores e os critérios do fabricante e normas aplicáveis. Registrar unidade, ponto e direção da medição, velocidade e condição de carga. Não há um limite único de vibração para todas as bombas."
+        }
+      ]
+    },
+    {
+      "id": "b04_11",
+      "codigo": "B04.11",
+      "title": "B04.11 — Rotor desbalanceado",
+      "why": "Distribuição desigual de massa no conjunto girante pode produzir forças durante a rotação.",
+      "signs": "Vibração persistente, histórico de depósitos, corrosão, desgaste irregular ou reparo do rotor.",
+      "checks": [
+        "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade.",
+        "Registrar condições e velocidade já observadas; não aumentar a rotação para testar.",
+        "Solicitar análise do conjunto girante para distinguir desequilíbrio de outras falhas."
+      ],
+      "action": "A equipe elimina depósitos ou danos identificados e realiza reparo, balanceamento ou substituição conforme o fabricante, seguido de validação de condição.",
+      "avoid": "Não remover material, adicionar pesos ou concluir desequilíbrio só porque a vibração aumenta com velocidade.",
+      "sources": [
+        "fluke_vibracao",
+        "nov"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação pela equipe, comparar ruído, vibração, temperatura e desempenho com os dados anteriores e os critérios do fabricante e normas aplicáveis. Registrar unidade, ponto e direção da medição, velocidade e condição de carga. Não há um limite único de vibração para todas as bombas."
+        }
+      ]
+    },
+    {
+      "id": "b04_12",
+      "codigo": "B04.12",
+      "title": "B04.12 — Rotor raspando ou objeto preso internamente",
+      "why": "Contato indevido ou corpo estranho pode danificar componentes e gerar atrito ou impactos.",
+      "signs": "Raspagem metálica, batida repetitiva ou ruído súbito, possivelmente com perda de desempenho.",
+      "checks": [
+        "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade.",
+        "Encaminhar para parada segura e registrar o histórico sem reproduzir o contato.",
+        "Manutenção inspeciona internamente somente após bloqueio, isolamento hidráulico e despressurização."
+      ],
+      "action": "Remover a obstrução e reparar a causa do contato, verificando folgas, montagem e integridade conforme o manual antes da liberação.",
+      "avoid": "Não insistir na operação nem introduzir objetos no equipamento.",
+      "sources": [
+        "nov",
+        "xylem_b03"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação pela equipe, comparar ruído, vibração, temperatura e desempenho com os dados anteriores e os critérios do fabricante e normas aplicáveis. Registrar unidade, ponto e direção da medição, velocidade e condição de carga. Não há um limite único de vibração para todas as bombas."
+        }
+      ]
+    },
+    {
+      "id": "b04_13",
+      "codigo": "B04.13",
+      "title": "B04.13 — Eixo empenado ou danificado",
+      "why": "Desvio geométrico ou dano no eixo pode comprometer o conjunto girante e os apoios.",
+      "signs": "Vibração persistente, problemas de vedação e histórico de travamento, impacto ou dano no rotor.",
+      "checks": [
+        "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade.",
+        "Registrar o histórico mecânico e os reparos já realizados.",
+        "Manutenção avalia o eixo por medições e inspeção isolada conforme o fabricante."
+      ],
+      "action": "Executar apenas recuperação tecnicamente permitida ou substituir o eixo; conferir montagem, alinhamento e integridade do conjunto.",
+      "avoid": "Não tentar endireitar por impacto nem atribuir a falha ao eixo sem medição.",
+      "sources": [
+        "nov",
+        "xylem_b03"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação pela equipe, comparar ruído, vibração, temperatura e desempenho com os dados anteriores e os critérios do fabricante e normas aplicáveis. Registrar unidade, ponto e direção da medição, velocidade e condição de carga. Não há um limite único de vibração para todas as bombas."
+        }
+      ]
+    },
+    {
+      "id": "b04_14",
+      "codigo": "B04.14",
+      "title": "B04.14 — Acoplamento danificado ou com folga",
+      "why": "Desgaste, dano ou montagem incorreta no acoplamento podem gerar impactos e vibração na transmissão.",
+      "signs": "Batidas na região motor-bomba e histórico de troca de elemento flexível, manutenção ou desalinhamento.",
+      "checks": [
+        "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade.",
+        "Confirmar pelo cadastro se existe acoplamento externo; observar sem remover proteções.",
+        "Manutenção inspeciona elemento, fixações e alinhamento com todas as energias bloqueadas."
+      ],
+      "action": "Substituir componentes comprometidos e corrigir a origem da falha conforme o fabricante. Reinstalar proteções antes de validar a transmissão.",
+      "avoid": "Não apertar, tocar ou retirar proteção do acoplamento em movimento.",
+      "sources": [
+        "nov",
+        "fluke_vibracao"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação pela equipe, comparar ruído, vibração, temperatura e desempenho com os dados anteriores e os critérios do fabricante e normas aplicáveis. Registrar unidade, ponto e direção da medição, velocidade e condição de carga. Não há um limite único de vibração para todas as bombas."
+        }
+      ]
+    },
+    {
+      "id": "b04_15",
+      "codigo": "B04.15",
+      "title": "B04.15 — Selo mecânico ou vedação com atrito anormal",
+      "why": "Condição inadequada da vedação ou do seu suprimento pode gerar atrito, calor e danos.",
+      "signs": "Chiado na região da vedação, vazamento ou histórico de falta de líquido; o som não identifica sozinho a origem.",
+      "checks": [
+        "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade.",
+        "Registrar externamente sinais de vazamento e o histórico de abastecimento.",
+        "Equipe identifica selo ou gaxeta e verifica suprimento, refrigeração e montagem aplicáveis."
+      ],
+      "action": "Corrigir a condição identificada e substituir elementos danificados conforme o sistema de vedação; validar temperatura e vazamento pelo critério específico do modelo.",
+      "avoid": "Selo e gaxeta têm critérios distintos. Não apertar a vedação em operação nem aproximar-se de jatos.",
+      "sources": [
+        "nov",
+        "dry_running"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação pela equipe, comparar ruído, vibração, temperatura e desempenho com os dados anteriores e os critérios do fabricante e normas aplicáveis. Registrar unidade, ponto e direção da medição, velocidade e condição de carga. Não há um limite único de vibração para todas as bombas."
+        }
+      ]
+    },
+    {
+      "id": "b04_16",
+      "codigo": "B04.16",
+      "title": "B04.16 — Fixação da bomba ou do motor com folga",
+      "why": "Fixação ou base comprometida pode permitir movimento e amplificar os esforços no conjunto.",
+      "signs": "Batidas e vibração da base ou movimento aparente do equipamento.",
+      "checks": [
+        "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade.",
+        "Observar apenas de um local seguro; deslocamento intenso exige o procedimento de parada.",
+        "Manutenção inspeciona fixações e integridade da fundação com o equipamento isolado."
+      ],
+      "action": "Reparar base e fixações defeituosas conforme o projeto, respeitando especificações de montagem e verificando o alinhamento antes da liberação.",
+      "avoid": "Não apertar parafusos funcionando nem usar aperto extra para compensar base danificada.",
+      "sources": [
+        "fluke_vibracao",
+        "fluke_montagem"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação pela equipe, comparar ruído, vibração, temperatura e desempenho com os dados anteriores e os critérios do fabricante e normas aplicáveis. Registrar unidade, ponto e direção da medição, velocidade e condição de carga. Não há um limite único de vibração para todas as bombas."
+        }
+      ]
+    },
+    {
+      "id": "b04_17",
+      "codigo": "B04.17",
+      "title": "B04.17 — Pé manco (soft foot) ou base deformada",
+      "why": "Apoio inadequado pode deformar a estrutura ao fixar o equipamento e dificultar o alinhamento.",
+      "signs": "Vibração depois da instalação, dificuldade de manter alinhamento ou falhas recorrentes no acoplamento.",
+      "checks": [
+        "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade.",
+        "Registrar remoção ou montagem recente do motor e intervenções na base.",
+        "Profissional verifica assentamento, planicidade e apoios em condição isolada por método aprovado."
+      ],
+      "action": "Corrigir a causa do apoio inadequado, ajustar a montagem conforme o fabricante e realizar alinhamento e validação de vibração.",
+      "avoid": "Não soltar pés com o motor funcionando nem empilhar calços por tentativa.",
+      "sources": [
+        "fluke_montagem"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação pela equipe, comparar ruído, vibração, temperatura e desempenho com os dados anteriores e os critérios do fabricante e normas aplicáveis. Registrar unidade, ponto e direção da medição, velocidade e condição de carga. Não há um limite único de vibração para todas as bombas."
+        }
+      ]
+    },
+    {
+      "id": "b04_18",
+      "codigo": "B04.18",
+      "title": "B04.18 — Tubulação transmitindo esforços ou vibrações à bomba",
+      "why": "Suportes e tubulações podem transferir forças ou excitações ao equipamento e comprometer conexões e alinhamento.",
+      "signs": "Vibração da linha, suportes aparentemente danificados ou alteração após modificação da rede.",
+      "checks": [
+        "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade.",
+        "Registrar regiões e mudanças conhecidas da instalação sem tocar na tubulação.",
+        "Equipe avalia suportes, dilatação, esforços nos bocais e outras fontes de vibração."
+      ],
+      "action": "Corrigir instalação e suportação pelo projeto e limites dos bocais. Reavaliar alinhamento, integridade das conexões e comportamento operacional.",
+      "avoid": "Não forçar flanges com parafusos, sustentar tubos improvisadamente ou instalar juntas flexíveis sem avaliação de engenharia.",
+      "sources": [
+        "ksb_ruido",
+        "nov"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação pela equipe, comparar ruído, vibração, temperatura e desempenho com os dados anteriores e os critérios do fabricante e normas aplicáveis. Registrar unidade, ponto e direção da medição, velocidade e condição de carga. Não há um limite único de vibração para todas as bombas."
+        }
+      ]
+    },
+    {
+      "id": "b04_19",
+      "codigo": "B04.19",
+      "title": "B04.19 — Ressonância mecânica",
+      "why": "Uma excitação próxima de uma frequência natural do conjunto ou da estrutura pode amplificar a vibração.",
+      "signs": "Vibração especialmente forte em uma faixa de velocidades já observada, eventualmente após alteração estrutural.",
+      "checks": [
+        "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade.",
+        "Registrar velocidade indicada e condições dos eventos anteriores; não percorrer a faixa para reproduzi-los.",
+        "Solicitar análise especializada de vibração e da estrutura para confirmar a relação entre excitação e resposta."
+      ],
+      "action": "Engenharia define a correção de rigidez, massa, suportação, amortecimento ou operação conforme a análise. Valida por procedimento aprovado a faixa autorizada.",
+      "avoid": "Não alterar frequências ou parâmetros do inversor por tentativa e erro. Evitar testes deliberados em condição perigosa.",
+      "sources": [
+        "ksb_ruido",
+        "ksb_transientes"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação pela equipe, comparar ruído, vibração, temperatura e desempenho com os dados anteriores e os critérios do fabricante e normas aplicáveis. Registrar unidade, ponto e direção da medição, velocidade e condição de carga. Não há um limite único de vibração para todas as bombas."
+        }
+      ]
+    },
+    {
+      "id": "b04_20",
+      "codigo": "B04.20",
+      "title": "B04.20 — Ruído originado no motor elétrico ou ventilador",
+      "why": "O ruído percebido pode vir de componentes mecânicos, ventilação ou condição elétrica do acionamento.",
+      "signs": "Zumbido incomum ou ruído aparentemente no motor, alarme ou mudança após manutenção e variação operacional.",
+      "checks": [
+        "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade.",
+        "Registrar som percebido, alarmes e histórico de um local seguro.",
+        "Profissionais habilitados diferenciam mancais, ventilador, montagem, alimentação e acionamento conforme o manual."
+      ],
+      "action": "Corrigir o componente ou a condição comprovada, mantendo as proteções. Após liberação, validar motor e conjunto de bombeamento nas condições previstas.",
+      "avoid": "O som sozinho não distingue falha elétrica de mecânica. Não abrir painéis nem remover grades do ventilador em operação.",
+      "sources": [
+        "fluke_vibracao",
+        "ksb_ruido",
+        "weg_motor"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação pela equipe, comparar ruído, vibração, temperatura e desempenho com os dados anteriores e os critérios do fabricante e normas aplicáveis. Registrar unidade, ponto e direção da medição, velocidade e condição de carga. Não há um limite único de vibração para todas as bombas."
+        }
+      ]
     }
   ],
   "perguntas": [
@@ -2778,6 +3454,521 @@
           "tipo": "link",
           "title": "Hydraulic Institute • NPSH",
           "url": "https://www.pumps.org/2022/12/07/the-basics-of-npsh-pump-operating-regions/"
+        }
+      ]
+    },
+    {
+      "id": "b04-guia",
+      "title": "Ruídos ou vibrações anormais",
+      "desc": "B04 • Qual comportamento você já observou?",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade."
+        },
+        {
+          "tipo": "texto",
+          "texto": "As opções organizam hipóteses e podem se sobrepor. O som não confirma um defeito. Registre o comportamento já percebido, sem se aproximar ou reproduzir a falha."
+        },
+        {
+          "tipo": "pagina",
+          "id": "b04-pedras",
+          "title": "A — Barulho parecido com pedras ou areia"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b04-ronco",
+          "title": "B — Ronco, chiado ou assobio contínuo"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b04-batidas",
+          "title": "C — Batidas, estalos ou barulho metálico"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b04-vibracao",
+          "title": "D — A bomba treme ou vibra muito"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b04-intermitente",
+          "title": "E — O barulho aparece e desaparece"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b04-grave",
+          "title": "Há sinais graves ou não sei avaliar a segurança"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b04-todas",
+          "title": "Consultar as 20 causas de B04"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b04-registro",
+          "title": "O que registrar para a manutenção"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b03-guia",
+          "title": "Também há baixa pressão ou vazão? Consultar B03"
+        }
+      ]
+    },
+    {
+      "id": "b04-pedras",
+      "title": "A — Barulho parecido com pedras ou areia",
+      "desc": "Possíveis causas • Selecione uma causa e um tópico.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade."
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_01",
+          "title": "B04.01 — Cavitação na bomba"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_02",
+          "title": "B04.02 — Entrada de ar ou formação de vórtice na sucção"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_03",
+          "title": "B04.03 — Filtro ou tubulação de sucção obstruído"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_04",
+          "title": "B04.04 — Operação com vazão muito baixa"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_05",
+          "title": "B04.05 — Operação fora do ponto ideal ou fluxo turbulento"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_12",
+          "title": "B04.12 — Rotor raspando ou objeto preso internamente"
+        }
+      ]
+    },
+    {
+      "id": "b04-ronco",
+      "title": "B — Ronco, chiado ou assobio contínuo",
+      "desc": "Possíveis causas • Selecione uma causa e um tópico.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade."
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_04",
+          "title": "B04.04 — Operação com vazão muito baixa"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_05",
+          "title": "B04.05 — Operação fora do ponto ideal ou fluxo turbulento"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_08",
+          "title": "B04.08 — Rolamento desgastado ou danificado"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_09",
+          "title": "B04.09 — Lubrificação incorreta dos rolamentos"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_10",
+          "title": "B04.10 — Desalinhamento entre motor e bomba"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_12",
+          "title": "B04.12 — Rotor raspando ou objeto preso internamente"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_15",
+          "title": "B04.15 — Selo mecânico ou vedação com atrito anormal"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_20",
+          "title": "B04.20 — Ruído originado no motor elétrico ou ventilador"
+        }
+      ]
+    },
+    {
+      "id": "b04-batidas",
+      "title": "C — Batidas, estalos ou barulho metálico",
+      "desc": "Possíveis causas • Selecione uma causa e um tópico.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade."
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_06",
+          "title": "B04.06 — Golpe de aríete"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_07",
+          "title": "B04.07 — Válvula de retenção vibrando ou batendo"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_12",
+          "title": "B04.12 — Rotor raspando ou objeto preso internamente"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_13",
+          "title": "B04.13 — Eixo empenado ou danificado"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_14",
+          "title": "B04.14 — Acoplamento danificado ou com folga"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_16",
+          "title": "B04.16 — Fixação da bomba ou do motor com folga"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_18",
+          "title": "B04.18 — Tubulação transmitindo esforços ou vibrações à bomba"
+        }
+      ]
+    },
+    {
+      "id": "b04-vibracao",
+      "title": "D — A bomba treme ou vibra muito",
+      "desc": "Possíveis causas • Selecione uma causa e um tópico.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade."
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_01",
+          "title": "B04.01 — Cavitação na bomba"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_02",
+          "title": "B04.02 — Entrada de ar ou formação de vórtice na sucção"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_03",
+          "title": "B04.03 — Filtro ou tubulação de sucção obstruído"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_04",
+          "title": "B04.04 — Operação com vazão muito baixa"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_05",
+          "title": "B04.05 — Operação fora do ponto ideal ou fluxo turbulento"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_08",
+          "title": "B04.08 — Rolamento desgastado ou danificado"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_09",
+          "title": "B04.09 — Lubrificação incorreta dos rolamentos"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_10",
+          "title": "B04.10 — Desalinhamento entre motor e bomba"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_11",
+          "title": "B04.11 — Rotor desbalanceado"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_12",
+          "title": "B04.12 — Rotor raspando ou objeto preso internamente"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_13",
+          "title": "B04.13 — Eixo empenado ou danificado"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_14",
+          "title": "B04.14 — Acoplamento danificado ou com folga"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_16",
+          "title": "B04.16 — Fixação da bomba ou do motor com folga"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_17",
+          "title": "B04.17 — Pé manco (soft foot) ou base deformada"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_18",
+          "title": "B04.18 — Tubulação transmitindo esforços ou vibrações à bomba"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_19",
+          "title": "B04.19 — Ressonância mecânica"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_20",
+          "title": "B04.20 — Ruído originado no motor elétrico ou ventilador"
+        }
+      ]
+    },
+    {
+      "id": "b04-intermitente",
+      "title": "E — O barulho aparece e desaparece",
+      "desc": "Possíveis causas • Selecione uma causa e um tópico.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade."
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_01",
+          "title": "B04.01 — Cavitação na bomba"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_02",
+          "title": "B04.02 — Entrada de ar ou formação de vórtice na sucção"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_03",
+          "title": "B04.03 — Filtro ou tubulação de sucção obstruído"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_04",
+          "title": "B04.04 — Operação com vazão muito baixa"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_05",
+          "title": "B04.05 — Operação fora do ponto ideal ou fluxo turbulento"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_06",
+          "title": "B04.06 — Golpe de aríete"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_07",
+          "title": "B04.07 — Válvula de retenção vibrando ou batendo"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_18",
+          "title": "B04.18 — Tubulação transmitindo esforços ou vibrações à bomba"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_19",
+          "title": "B04.19 — Ressonância mecânica"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_20",
+          "title": "B04.20 — Ruído originado no motor elétrico ou ventilador"
+        }
+      ]
+    },
+    {
+      "id": "b04-todas",
+      "title": "Todas as causas B04",
+      "desc": "Possíveis causas • Selecione uma causa e um tópico.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade."
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_01",
+          "title": "B04.01 — Cavitação na bomba"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_02",
+          "title": "B04.02 — Entrada de ar ou formação de vórtice na sucção"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_03",
+          "title": "B04.03 — Filtro ou tubulação de sucção obstruído"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_04",
+          "title": "B04.04 — Operação com vazão muito baixa"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_05",
+          "title": "B04.05 — Operação fora do ponto ideal ou fluxo turbulento"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_06",
+          "title": "B04.06 — Golpe de aríete"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_07",
+          "title": "B04.07 — Válvula de retenção vibrando ou batendo"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_08",
+          "title": "B04.08 — Rolamento desgastado ou danificado"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_09",
+          "title": "B04.09 — Lubrificação incorreta dos rolamentos"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_10",
+          "title": "B04.10 — Desalinhamento entre motor e bomba"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_11",
+          "title": "B04.11 — Rotor desbalanceado"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_12",
+          "title": "B04.12 — Rotor raspando ou objeto preso internamente"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_13",
+          "title": "B04.13 — Eixo empenado ou danificado"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_14",
+          "title": "B04.14 — Acoplamento danificado ou com folga"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_15",
+          "title": "B04.15 — Selo mecânico ou vedação com atrito anormal"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_16",
+          "title": "B04.16 — Fixação da bomba ou do motor com folga"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_17",
+          "title": "B04.17 — Pé manco (soft foot) ou base deformada"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_18",
+          "title": "B04.18 — Tubulação transmitindo esforços ou vibrações à bomba"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_19",
+          "title": "B04.19 — Ressonância mecânica"
+        },
+        {
+          "tipo": "causa",
+          "id": "b04_20",
+          "title": "B04.20 — Ruído originado no motor elétrico ou ventilador"
+        }
+      ]
+    },
+    {
+      "id": "b04-grave",
+      "title": "Sinais graves: segurança primeiro",
+      "desc": "Não tente confirmar a falha se expondo ao risco.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Se não consegue avaliar a segurança, mantenha distância e solicite a operação ou manutenção responsável. Não acesse painéis, partes móveis ou pontos pressurizados. A parada e a liberação devem seguir o procedimento da instalação."
+        }
+      ]
+    },
+    {
+      "id": "b04-registro",
+      "title": "Informações úteis para a manutenção",
+      "desc": "Use o Registro do aplicativo para anotar o que já foi observado.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Batidas fortes, vibração intensa, deslocamento aparente, fumaça, cheiro de queimado ou vazamento perigoso: afaste-se da área de risco, siga o procedimento autorizado de parada e solicite avaliação. Não toque na máquina, não encoste objetos para ouvir, não retire proteções nem aperte peças funcionando. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Capacitores e inversores podem reter energia. Não provoque o sintoma com novas partidas ou mudanças de velocidade."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "Identificação e modelo da bomba; tipo de líquido e condição de operação.",
+            "Como é o som, de onde parece vir e quando ocorre: contínuo, parada, após manutenção ou em velocidade específica.",
+            "Histórico, alarmes e leituras disponíveis de velocidade, pressão, vazão e temperatura.",
+            "Se houver medição profissional de vibração: valor, unidade, ponto, direção e condição de carga.",
+            "Hipótese consultada, confirmação pela equipe, reparo e leituras antes/depois. Não registrar uma hipótese como falha confirmada."
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Não foi implementado diagnóstico automático por áudio. Não há recomendação de gravar perto da máquina nem de realizar medições sem qualificação. Valores aceitáveis dependem do equipamento e da aplicação."
         }
       ]
     }
