@@ -1,0 +1,363 @@
+{
+  "fontes": {
+    "bearing": {
+      "title": "KSB • Aquecimento dos rolamentos",
+      "url": "https://www.ksb.com/pt-pt/sobre-a-ksb/imprensa/arquivo/arquivo-2018/bomba-normalizada-com-aquecimento-dos-rolamentos",
+      "note": "Exemplo Etanorm. Temperaturas e folgas desse caso não são limites universais."
+    },
+    "flow": {
+      "title": "KSB • Comportamento de operação",
+      "url": "https://www.ksb.com/en-global/centrifugal-pump-lexicon/article/operating-behaviour-1118222",
+      "note": "Relação entre ponto de operação, baixa vazão, vibração e aquecimento."
+    },
+    "cav": {
+      "title": "KSB • Cavitação",
+      "url": "https://www.ksb.com/en-global/centrifugal-pump-lexicon/article/cavitation-1117364",
+      "note": "Formação e colapso de bolhas, efeitos e critérios de cavitação."
+    },
+    "air": {
+      "title": "KSB • Bolsões de ar",
+      "url": "https://www.ksb.com/en-global/centrifugal-pump-lexicon/article/formation-of-air-pockets-1118484",
+      "note": "Acúmulo de ar e configuração da tubulação."
+    },
+    "vent": {
+      "title": "KSB • Escorva e retirada de ar",
+      "url": "https://www.ksb.com/en-global/centrifugal-pump-lexicon/article/venting-1116468",
+      "note": "Enchimento da bomba e da sucção antes da partida, conforme a instalação."
+    },
+    "inlet": {
+      "title": "KSB • Condições de entrada",
+      "url": "https://www.ksb.com/en-global/centrifugal-pump-lexicon/article/inlet-conditions-1116678",
+      "note": "Distúrbios na entrada, perdas na sucção e comportamento hidráulico."
+    },
+    "nov": {
+      "title": "NOV • Troubleshooting de bombas centrífugas",
+      "url": "https://www.nov.com/-/media/nov/files/products/caps/intervention-and-stimulation-equipment/mission-magnum-centrifugal-pumps/trouble-shooting-centrifugal-pumps.pdf",
+      "note": "Texto de Todd H. Lee, 2005; bombas NOV de estágio único. Valores e procedimentos específicos não foram generalizados."
+    },
+    "weg_motor": {
+      "title": "WEG • Sentido de rotação de motores trifásicos",
+      "url": "https://static.weg.net/medias/downloadcenter/hec/had/WEG-low-and-high-voltage-three-phase-induction-motors-slip-ring-rotor-vertical-fixed-brush-holder-16378285-manual-english.pdf",
+      "note": "Seção 4.7.2.3: inversão por troca de duas fases. Motores unidirecionais exigem consulta ao fabricante; observar a orientação indicada no manual."
+    },
+    "weg_inversor": {
+      "title": "WEG • Comandos de sentido de giro no inversor CFW11",
+      "url": "https://static.weg.net/medias/downloadcenter/h8c/h68/WEG-CFW11-pump-genius-manual-de-aplicacao-10003935948-pt.pdf",
+      "note": "Exemplo de comandos de giro local e remoto. Parâmetros e fontes de comando variam com o modelo; consultar o manual do inversor instalado."
+    }
+  },
+  "sintomas": [
+    {
+      "id": "heat",
+      "title": "Aquecimento",
+      "desc": "Carcaça, mancal ou região do selo",
+      "icon": "♨",
+      "causes": [
+        "lowflow",
+        "air",
+        "lubrication",
+        "alignment",
+        "seal"
+      ]
+    },
+    {
+      "id": "low",
+      "title": "Baixa vazão",
+      "desc": "Entrega menos líquido que o esperado",
+      "icon": "↘",
+      "causes": [
+        "air",
+        "cavitation",
+        "restriction",
+        "wear",
+        "rotation",
+        "lowflow"
+      ]
+    },
+    {
+      "id": "zero",
+      "title": "Não bombeia",
+      "desc": "Acionamento funciona, mas não há entrega",
+      "icon": "∅",
+      "causes": [
+        "air",
+        "restriction",
+        "rotation"
+      ]
+    },
+    {
+      "id": "vibration",
+      "title": "Vibração",
+      "desc": "Oscilações no conjunto ou na tubulação",
+      "icon": "≈",
+      "causes": [
+        "alignment",
+        "cavitation",
+        "lowflow",
+        "lubrication"
+      ]
+    },
+    {
+      "id": "noise",
+      "title": "Ruído anormal",
+      "desc": "Estalos, ronco ou som de pedriscos",
+      "icon": "◖",
+      "causes": [
+        "cavitation",
+        "air",
+        "lubrication",
+        "alignment"
+      ]
+    },
+    {
+      "id": "leak",
+      "title": "Vazamento",
+      "desc": "Líquido na região do eixo ou das juntas",
+      "icon": "◈",
+      "causes": [
+        "seal",
+        "alignment"
+      ]
+    }
+  ],
+  "causas": [
+    {
+      "id": "lowflow",
+      "title": "Operação com vazão muito baixa",
+      "area": [
+        "casing"
+      ],
+      "sources": [
+        "flow"
+      ],
+      "why": "Longe do ponto de projeto, a circulação interna pode se tornar instável. Com pouca vazão, a energia recebida pelo líquido pode elevar sua temperatura.",
+      "signs": "Calor na carcaça, entrega pequena e alteração da condição de operação.",
+      "checks": [
+        "Consultar vazão mínima e faixa permitida no manual e na curva da bomba.",
+        "Registrar vazão e pressões disponíveis. Conferir a condição das válvulas e do retorno mínimo no procedimento da instalação."
+      ],
+      "action": "Solicitar ajuste do ponto de operação e verificação do sistema de vazão mínima. Não manter funcionamento sem vazão para testar.",
+      "avoid": "Não abrir ou fechar válvulas sem avaliar o processo e obter autorização."
+    },
+    {
+      "id": "air",
+      "title": "Entrada de ar ou perda de escorva",
+      "area": [
+        "casing"
+      ],
+      "sources": [
+        "air",
+        "vent"
+      ],
+      "why": "Ar acumulado na bomba ou sucção pode prejudicar o enchimento e a entrega de líquido. Escorva significa preencher a bomba e a linha aplicável com o fluido.",
+      "signs": "Entrega intermitente, dificuldade após uma partida e presença conhecida de ar na instalação.",
+      "checks": [
+        "Revisar registros de escorva, nível do reservatório e geometria da sucção.",
+        "Com o conjunto isolado, investigar pontos de entrada de ar e bolsões de acordo com o manual."
+      ],
+      "action": "Corrigir a origem do ar e realizar escorva pelo procedimento específico. Aquecimento sozinho não confirma essa hipótese.",
+      "avoid": "Não abrir respiro ou afrouxar flange de uma bomba quente ou pressurizada."
+    },
+    {
+      "id": "lubrication",
+      "title": "Lubrificação inadequada do mancal",
+      "area": [
+        "bearing"
+      ],
+      "sources": [
+        "bearing"
+      ],
+      "why": "Quantidade ou qualidade inadequadas de lubrificante podem acompanhar aquecimento dos rolamentos.",
+      "signs": "Calor concentrado no mancal, especialmente após manutenção ou mudança de lubrificante.",
+      "checks": [
+        "Comparar produto, quantidade e intervalo de aplicação com o manual.",
+        "Verificar histórico e condição do lubrificante durante inspeção autorizada."
+      ],
+      "action": "Restabelecer a lubrificação especificada e avaliar o estado dos rolamentos.",
+      "avoid": "Não acrescentar graxa automaticamente: excesso também deve ser investigado."
+    },
+    {
+      "id": "alignment",
+      "title": "Desalinhamento ou esforços da tubulação",
+      "area": [
+        "bearing",
+        "seal"
+      ],
+      "sources": [
+        "bearing"
+      ],
+      "why": "Fixação, desalinhamento e forças transmitidas pela tubulação podem comprometer o conjunto e aquecer os rolamentos.",
+      "signs": "Vibração ou aquecimento após montagem, intervenção no acoplamento ou alteração da tubulação.",
+      "checks": [
+        "Revisar a montagem e os suportes da tubulação.",
+        "Com bloqueio confirmado, medir alinhamento e folgas pelo procedimento do fabricante."
+      ],
+      "action": "Corrigir a causa do desalinhamento e repetir a verificação após a montagem.",
+      "avoid": "Não usar os parafusos dos flanges para forçar a tubulação até a bomba."
+    },
+    {
+      "id": "cavitation",
+      "title": "Cavitação por condições hidráulicas",
+      "area": [
+        "casing"
+      ],
+      "sources": [
+        "cav"
+      ],
+      "why": "Na cavitação de vapor, a pressão local cai até a condição de vaporização do líquido. As bolhas podem colapsar em regiões de maior pressão e causar erosão.",
+      "signs": "Ruído, funcionamento irregular e queda de desempenho podem estar associados. O som sozinho não comprova cavitação.",
+      "checks": [
+        "Registrar condições de sucção e temperatura do fluido.",
+        "Solicitar avaliação do NPSH disponível, requerido e margem apropriada para a aplicação."
+      ],
+      "action": "Corrigir as condições hidráulicas identificadas antes de substituir componentes danificados.",
+      "avoid": "Não confundir automaticamente bolhas de ar admitidas com cavitação de vapor."
+    },
+    {
+      "id": "restriction",
+      "title": "Restrição ou entrada hidráulica inadequada",
+      "area": [
+        "casing"
+      ],
+      "sources": [
+        "inlet"
+      ],
+      "why": "Obstáculos e escoamento irregular na entrada podem reduzir o desempenho. Perdas de pressão na sucção também podem aumentar o risco de cavitação.",
+      "signs": "Queda de vazão associada a uma mudança na sucção ou alteração do processo.",
+      "checks": [
+        "Consultar a configuração prevista e as leituras de pressão disponíveis.",
+        "Investigar filtro, obstruções e condições de entrada com isolamento e acesso autorizados."
+      ],
+      "action": "Restabelecer a condição de entrada definida no projeto; avaliar perdas e dimensionamento quando necessário.",
+      "avoid": "Não retirar um filtro definitivamente sem avaliar sua função no sistema."
+    },
+    {
+      "id": "wear",
+      "title": "Desgaste interno",
+      "area": [
+        "casing"
+      ],
+      "sources": [
+        "nov"
+      ],
+      "why": "Desgaste do rotor pode reduzir a capacidade de entrega.",
+      "signs": "Perda gradual de desempenho.",
+      "checks": [
+        "Comparar registros anteriores.",
+        "Na inspeção isolada, comparar componentes com critérios do fabricante."
+      ],
+      "action": "Avaliar reparo ou substituição e a causa do desgaste.",
+      "avoid": "Não adotar folgas de outro modelo."
+    },
+    {
+      "id": "rotation",
+      "title": "Sentido de rotação incorreto",
+      "area": [
+        "casing"
+      ],
+      "sources": [
+        "nov",
+        "weg_motor",
+        "weg_inversor"
+      ],
+      "why": "Rotação incorreta pode prejudicar o bombeamento.",
+      "signs": "Problema após intervenção no acionamento.",
+      "checks": [
+        "Conferir a seta de rotação da bomba e o sentido especificado no manual, considerando o lado de observação.",
+        "Identificar se o motor é trifásico e se recebe alimentação direta da rede ou é acionado por inversor de frequência.",
+        "Revisar os registros de intervenção elétrica e verificar se o motor tem restrição a um único sentido de giro."
+      ],
+      "action": "Motor trifásico com alimentação direta da rede: a equipe elétrica habilitada pode inverter o giro trocando entre si duas fases da alimentação do motor. A intervenção deve ocorrer com desenergização, bloqueio e confirmação da ausência de tensão, conforme o procedimento da instalação. Respeitar restrições de motores unidirecionais. Com inversor de frequência, verificar o comando e a parametrização de sentido de giro conforme o manual do modelo. Após a correção, confirmar o sentido pelo procedimento autorizado de partida e com as condições de bombeamento atendidas.",
+      "avoid": "Não trocar fases com o circuito energizado. Não aplicar automaticamente essa solução a motores monofásicos nem às fases de entrada de um inversor. Não testar a bomba a seco nem retirar proteções para observar o giro."
+    },
+    {
+      "id": "seal",
+      "title": "Problema no selo ou no seu suprimento",
+      "area": [
+        "seal"
+      ],
+      "sources": [
+        "nov"
+      ],
+      "why": "Falta do líquido necessário ao selo pode danificar suas faces.",
+      "signs": "Vazamento ou aquecimento na região do eixo.",
+      "checks": [
+        "Identificar a origem do vazamento.",
+        "Consultar o sistema de suprimento e inspecionar isolado."
+      ],
+      "action": "Investigar a causa antes de substituir o selo.",
+      "avoid": "Não assumir que vazamento de gaxeta e selo têm o mesmo critério."
+    }
+  ],
+  "perguntas": [
+    {
+      "id": "reduced",
+      "text": "A vazão está menor que a habitual ou ausente?",
+      "help": "Use uma indicação ou medição disponível; não abra a tubulação para verificar.",
+      "yes": [
+        "lowflow",
+        "air",
+        "restriction",
+        "wear",
+        "rotation"
+      ]
+    },
+    {
+      "id": "stones",
+      "text": "Há ruído semelhante a pedriscos e funcionamento irregular?",
+      "help": "Observe de uma posição segura, sem retirar proteções.",
+      "yes": [
+        "cavitation"
+      ]
+    },
+    {
+      "id": "start",
+      "text": "O problema surgiu após uma partida ou esvaziamento da linha?",
+      "help": "Consulte o histórico da operação.",
+      "yes": [
+        "air"
+      ]
+    },
+    {
+      "id": "service",
+      "text": "Começou após manutenção, montagem ou intervenção no acionamento?",
+      "help": "Esse histórico orienta a investigação, mas não confirma uma causa.",
+      "yes": [
+        "alignment",
+        "lubrication",
+        "rotation",
+        "seal"
+      ]
+    },
+    {
+      "id": "level",
+      "text": "Houve queda no nível do reservatório ou mudança na sucção?",
+      "help": "Observe indicadores disponíveis e registros do processo.",
+      "yes": [
+        "air",
+        "restriction",
+        "cavitation"
+      ]
+    }
+  ],
+  "fotos": [
+    {
+      "title": "Conjunto bomba e motor",
+      "caption": "Observe o conjunto e o acoplamento entre acionamento e bomba. Esta fotografia não comprova qualquer defeito.",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Kreiselpumpe-Elektromotor.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Kreiselpumpe-Elektromotor.jpg",
+      "author": "HopuWiki",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "title": "Bomba em corte",
+      "caption": "Modelo em corte de uma bomba Desmi. Compare a disposição interna com o desenho do equipamento real.",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/2/20/Pump_%28Cut-Away%29.JPG",
+      "page": "https://commons.wikimedia.org/wiki/File:Pump_(Cut-Away).JPG",
+      "author": "S.J. de Waard",
+      "license": "CC BY 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.5/"
+    }
+  ]
+}
