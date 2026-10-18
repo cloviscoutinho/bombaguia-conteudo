@@ -1,5 +1,5 @@
 {
-  "revisao": 3,
+  "revisao": 4,
   "fontes": {
     "bearing": {
       "title": "KSB • Aquecimento dos rolamentos",
@@ -140,6 +140,31 @@
       "title": "SKF • Aquecimento por lubrificação e refrigeração",
       "url": "https://cdn.skfmediahub.skf.com/api/public/0901d19680c41453/pdf_preview_medium/0901d19680c41453_pdf_preview_medium.pdf",
       "note": "Lubrificar mais não é uma correção automática; quantidade e produto dependem da aplicação."
+    },
+    "ksb_vedacao": {
+      "title": "KSB • Vedação do eixo",
+      "url": "https://www.ksb.com/en-global/centrifugal-pump-lexicon/article/shaft-seal-1116516",
+      "note": "Tipos de vedação e diferenças de vazamento; gaxetas podem depender de fuga controlada para refrigeração."
+    },
+    "grundfos_selos": {
+      "title": "Grundfos • Selos mecânicos",
+      "url": "https://api.grundfos.com/literature/Grundfosliterature-5768950.pdf",
+      "note": "Materiais, funcionamento e condições dos selos. Aplicar o manual do modelo, sem generalizar parâmetros."
+    },
+    "grundfos_material": {
+      "title": "Grundfos • Seleção de materiais do selo",
+      "url": "https://www.grundfos.com/solutions/support/faq/what-type-of-mechanical-seal-is-appropriate-for-my-industrial-application",
+      "note": "Compatibilidade das faces e condições da aplicação."
+    },
+    "grundfos_seco": {
+      "title": "Grundfos • Proteção contra funcionamento a seco",
+      "url": "https://www.grundfos.com/uk/learn/research-and-insights/dry-running-protection",
+      "note": "Falta de líquido pode danificar mancais e vedação; proteções dependem do equipamento."
+    },
+    "xylem_sub_vedacao": {
+      "title": "Xylem / Flygt • Proteção de submersíveis",
+      "url": "https://prod.xylem.com/siteassets/campaigns/oceania/flygt-5000-series/1801-.-slurry-handbook-.-1-.-oceania-.1-.-20200728.pdf",
+      "note": "Exemplos de sensores em compartimentos de vedação e motor; arquitetura e resposta ao alarme são específicas do produto."
     }
   },
   "sintomas": [
@@ -245,6 +270,34 @@
         "b04_20"
       ],
       "pagina_entrada": "b04-guia",
+      "blocos": []
+    },
+    {
+      "id": "leakage",
+      "title": "A bomba apresenta vazamento",
+      "desc": "B05 • Identificar a origem e o tipo de vedação.",
+      "causes": [
+        "b05_01",
+        "b05_02",
+        "b05_03",
+        "b05_04",
+        "b05_05",
+        "b05_06",
+        "b05_07",
+        "b05_08",
+        "b05_09",
+        "b05_10",
+        "b05_11",
+        "b05_12",
+        "b05_13",
+        "b05_14",
+        "b05_15",
+        "b05_16",
+        "b05_17",
+        "b05_18",
+        "b05_19"
+      ],
+      "pagina_entrada": "b05-guia",
       "blocos": []
     }
   ],
@@ -2359,6 +2412,594 @@
           "texto": "Após liberação pela equipe, comparar ruído, vibração, temperatura e desempenho com os dados anteriores e os critérios do fabricante e normas aplicáveis. Registrar unidade, ponto e direção da medição, velocidade e condição de carga. Não há um limite único de vibração para todas as bombas."
         }
       ]
+    },
+    {
+      "id": "b05_01",
+      "codigo": "B05.01",
+      "title": "B05.01 — Selo mecânico desgastado ou danificado",
+      "why": "Dano nas faces ou elementos do selo pode aumentar a fuga na passagem do eixo. A origem e o tipo de vedação precisam ser confirmados.",
+      "signs": "Gotas ou escorrimento aparentemente na região do selo, novos ou crescentes em relação ao histórico.",
+      "checks": [
+        "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia.",
+        "O cadastro confirma selo mecânico? O vazamento aumentou com o tempo?",
+        "Registrar origem aparente e intensidade de local seguro; líquido pode escorrer de outro ponto."
+      ],
+      "action": "Manutenção confirma a origem e a causa, inspeciona a vedação isolada e substitui os componentes especificados. Corrige condições mecânicas ou operacionais antes da liberação.",
+      "avoid": "Não condenar o selo apenas pela presença de gotas próximas ao eixo nem presumir vazamento zero para todo projeto.",
+      "sources": [
+        "ksb_vedacao",
+        "grundfos_selos"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação da equipe, verificar estanqueidade pelo procedimento e critérios do fabricante, respeitando o tipo de vedação. Confirmar pressão, vazão, vibração, temperatura e sistemas auxiliares aplicáveis; registrar condições e leituras. Não usar pressão de ensaio ou taxa de gotejamento universal."
+        }
+      ]
+    },
+    {
+      "id": "b05_02",
+      "codigo": "B05.02",
+      "title": "B05.02 — Selo danificado por funcionamento sem água",
+      "why": "Falta de líquido pode comprometer a lubrificação e a refrigeração da vedação quando ela depende desse suprimento.",
+      "signs": "Vazamento após falta de abastecimento, perda de escorva ou operação a seco, possivelmente com ruído ou aquecimento anterior.",
+      "checks": [
+        "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia.",
+        "Houve falta de água ou perda de escorva antes do vazamento?",
+        "Registrar eventos e alarmes; não reproduzir operação sem líquido."
+      ],
+      "action": "Inspecionar os componentes afetados em condição segura, substituir os danificados e corrigir a causa da falta de líquido. Verificar proteções e condições de partida antes da liberação.",
+      "avoid": "Não reiniciar só para testar o vazamento nem anular a proteção contra funcionamento a seco.",
+      "sources": [
+        "grundfos_seco",
+        "dry_running",
+        "grundfos_selos"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação da equipe, verificar estanqueidade pelo procedimento e critérios do fabricante, respeitando o tipo de vedação. Confirmar pressão, vazão, vibração, temperatura e sistemas auxiliares aplicáveis; registrar condições e leituras. Não usar pressão de ensaio ou taxa de gotejamento universal."
+        }
+      ]
+    },
+    {
+      "id": "b05_03",
+      "codigo": "B05.03",
+      "title": "B05.03 — Material do selo incompatível com o líquido",
+      "why": "Materiais inadequados às condições químicas, térmicas ou de serviço podem deteriorar prematuramente a vedação.",
+      "signs": "Falhas recorrentes, especialmente após mudança de fluido, concentração, temperatura ou condição operacional.",
+      "checks": [
+        "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia.",
+        "Registrar fluido conforme identificação do sistema, temperatura indicada e histórico de trocas.",
+        "Especialista verifica compatibilidade de faces, elastômeros e demais materiais com as condições reais."
+      ],
+      "action": "Selecionar e instalar a vedação especificada para a aplicação, investigando mudanças do processo e realizando a validação prevista pelo fabricante.",
+      "avoid": "Não identificar líquido pelo toque ou cheiro nem substituir material por aparência ou dimensão apenas.",
+      "sources": [
+        "grundfos_material",
+        "grundfos_selos"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação da equipe, verificar estanqueidade pelo procedimento e critérios do fabricante, respeitando o tipo de vedação. Confirmar pressão, vazão, vibração, temperatura e sistemas auxiliares aplicáveis; registrar condições e leituras. Não usar pressão de ensaio ou taxa de gotejamento universal."
+        }
+      ]
+    },
+    {
+      "id": "b05_04",
+      "codigo": "B05.04",
+      "title": "B05.04 — Vibração ou desalinhamento danificando o selo",
+      "why": "Condições mecânicas inadequadas do conjunto podem prejudicar a vedação e produzir falhas repetidas.",
+      "signs": "Vazamento acompanhado de vibração, ruído ou repetição da falha após troca do selo.",
+      "checks": [
+        "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia.",
+        "Registrar sintomas e intervenções anteriores sem aproximar-se de partes móveis.",
+        "Equipe avalia mancais, eixo e alinhamento aplicável à construção do conjunto."
+      ],
+      "action": "Corrigir a causa mecânica confirmada e recuperar a vedação conforme o manual. Validar vibração e estanqueidade nas condições de operação.",
+      "avoid": "Não trocar apenas o selo sem investigar a recorrência. Alinhamento de eixos independentes não se aplica da mesma forma a um monobloco.",
+      "sources": [
+        "grundfos_selos",
+        "fluke_vibracao"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação da equipe, verificar estanqueidade pelo procedimento e critérios do fabricante, respeitando o tipo de vedação. Confirmar pressão, vazão, vibração, temperatura e sistemas auxiliares aplicáveis; registrar condições e leituras. Não usar pressão de ensaio ou taxa de gotejamento universal."
+        }
+      ]
+    },
+    {
+      "id": "b05_05",
+      "codigo": "B05.05",
+      "title": "B05.05 — Falha no sistema auxiliar de lavagem, refrigeração ou barreira do selo",
+      "why": "Algumas vedações dependem de suprimento auxiliar com condições específicas; falhas nesse sistema podem comprometer o selo.",
+      "signs": "Alarme de nível, pressão ou temperatura, alteração de reservatório auxiliar ou vazamento recorrente.",
+      "checks": [
+        "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia.",
+        "Confirmar no projeto se existe esse sistema e registrar apenas indicadores acessíveis.",
+        "Manutenção compara circulação, fluido e controles com o plano de selagem e manual aplicáveis."
+      ],
+      "action": "Corrigir falha de suprimento, circulação, controle ou vedação identificada. Restabelecer condições especificadas e validar o sistema auxiliar e a bomba.",
+      "avoid": "Não completar reservatório com fluido desconhecido, ajustar pressão ou movimentar válvulas por tentativa.",
+      "sources": [
+        "ksb_vedacao",
+        "grundfos_selos"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação da equipe, verificar estanqueidade pelo procedimento e critérios do fabricante, respeitando o tipo de vedação. Confirmar pressão, vazão, vibração, temperatura e sistemas auxiliares aplicáveis; registrar condições e leituras. Não usar pressão de ensaio ou taxa de gotejamento universal."
+        }
+      ]
+    },
+    {
+      "id": "b05_06",
+      "codigo": "B05.06",
+      "title": "B05.06 — Montagem inadequada do selo mecânico",
+      "why": "Especificação ou montagem incorreta, contaminação ou dano durante a instalação pode comprometer a vedação.",
+      "signs": "Vazamento novo após troca de selo, desmontagem ou primeira liberação do conjunto.",
+      "checks": [
+        "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia.",
+        "Registrar início do vazamento e peças utilizadas conforme a documentação disponível.",
+        "Manutenção confere especificação, integridade, montagem e superfícies com o conjunto isolado."
+      ],
+      "action": "Corrigir o defeito confirmado e substituir peças danificadas segundo o procedimento do fabricante. Realizar os testes aplicáveis antes da liberação.",
+      "avoid": "Não atribuir automaticamente toda fuga após manutenção a erro de montagem; verificar também condições do processo.",
+      "sources": [
+        "grundfos_selos"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação da equipe, verificar estanqueidade pelo procedimento e critérios do fabricante, respeitando o tipo de vedação. Confirmar pressão, vazão, vibração, temperatura e sistemas auxiliares aplicáveis; registrar condições e leituras. Não usar pressão de ensaio ou taxa de gotejamento universal."
+        }
+      ]
+    },
+    {
+      "id": "b05_07",
+      "codigo": "B05.07",
+      "title": "B05.07 — Gaxeta desgastada",
+      "why": "Em sistemas com gaxeta, desgaste da vedação ou da luva pode aumentar a fuga acima do previsto para aquele modelo.",
+      "signs": "Gotejamento crescente em relação ao histórico e ao limite especificado, quando o tipo gaxeta está confirmado.",
+      "checks": [
+        "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia.",
+        "Confirmar gaxeta pelo cadastro ou manual, sem retirar proteções.",
+        "Comparar com a faixa do modelo e solicitar inspeção isolada da gaxeta, luva e fornecimento aplicável."
+      ],
+      "action": "Reparar ou substituir componentes comprometidos conforme o fabricante e conferir temperatura e gotejamento compatíveis com o projeto.",
+      "avoid": "Algumas gaxetas convencionais precisam de fuga controlada. Não recomendar eliminar todo gotejamento ou adotar número universal de gotas.",
+      "sources": [
+        "ksb_vedacao",
+        "nov"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação da equipe, verificar estanqueidade pelo procedimento e critérios do fabricante, respeitando o tipo de vedação. Confirmar pressão, vazão, vibração, temperatura e sistemas auxiliares aplicáveis; registrar condições e leituras. Não usar pressão de ensaio ou taxa de gotejamento universal."
+        }
+      ]
+    },
+    {
+      "id": "b05_08",
+      "codigo": "B05.08",
+      "title": "B05.08 — Gaxeta excessivamente comprimida ou com refrigeração insuficiente",
+      "why": "Compressão excessiva ou suprimento inadequado pode aumentar atrito e temperatura e danificar gaxeta, eixo ou luva.",
+      "signs": "Aquecimento indicado, atrito ou alteração de fuga depois de ajuste; falha pode surgir posteriormente.",
+      "checks": [
+        "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia.",
+        "Registrar histórico de ajustes e indicadores existentes, sem tocar na região.",
+        "Manutenção verifica montagem, luva e condições de lubrificação/refrigeração exigidas pelo modelo."
+      ],
+      "action": "Corrigir a condição confirmada pelo procedimento autorizado e reparar elementos danificados. Verificar temperatura e fuga dentro dos critérios do equipamento.",
+      "avoid": "Não apertar para eliminar gotas, afrouxar por tentativa em operação ou abrir a caixa de gaxeta pressurizada.",
+      "sources": [
+        "ksb_vedacao"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação da equipe, verificar estanqueidade pelo procedimento e critérios do fabricante, respeitando o tipo de vedação. Confirmar pressão, vazão, vibração, temperatura e sistemas auxiliares aplicáveis; registrar condições e leituras. Não usar pressão de ensaio ou taxa de gotejamento universal."
+        }
+      ]
+    },
+    {
+      "id": "b05_09",
+      "codigo": "B05.09",
+      "title": "B05.09 — Junta da carcaça danificada",
+      "why": "Dano ou montagem inadequada da junta entre partes pode permitir fuga na união; superfícies e deformações também precisam ser avaliadas.",
+      "signs": "Líquido na linha de união da carcaça, eventualmente após desmontagem.",
+      "checks": [
+        "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia.",
+        "Registrar o ponto aparente e o histórico de desmontagem.",
+        "Equipe confirma a origem e inspeciona junta e superfícies em condição isolada."
+      ],
+      "action": "Substituir a junta especificada e corrigir superfícies ou montagem conforme o fabricante. Executar teste aprovado com pressão e método próprios do equipamento.",
+      "avoid": "Não reapertar uma carcaça pressurizada nem escolher pressão de ensaio por conta própria.",
+      "sources": [
+        "nov",
+        "grundfos_selos"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação da equipe, verificar estanqueidade pelo procedimento e critérios do fabricante, respeitando o tipo de vedação. Confirmar pressão, vazão, vibração, temperatura e sistemas auxiliares aplicáveis; registrar condições e leituras. Não usar pressão de ensaio ou taxa de gotejamento universal."
+        }
+      ]
+    },
+    {
+      "id": "b05_10",
+      "codigo": "B05.10",
+      "title": "B05.10 — O-ring de vedação deteriorado",
+      "why": "Dano, envelhecimento, montagem ou incompatibilidade podem comprometer a vedação de um anel elastomérico.",
+      "signs": "Fuga em união ou tampa após manutenção, mudança de temperatura ou de fluido.",
+      "checks": [
+        "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia.",
+        "Registrar fluido identificado, ponto e histórico de intervenção.",
+        "Manutenção verifica anel, alojamento e superfícies após controle das energias e pressão."
+      ],
+      "action": "Instalar o componente de dimensão e material especificados, corrigir a causa e validar estanqueidade conforme o modelo.",
+      "avoid": "Não usar qualquer anel que pareça caber nem presumir que todos os elastômeros são compatíveis.",
+      "sources": [
+        "grundfos_selos",
+        "grundfos_material"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação da equipe, verificar estanqueidade pelo procedimento e critérios do fabricante, respeitando o tipo de vedação. Confirmar pressão, vazão, vibração, temperatura e sistemas auxiliares aplicáveis; registrar condições e leituras. Não usar pressão de ensaio ou taxa de gotejamento universal."
+        }
+      ]
+    },
+    {
+      "id": "b05_11",
+      "codigo": "B05.11",
+      "title": "B05.11 — Vazamento na flange de sucção",
+      "why": "Falha na junta, montagem ou flange de entrada pode permitir fuga de líquido ou entrada de ar, conforme a pressão local.",
+      "signs": "Umidade na entrada ou histórico de bolhas e perda de escorva; pode haver entrada de ar sem gotas visíveis.",
+      "checks": [
+        "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia.",
+        "Identificar a sucção pelo diagrama e registrar o ponto de local seguro.",
+        "Manutenção confirma defeito, esforços e superfícies com a linha isolada."
+      ],
+      "action": "Reparar a flange ou vedação e corrigir a montagem ou esforços identificados. Verificar estanqueidade e alimentação da bomba antes da liberação.",
+      "avoid": "Ausência de gotejamento não comprova estanqueidade de uma sucção sob pressão inferior à atmosférica.",
+      "sources": [
+        "priming",
+        "inlet",
+        "nov"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação da equipe, verificar estanqueidade pelo procedimento e critérios do fabricante, respeitando o tipo de vedação. Confirmar pressão, vazão, vibração, temperatura e sistemas auxiliares aplicáveis; registrar condições e leituras. Não usar pressão de ensaio ou taxa de gotejamento universal."
+        }
+      ]
+    },
+    {
+      "id": "b05_12",
+      "codigo": "B05.12",
+      "title": "B05.12 — Vazamento na flange de descarga",
+      "why": "Dano ou montagem inadequada na conexão de saída pode permitir fuga quando o trecho está pressurizado.",
+      "signs": "Gotas ou escorrimento na flange de saída, novos ou variáveis com as condições do sistema.",
+      "checks": [
+        "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia.",
+        "Registrar região, leitura e localização dos instrumentos sem provocar aumento de pressão.",
+        "Solicitar isolamento e inspeção de junta, flange, montagem e esforços da tubulação."
+      ],
+      "action": "Reparar os componentes comprometidos conforme o projeto e o manual e executar verificação de estanqueidade por procedimento autorizado.",
+      "avoid": "Não apertar conexões sob pressão nem se aproximar de jatos.",
+      "sources": [
+        "nov",
+        "ksb_transientes"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação da equipe, verificar estanqueidade pelo procedimento e critérios do fabricante, respeitando o tipo de vedação. Confirmar pressão, vazão, vibração, temperatura e sistemas auxiliares aplicáveis; registrar condições e leituras. Não usar pressão de ensaio ou taxa de gotejamento universal."
+        }
+      ]
+    },
+    {
+      "id": "b05_13",
+      "codigo": "B05.13",
+      "title": "B05.13 — Vazamento em tampão, respiro, dreno ou instrumento",
+      "why": "Falha de vedação, rosca, conexão ou componente pode causar fuga em um ponto auxiliar.",
+      "signs": "Gotas aparentemente em tampão, instrumento, respiro ou pequeno tubo após intervenção ou mudança operacional.",
+      "checks": [
+        "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia.",
+        "Identificar visualmente o componente e consultar o diagrama sem tocá-lo.",
+        "Manutenção confirma a origem e o tipo de vedação após isolamento, inclusive de possíveis trechos com pressão retida."
+      ],
+      "action": "Reparar ou substituir o componente e a vedação especificados e confirmar a estanqueidade pelo procedimento do equipamento.",
+      "avoid": "Não abrir, apertar ou tamponar respiros e drenos para testar. Não bloquear uma descarga de segurança ou drenagem prevista no projeto.",
+      "sources": [
+        "nov",
+        "grundfos_selos"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação da equipe, verificar estanqueidade pelo procedimento e critérios do fabricante, respeitando o tipo de vedação. Confirmar pressão, vazão, vibração, temperatura e sistemas auxiliares aplicáveis; registrar condições e leituras. Não usar pressão de ensaio ou taxa de gotejamento universal."
+        }
+      ]
+    },
+    {
+      "id": "b05_14",
+      "codigo": "B05.14",
+      "title": "B05.14 — Vazamento na tampa de filtro ou acessório hidráulico",
+      "why": "Dano na tampa, junta, superfícies ou montagem de um acessório pode provocar fuga próxima à bomba.",
+      "signs": "Líquido na união da tampa com o corpo de filtro ou acessório, possivelmente após limpeza.",
+      "checks": [
+        "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia.",
+        "Registrar o ponto e eventual abertura recente para manutenção.",
+        "Equipe verifica o acessório após isolamento hidráulico, despressurização e drenagem controlada."
+      ],
+      "action": "Corrigir montagem e superfícies ou substituir peças danificadas conforme o fabricante e verificar a estanqueidade após a montagem.",
+      "avoid": "Nunca abrir filtros ou tampas pressurizados, mesmo com a bomba parada.",
+      "sources": [
+        "nov"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação da equipe, verificar estanqueidade pelo procedimento e critérios do fabricante, respeitando o tipo de vedação. Confirmar pressão, vazão, vibração, temperatura e sistemas auxiliares aplicáveis; registrar condições e leituras. Não usar pressão de ensaio ou taxa de gotejamento universal."
+        }
+      ]
+    },
+    {
+      "id": "b05_15",
+      "codigo": "B05.15",
+      "title": "B05.15 — Tubulação ou conexão externa danificada",
+      "why": "Fuga em tubo, união, curva ou solda pode escorrer até a bomba e dar impressão de vazamento da carcaça.",
+      "signs": "Rastro de líquido vindo de outro ponto, umidade na linha ou sinais visíveis de corrosão e vibração.",
+      "checks": [
+        "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia.",
+        "Registrar visualmente a trajetória aparente de um ponto seguro, sem tocar no líquido.",
+        "Manutenção confirma a origem e avalia integridade, suportes e esforços envolvidos."
+      ],
+      "action": "Reparar ou substituir a parte comprometida pelo procedimento da instalação, corrigindo suportação ou esforços quando aplicável. Validar a integridade e estanqueidade.",
+      "avoid": "Não seguir rastros até áreas inseguras nem fazer reparo improvisado em linha pressurizada.",
+      "sources": [
+        "nov",
+        "ksb_ruido"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação da equipe, verificar estanqueidade pelo procedimento e critérios do fabricante, respeitando o tipo de vedação. Confirmar pressão, vazão, vibração, temperatura e sistemas auxiliares aplicáveis; registrar condições e leituras. Não usar pressão de ensaio ou taxa de gotejamento universal."
+        }
+      ]
+    },
+    {
+      "id": "b05_16",
+      "codigo": "B05.16",
+      "title": "B05.16 — Carcaça trincada ou fissurada",
+      "why": "Perda de integridade da carcaça pode permitir fuga e representar risco de ruptura; a suspeita requer avaliação especializada.",
+      "signs": "Líquido aparentemente saindo do corpo afastado de juntas, com possível histórico de impacto, congelamento ou sobrepressão.",
+      "checks": [
+        "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia.",
+        "Afastar-se e solicitar parada e isolamento conforme o procedimento; não confirmar aproximando-se.",
+        "Engenharia avalia integridade e histórico, com equipamento seguro e métodos apropriados."
+      ],
+      "action": "Engenharia define substituição ou recuperação formalmente aprovada, seguida dos testes de integridade e estanqueidade exigidos antes da liberação.",
+      "avoid": "Não aplicar cola, solda ou remendo em carcaça pressurizada nem liberar equipamento só porque parou de pingar.",
+      "sources": [
+        "nov",
+        "ksb_transientes"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação da equipe, verificar estanqueidade pelo procedimento e critérios do fabricante, respeitando o tipo de vedação. Confirmar pressão, vazão, vibração, temperatura e sistemas auxiliares aplicáveis; registrar condições e leituras. Não usar pressão de ensaio ou taxa de gotejamento universal."
+        }
+      ]
+    },
+    {
+      "id": "b05_17",
+      "codigo": "B05.17",
+      "title": "B05.17 — Corrosão ou erosão provocando perda de material",
+      "why": "Ataque químico ou desgaste pelo escoamento e partículas pode reduzir a integridade de componentes.",
+      "signs": "Deterioração visível, vazamento progressivo e histórico de abrasivos ou fluido agressivo; aparência não determina espessura remanescente.",
+      "checks": [
+        "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia.",
+        "Registrar histórico e região deteriorada sem tocar em superfícies suspeitas.",
+        "Equipe avalia espessura e integridade por método adequado depois do isolamento seguro."
+      ],
+      "action": "Substituir componentes comprometidos ou aplicar reparação aprovada pela engenharia. Investigar fluido, materiais e condições hidráulicas antes de validar a integridade.",
+      "avoid": "Não raspar ou golpear região corroída em operação nem presumir resistência pela aparência externa.",
+      "sources": [
+        "nov",
+        "grundfos_material"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação da equipe, verificar estanqueidade pelo procedimento e critérios do fabricante, respeitando o tipo de vedação. Confirmar pressão, vazão, vibração, temperatura e sistemas auxiliares aplicáveis; registrar condições e leituras. Não usar pressão de ensaio ou taxa de gotejamento universal."
+        }
+      ]
+    },
+    {
+      "id": "b05_18",
+      "codigo": "B05.18",
+      "title": "B05.18 — Vazamento de óleo no mancal ou sistema de lubrificação",
+      "why": "A fuga pode vir do lubrificante do mancal, em vez do fluido bombeado. A natureza do líquido precisa ser confirmada pela identificação do sistema.",
+      "signs": "Película aparentemente oleosa, manchas perto da caixa de rolamentos ou queda no nível indicado.",
+      "checks": [
+        "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia.",
+        "Registrar local e nível visível no indicador sem tocar ou cheirar o líquido.",
+        "Manutenção confirma a origem e verifica retentores, juntas, respiros e condição do sistema de lubrificação."
+      ],
+      "action": "Reparar a causa e componentes defeituosos e restabelecer produto e nível especificados. Verificar fuga, temperatura e condição dos mancais após liberação.",
+      "avoid": "Não completar óleo desconhecido nem considerar normal a queda de nível. Nem toda bomba utiliza mancal com banho de óleo.",
+      "sources": [
+        "skf_lubrificacao",
+        "nov"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação da equipe, verificar estanqueidade pelo procedimento e critérios do fabricante, respeitando o tipo de vedação. Confirmar pressão, vazão, vibração, temperatura e sistemas auxiliares aplicáveis; registrar condições e leituras. Não usar pressão de ensaio ou taxa de gotejamento universal."
+        }
+      ]
+    },
+    {
+      "id": "b05_19",
+      "codigo": "B05.19",
+      "title": "B05.19 — Falha de vedação em bomba submersível",
+      "why": "Água pode atingir compartimentos protegidos por falha de vedação ou entrada de cabo. O defeito pode não ser visível externamente.",
+      "signs": "Alarme de umidade ou falha elétrica em submersível; o compartimento e o significado dependem do modelo e sensor.",
+      "checks": [
+        "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia.",
+        "Registrar identificação, código de alarme e histórico sem entrar em reservatório ou tocar no equipamento.",
+        "Equipe habilitada retira de serviço e avalia vedações, cabos e compartimentos pelo manual."
+      ],
+      "action": "Após isolamento e retirada conforme o plano autorizado, reparar o defeito confirmado e executar testes elétricos e de estanqueidade previstos pelo fabricante antes da liberação.",
+      "avoid": "Não rearmar proteção ou ignorar alarme. Retirada envolve riscos elétricos, hidráulicos, de içamento e eventualmente de espaço confinado.",
+      "sources": [
+        "xylem_sub_vedacao",
+        "b01_grundfos_submersivel"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após liberação da equipe, verificar estanqueidade pelo procedimento e critérios do fabricante, respeitando o tipo de vedação. Confirmar pressão, vazão, vibração, temperatura e sistemas auxiliares aplicáveis; registrar condições e leituras. Não usar pressão de ensaio ou taxa de gotejamento universal."
+        }
+      ]
     }
   ],
   "perguntas": [
@@ -3969,6 +4610,518 @@
         {
           "tipo": "texto",
           "texto": "Não foi implementado diagnóstico automático por áudio. Não há recomendação de gravar perto da máquina nem de realizar medições sem qualificação. Valores aceitáveis dependem do equipamento e da aplicação."
+        }
+      ]
+    },
+    {
+      "id": "b05-guia",
+      "title": "A bomba apresenta vazamento",
+      "desc": "B05 • Onde o líquido parece aparecer?",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia."
+        },
+        {
+          "tipo": "texto",
+          "texto": "A origem aparente pode ser diferente da origem real. Umidade, condensação ou drenagem prevista não confirmam defeito. Não se aproxime para responder."
+        },
+        {
+          "tipo": "pagina",
+          "id": "b05-eixo",
+          "title": "A — Próximo ao eixo: identificar o tipo de vedação"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b05-juntas",
+          "title": "B — Nas juntas ou emendas da carcaça"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b05-conexoes",
+          "title": "C — Nas conexões da tubulação"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b05-corpo",
+          "title": "D — Diretamente no corpo da bomba"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b05-acessorios",
+          "title": "E — Em tampões, pequenos tubos ou acessórios"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b05-oleo",
+          "title": "Na região do mancal ou sistema de lubrificação"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b05-submersivel",
+          "title": "Bomba submersível com alarme de umidade"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b05-origem",
+          "title": "Não consigo identificar a origem"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b05-grave",
+          "title": "Há risco ou não sei avaliar a segurança"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b05-todas",
+          "title": "Consultar as 19 causas ou condições B05"
+        }
+      ]
+    },
+    {
+      "id": "b05-eixo",
+      "title": "Vazamento próximo ao eixo",
+      "desc": "Qual tipo de vedação está confirmado no cadastro ou manual?",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Não identifique desmontando ou retirando proteções. A escolha orienta a consulta e não classifica automaticamente gotas como defeito."
+        },
+        {
+          "tipo": "pagina",
+          "id": "b05-selo",
+          "title": "Selo mecânico"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b05-gaxeta",
+          "title": "Gaxeta convencional"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b05-desconhecida",
+          "title": "Não sei / outro tipo de vedação"
+        }
+      ]
+    },
+    {
+      "id": "b05-desconhecida",
+      "title": "Tipo de vedação desconhecido",
+      "desc": "Consultar o modelo antes de classificar o vazamento.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Solicite identificação pelo cadastro e pelo manual. Alguns modelos têm vedação diferente ou não utilizam selo convencional. Não conclua defeito nem aperte para eliminar gotas. Se houver perigo ou dúvida sobre segurança, afaste-se e acione a equipe."
+        },
+        {
+          "tipo": "pagina",
+          "id": "b05-normal",
+          "title": "Entender a diferença entre selo e gaxeta"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b05-origem",
+          "title": "Conferir outras origens possíveis"
+        }
+      ]
+    },
+    {
+      "id": "b05-normal",
+      "title": "Nem toda gota significa defeito",
+      "desc": "O critério depende do tipo de vedação e do projeto.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Em certas gaxetas convencionais, fuga controlada ajuda a lubrificar e dissipar calor. Comparar o gotejamento com o critério específico do fabricante; nunca adotar um número universal de gotas. Não apertar para tentar zerar a fuga."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Selos mecânicos têm outro princípio de vedação e normalmente fuga externa muito menor. Fuga nova, crescente ou acima do permitido exige avaliação. Mesmo na gaxeta, vazamento perigoso, líquido desconhecido ou contato elétrico exige afastamento e procedimento autorizado."
+        },
+        {
+          "tipo": "link",
+          "title": "KSB • Tipos de vedação do eixo",
+          "url": "https://www.ksb.com/en-global/centrifugal-pump-lexicon/article/shaft-seal-1116516"
+        }
+      ]
+    },
+    {
+      "id": "b05-origem",
+      "title": "Identificar a origem sem se expor",
+      "desc": "O líquido pode ter vindo de outro ponto.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "Condensação em uma superfície fria.",
+            "Limpeza, chuva ou líquido vindo de outro equipamento.",
+            "Rastro escorrendo por tubo ou suporte antes de pingar na bomba.",
+            "Drenagem prevista em sistema auxiliar, que deve ser confirmada no projeto."
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Não toque nem cheire para identificar o produto e não bloqueie drenos previstos no projeto. Se a origem não está clara, solicite a equipe responsável. Registre aparência e trajetória somente de um local seguro."
+        }
+      ]
+    },
+    {
+      "id": "b05-grave",
+      "title": "Vazamento com risco ou segurança desconhecida",
+      "desc": "Prioridade: afastamento e equipe responsável.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Jato, fuga intensa, possível ruptura, produto desconhecido ou perigoso, temperatura elevada ou líquido atingindo equipamento elétrico exigem isolamento da área e parada pelo procedimento autorizado. Não execute inspeção próxima, contenção manual ou reaperto."
+        }
+      ]
+    },
+    {
+      "id": "b05-selo",
+      "title": "Selo mecânico: possíveis causas",
+      "desc": "Possibilidades para confirmação técnica • Escolha um tópico.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia."
+        },
+        {
+          "tipo": "pagina",
+          "id": "b05-normal",
+          "title": "Antes de classificar: selo e gaxeta têm critérios diferentes"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_01",
+          "title": "B05.01 — Selo mecânico desgastado ou danificado"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_02",
+          "title": "B05.02 — Selo danificado por funcionamento sem água"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_03",
+          "title": "B05.03 — Material do selo incompatível com o líquido"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_04",
+          "title": "B05.04 — Vibração ou desalinhamento danificando o selo"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_05",
+          "title": "B05.05 — Falha no sistema auxiliar de lavagem, refrigeração ou barreira do selo"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_06",
+          "title": "B05.06 — Montagem inadequada do selo mecânico"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b04-guia",
+          "title": "Também há vibração ou ruído? Consultar B04"
+        }
+      ]
+    },
+    {
+      "id": "b05-gaxeta",
+      "title": "Gaxeta: avaliar o critério do modelo",
+      "desc": "Possibilidades para confirmação técnica • Escolha um tópico.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia."
+        },
+        {
+          "tipo": "pagina",
+          "id": "b05-normal",
+          "title": "Antes de classificar: selo e gaxeta têm critérios diferentes"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_07",
+          "title": "B05.07 — Gaxeta desgastada"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_08",
+          "title": "B05.08 — Gaxeta excessivamente comprimida ou com refrigeração insuficiente"
+        }
+      ]
+    },
+    {
+      "id": "b05-juntas",
+      "title": "B — Juntas ou emendas da carcaça",
+      "desc": "Possibilidades para confirmação técnica • Escolha um tópico.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia."
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_09",
+          "title": "B05.09 — Junta da carcaça danificada"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_10",
+          "title": "B05.10 — O-ring de vedação deteriorado"
+        }
+      ]
+    },
+    {
+      "id": "b05-conexoes",
+      "title": "C — Conexões da tubulação",
+      "desc": "Possibilidades para confirmação técnica • Escolha um tópico.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia."
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_11",
+          "title": "B05.11 — Vazamento na flange de sucção"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_12",
+          "title": "B05.12 — Vazamento na flange de descarga"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_15",
+          "title": "B05.15 — Tubulação ou conexão externa danificada"
+        }
+      ]
+    },
+    {
+      "id": "b05-corpo",
+      "title": "D — Corpo da bomba: avaliar integridade",
+      "desc": "Possibilidades para confirmação técnica • Escolha um tópico.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia."
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_16",
+          "title": "B05.16 — Carcaça trincada ou fissurada"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_17",
+          "title": "B05.17 — Corrosão ou erosão provocando perda de material"
+        }
+      ]
+    },
+    {
+      "id": "b05-acessorios",
+      "title": "E — Tampões, tubos e acessórios",
+      "desc": "Possibilidades para confirmação técnica • Escolha um tópico.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia."
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_05",
+          "title": "B05.05 — Falha no sistema auxiliar de lavagem, refrigeração ou barreira do selo"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_13",
+          "title": "B05.13 — Vazamento em tampão, respiro, dreno ou instrumento"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_14",
+          "title": "B05.14 — Vazamento na tampa de filtro ou acessório hidráulico"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_15",
+          "title": "B05.15 — Tubulação ou conexão externa danificada"
+        }
+      ]
+    },
+    {
+      "id": "b05-oleo",
+      "title": "Mancal ou lubrificação",
+      "desc": "Possibilidades para confirmação técnica • Escolha um tópico.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia."
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_18",
+          "title": "B05.18 — Vazamento de óleo no mancal ou sistema de lubrificação"
+        }
+      ]
+    },
+    {
+      "id": "b05-submersivel",
+      "title": "Submersível: alarme de umidade",
+      "desc": "Possibilidades para confirmação técnica • Escolha um tópico.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia."
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_19",
+          "title": "B05.19 — Falha de vedação em bomba submersível"
+        }
+      ]
+    },
+    {
+      "id": "b05-todas",
+      "title": "Todas as causas ou condições B05",
+      "desc": "Possibilidades para confirmação técnica • Escolha um tópico.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Jato pressurizado, vazamento intenso, líquido desconhecido, quente ou perigoso, contato com partes elétricas ou suspeita de ruptura: afaste-se e solicite à equipe responsável isolamento da área e parada segura. Se não souber avaliar o risco, mantenha distância. Não toque no líquido, não procure furos com as mãos nem aperte conexões pressurizadas. Intervenções exigem equipe habilitada, bloqueio das energias, isolamento hidráulico, despressurização, temperatura segura e controle do fluido. Equipamento parado pode continuar pressurizado; inversores e capacitores podem reter energia."
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_01",
+          "title": "B05.01 — Selo mecânico desgastado ou danificado"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_02",
+          "title": "B05.02 — Selo danificado por funcionamento sem água"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_03",
+          "title": "B05.03 — Material do selo incompatível com o líquido"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_04",
+          "title": "B05.04 — Vibração ou desalinhamento danificando o selo"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_05",
+          "title": "B05.05 — Falha no sistema auxiliar de lavagem, refrigeração ou barreira do selo"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_06",
+          "title": "B05.06 — Montagem inadequada do selo mecânico"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_07",
+          "title": "B05.07 — Gaxeta desgastada"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_08",
+          "title": "B05.08 — Gaxeta excessivamente comprimida ou com refrigeração insuficiente"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_09",
+          "title": "B05.09 — Junta da carcaça danificada"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_10",
+          "title": "B05.10 — O-ring de vedação deteriorado"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_11",
+          "title": "B05.11 — Vazamento na flange de sucção"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_12",
+          "title": "B05.12 — Vazamento na flange de descarga"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_13",
+          "title": "B05.13 — Vazamento em tampão, respiro, dreno ou instrumento"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_14",
+          "title": "B05.14 — Vazamento na tampa de filtro ou acessório hidráulico"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_15",
+          "title": "B05.15 — Tubulação ou conexão externa danificada"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_16",
+          "title": "B05.16 — Carcaça trincada ou fissurada"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_17",
+          "title": "B05.17 — Corrosão ou erosão provocando perda de material"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_18",
+          "title": "B05.18 — Vazamento de óleo no mancal ou sistema de lubrificação"
+        },
+        {
+          "tipo": "causa",
+          "id": "b05_19",
+          "title": "B05.19 — Falha de vedação em bomba submersível"
         }
       ]
     }
