@@ -363,5 +363,73 @@
   "capa": {
     "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/bomba-capa-v1.png",
     "caption": "Exemplo de conjunto de bomba centrífuga e motor. A construção varia conforme o modelo."
-  }
+  },
+  "formato": 1,
+  "aparencia": {
+    "cores": {
+      "fundo": "#0B1724",
+      "painel": "#132435",
+      "destaque": "#57E3BD",
+      "texto": "#EDF5FA",
+      "secundario": "#A6BACC",
+      "aviso": "#FFCC78"
+    },
+    "escala_texto": 1,
+    "altura_botoes": 52,
+    "altura_imagens": 240,
+    "margem": 16,
+    "espacamento": 10
+  },
+  "apresentacao": {
+    "nome": "BombaGuia",
+    "titulo_inicio": "Mapas mentais de soluções",
+    "subtitulo_inicio": "Escolha um sintoma. Explore possíveis causas, sinais, verificações e soluções.",
+    "rodape": "Desenvolvedor\ncloviscoutinho2017@gmail.com",
+    "titulo_biblioteca": "Biblioteca técnica",
+    "titulo_fontes": "Fontes técnicas",
+    "nota_inicio": "Conteúdo educativo • limites e procedimentos dependem do modelo. Não cobre bombas de deslocamento positivo.",
+    "nota_fontes": "Sínteses educativas, ainda sem validação técnica de campo. Limites, folgas e ajustes são específicos do modelo e da instalação."
+  },
+  "navegacao": {
+    "inicio": "Mapas",
+    "biblioteca": "Biblioteca",
+    "registro": "Registro",
+    "fontes": "Fontes"
+  },
+  "inicio_blocos": [],
+  "biblioteca_blocos": [],
+  "paginas": [
+    {
+      "id": "como-usar",
+      "title": "Como usar o BombaGuia",
+      "desc": "Consulta, conteúdo salvo e atualizações.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Escolha o sintoma e consulte as hipóteses"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Os mapas organizam possíveis causas, sinais, verificações e soluções. Eles não confirmam defeitos. Consulte o manual do equipamento e siga os procedimentos da instalação."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "Conteúdo disponível sem conexão"
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "As informações salvas continuam disponíveis quando estiver sem sinal.",
+            "Fotos ficam disponíveis offline após serem carregadas com internet.",
+            "Em Atualizações de conteúdo, verifique as novidades e abra novamente o app para aplicá-las."
+          ]
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Os registros de inspeção ficam neste aparelho. Desinstalar o aplicativo ou limpar seus dados pode apagar os registros."
+        }
+      ]
+    }
+  ]
 }
