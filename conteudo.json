@@ -44,9 +44,75 @@
       "title": "WEG • Comandos de sentido de giro no inversor CFW11",
       "url": "https://static.weg.net/medias/downloadcenter/h8c/h68/WEG-CFW11-pump-genius-manual-de-aplicacao-10003935948-pt.pdf",
       "note": "Exemplo de comandos de giro local e remoto. Parâmetros e fontes de comando variam com o modelo; consultar o manual do inversor instalado."
+    },
+    "b01_grundfos_cr": {
+      "title": "Grundfos • CR: motor não parte e falhas de comando",
+      "url": "https://www.grundfos.com/content/dam/local/en-in/page-assets/support/documents/1_CR.pdf",
+      "note": "Tabela de falhas da família CR. Referência para alimentação, proteções, contatos, comando e motor; conferir o modelo instalado."
+    },
+    "b01_grundfos_drenagem": {
+      "title": "Grundfos • Bomba de drenagem não inicia",
+      "url": "https://www.grundfos.com/solutions/support/faq/why-does-my-drainage-pump-not-start",
+      "note": "Exemplo para drenagem: alimentação, fusível, impulsor e chave de nível. Não pressupõe que toda bomba tenha boia."
+    },
+    "b01_grundfos_protecao": {
+      "title": "Grundfos • Motivos de atuação das proteções",
+      "url": "https://www.grundfos.com/solutions/support/faq/the-circuit-breaker-or-fuses-on-a-circulator-pump-have-tripped-what-might-be-the-cause",
+      "note": "Hipóteses em circuladores: tensão, desequilíbrio de corrente, travamento, capacitor monofásico e sobrecarga. Atuação não identifica sozinha a causa."
+    },
+    "b01_grundfos_submersivel": {
+      "title": "Grundfos • Falhas de partida em bombas submersíveis",
+      "url": "https://api.grundfos.com/literature/Grundfosliterature-5903490.pdf",
+      "note": "Tabela 8: alimentação, boia, fusíveis, térmico, impulsor bloqueado, curto, falta de fase e subtensão. Procedimentos específicos do produto."
+    },
+    "b01_scala": {
+      "title": "Grundfos • Controle automático SCALA2",
+      "url": "https://www.grundfos.com/content/dam/local/en-us/activity-assets/domestic-cold-water/downloads/Grundfosliterature-5769057-SCALA2-IO.pdf",
+      "note": "Exemplo de controle por pressão e proteção contra funcionamento a seco. Alarmes e critérios de liberação variam conforme versão/modelo."
+    },
+    "b01_pentair": {
+      "title": "Pentair • Motor não funciona: centrífugas e irrigação",
+      "url": "https://www.pentair.com/content/dam/extranet/web/nam/pentair/manuals/p15006-centrifugals-and-sprinklers-iom.pdf",
+      "note": "Referência de alimentação, comando, ligação e tensão. Serviços elétricos/capacitores ficam restritos a profissionais habilitados."
+    },
+    "b01_schneider": {
+      "title": "Schneider Electric • ATV320 sem partida",
+      "url": "https://www.se.com/us/en/faqs/FAQ000223655/",
+      "note": "Estados de comando, parada e segurança do ATV320. Consultar o manual do inversor instalado; não aplicar pontes nem neutralizar intertravamentos."
     }
   },
   "sintomas": [
+    {
+      "id": "not_start",
+      "title": "A bomba não liga",
+      "desc": "B01 • motor não entra em operação",
+      "icon": "!",
+      "causes": [
+        "b01_alimentacao",
+        "b01_protecao",
+        "b01_demanda",
+        "b01_pressao",
+        "b01_capacitor",
+        "b01_travamento",
+        "b01_tensao",
+        "b01_termico",
+        "b01_fase",
+        "b01_comando",
+        "b01_nivel",
+        "b01_acionamento"
+      ],
+      "blocos": [
+        {
+          "tipo": "pagina",
+          "title": "B01 — Escolher o sinal observado",
+          "id": "b01-guia"
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Faça somente observações externas e registre indicadores já disponíveis. Não abra painéis, caixas de ligação ou carcaças; não toque em partes móveis nem tente dar impulso no eixo. Não insista em partidas ou rearmes. Serviços internos e testes elétricos exigem equipe habilitada, procedimentos de isolamento e bloqueio, ausência de energia confirmada, pressão controlada e prevenção de partida automática. Capacitores e inversores podem manter energia armazenada após desligar."
+        }
+      ]
+    },
     {
       "id": "heat",
       "title": "Aquecimento",
@@ -287,6 +353,401 @@
       ],
       "action": "Investigar a causa antes de substituir o selo.",
       "avoid": "Não assumir que vazamento de gaxeta e selo têm o mesmo critério."
+    },
+    {
+      "id": "b01_alimentacao",
+      "codigo": "B01.01",
+      "title": "B01.01 — Falta de alimentação elétrica",
+      "area": [
+        "motor"
+      ],
+      "sources": [
+        "b01_grundfos_cr",
+        "b01_pentair"
+      ],
+      "why": "A ausência de energia no circuito impede a partida; painel apagado é um indício, não uma confirmação.",
+      "signs": "Silêncio, indicadores apagados ou relato de outros equipamentos sem energia.",
+      "checks": [
+        "Aplicação: Conjuntos com motor elétrico.",
+        "Faça somente observações externas e registre indicadores já disponíveis. Não abra painéis, caixas de ligação ou carcaças; não toque em partes móveis nem tente dar impulso no eixo. Não insista em partidas ou rearmes. Serviços internos e testes elétricos exigem equipe habilitada, procedimentos de isolamento e bloqueio, ausência de energia confirmada, pressão controlada e prevenção de partida automática. Capacitores e inversores podem manter energia armazenada após desligar.",
+        "O painel tem alguma luz ou informação visível?",
+        "Há notícia de falta geral de energia?",
+        "Confirmação técnica: encaminhar à equipe habilitada conforme o manual e o diagrama do equipamento."
+      ],
+      "action": "A equipe elétrica verifica o fornecimento e a chegada de energia ao equipamento, identifica a interrupção e restabelece o circuito conforme o procedimento.",
+      "avoid": "Não abrir o painel para medir nem concluir que está sem tensão porque as luzes estão apagadas.",
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "A equipe responsável libera a partida supervisionada, confere os alarmes e o funcionamento dentro dos parâmetros do modelo. O registro inicial é uma hipótese, não uma confirmação de falha."
+        }
+      ]
+    },
+    {
+      "id": "b01_protecao",
+      "codigo": "B01.02",
+      "title": "B01.02 — Disjuntor ou fusível atuado",
+      "area": [
+        "motor"
+      ],
+      "sources": [
+        "b01_grundfos_protecao",
+        "b01_pentair"
+      ],
+      "why": "Uma proteção aberta interrompe o circuito. Pode ter atuado por uma falha real ou por inadequação do dispositivo; é necessário investigar.",
+      "signs": "Parada súbita, registro de proteção ou indicação externa de desligamento.",
+      "checks": [
+        "Aplicação: Circuitos que possuem esses dispositivos.",
+        "Faça somente observações externas e registre indicadores já disponíveis. Não abra painéis, caixas de ligação ou carcaças; não toque em partes móveis nem tente dar impulso no eixo. Não insista em partidas ou rearmes. Serviços internos e testes elétricos exigem equipe habilitada, procedimentos de isolamento e bloqueio, ausência de energia confirmada, pressão controlada e prevenção de partida automática. Capacitores e inversores podem manter energia armazenada após desligar.",
+        "O controlador informa atuação de proteção?",
+        "A indicação surgiu durante a partida?",
+        "Confirmação técnica: encaminhar à equipe habilitada conforme o manual e o diagrama do equipamento."
+      ],
+      "action": "O eletricista identifica a causa, corrige o defeito e confere a proteção especificada. Rearme ou substituição e partida somente após liberação.",
+      "avoid": "Não rearmar repetidamente, fazer pontes ou instalar proteção de maior capacidade por tentativa.",
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "A equipe responsável libera a partida supervisionada, confere os alarmes e o funcionamento dentro dos parâmetros do modelo. O registro inicial é uma hipótese, não uma confirmação de falha."
+        }
+      ]
+    },
+    {
+      "id": "b01_demanda",
+      "codigo": "B01.03",
+      "title": "B01.03 — Ausência de solicitação de partida",
+      "area": [
+        "motor"
+      ],
+      "sources": [
+        "b01_scala",
+        "b01_schneider"
+      ],
+      "why": "O sistema pode manter a bomba parada porque ainda não há demanda ou uma condição de partida não foi atendida. Isso pode ser operação normal.",
+      "signs": "Painel ligado e bomba parada, eventualmente sem alarme.",
+      "checks": [
+        "Aplicação: Sistemas automáticos ou comandados remotamente.",
+        "Faça somente observações externas e registre indicadores já disponíveis. Não abra painéis, caixas de ligação ou carcaças; não toque em partes móveis nem tente dar impulso no eixo. Não insista em partidas ou rearmes. Serviços internos e testes elétricos exigem equipe habilitada, procedimentos de isolamento e bloqueio, ausência de energia confirmada, pressão controlada e prevenção de partida automática. Capacitores e inversores podem manter energia armazenada após desligar.",
+        "Qual modo aparece: automático, manual ou remoto?",
+        "O controlador indica demanda de funcionamento?",
+        "Confirmação técnica: encaminhar à equipe habilitada conforme o manual e o diagrama do equipamento."
+      ],
+      "action": "Operação e manutenção conferem a lógica prevista e os sinais do controlador. Se há demanda válida e não ocorre partida, investigam o circuito de comando.",
+      "avoid": "Não forçar uma partida manual nem ignorar permissivos para testar se a bomba funciona.",
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "A equipe responsável libera a partida supervisionada, confere os alarmes e o funcionamento dentro dos parâmetros do modelo. O registro inicial é uma hipótese, não uma confirmação de falha."
+        }
+      ]
+    },
+    {
+      "id": "b01_pressao",
+      "codigo": "B01.04",
+      "title": "B01.04 — Pressostato ou sensor de pressão",
+      "area": [
+        "motor"
+      ],
+      "sources": [
+        "b01_scala"
+      ],
+      "why": "Uma leitura ou atuação incorreta pode impedir a solicitação de partida. Pressão baixa indicada não prova que o sensor está defeituoso.",
+      "signs": "Falha no automático, alarme de sensor ou leitura incompatível com o processo.",
+      "checks": [
+        "Aplicação: Somente controles de partida que utilizam pressão.",
+        "Faça somente observações externas e registre indicadores já disponíveis. Não abra painéis, caixas de ligação ou carcaças; não toque em partes móveis nem tente dar impulso no eixo. Não insista em partidas ou rearmes. Serviços internos e testes elétricos exigem equipe habilitada, procedimentos de isolamento e bloqueio, ausência de energia confirmada, pressão controlada e prevenção de partida automática. Capacitores e inversores podem manter energia armazenada após desligar.",
+        "Existe leitura de pressão ou alarme no display?",
+        "A falha foi observada somente no modo automático?",
+        "Confirmação técnica: encaminhar à equipe habilitada conforme o manual e o diagrama do equipamento."
+      ],
+      "action": "A equipe compara a indicação com uma referência válida e verifica o sinal e a lógica. Corrige sensor, pressostato, conexão ou ajuste identificado e valida conforme o projeto.",
+      "avoid": "Não ajustar pressão por tentativa nem jumpear o pressostato ou o sinal do sensor.",
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "A equipe responsável libera a partida supervisionada, confere os alarmes e o funcionamento dentro dos parâmetros do modelo. O registro inicial é uma hipótese, não uma confirmação de falha."
+        }
+      ]
+    },
+    {
+      "id": "b01_capacitor",
+      "codigo": "B01.05",
+      "title": "B01.05 — Capacitor ou circuito de partida",
+      "area": [
+        "motor"
+      ],
+      "sources": [
+        "b01_grundfos_protecao",
+        "b01_pentair"
+      ],
+      "why": "Uma falha no circuito de partida de determinados motores monofásicos pode impedir a aceleração inicial.",
+      "signs": "Zumbido sem rotação, eventualmente com atuação de proteção. O mesmo sinal pode ter outras causas.",
+      "checks": [
+        "Aplicação: Apenas motor monofásico cujo modelo utiliza capacitor; não se aplica automaticamente a trifásicos.",
+        "Faça somente observações externas e registre indicadores já disponíveis. Não abra painéis, caixas de ligação ou carcaças; não toque em partes móveis nem tente dar impulso no eixo. Não insista em partidas ou rearmes. Serviços internos e testes elétricos exigem equipe habilitada, procedimentos de isolamento e bloqueio, ausência de energia confirmada, pressão controlada e prevenção de partida automática. Capacitores e inversores podem manter energia armazenada após desligar.",
+        "A placa identifica motor monofásico? Se não souber, registre a dúvida.",
+        "O zumbido ocorreu sem o motor iniciar a rotação? Não provoque nova tentativa para confirmar.",
+        "Confirmação técnica: encaminhar à equipe habilitada conforme o manual e o diagrama do equipamento."
+      ],
+      "action": "O profissional identifica o circuito do modelo e testa seus componentes com controle da energia armazenada. Substitui apenas o componente comprovadamente defeituoso, conforme especificação.",
+      "avoid": "Não tocar nos terminais nem tentar descarregar o capacitor com ferramenta. Não sugerir essa hipótese como solução de um motor trifásico.",
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "A equipe responsável libera a partida supervisionada, confere os alarmes e o funcionamento dentro dos parâmetros do modelo. O registro inicial é uma hipótese, não uma confirmação de falha."
+        }
+      ]
+    },
+    {
+      "id": "b01_travamento",
+      "codigo": "B01.06",
+      "title": "B01.06 — Rotor ou eixo mecanicamente travado",
+      "area": [
+        "motor"
+      ],
+      "sources": [
+        "b01_grundfos_drenagem",
+        "b01_grundfos_submersivel"
+      ],
+      "why": "Um bloqueio mecânico pode impedir o giro. Sujeira, corrosão ou dano em componentes são possibilidades a verificar.",
+      "signs": "Tentativa de partida sem rotação, ruído anterior ou longo período de inatividade.",
+      "checks": [
+        "Aplicação: Conjunto girante de bomba e motor; exige inspeção para localizar o bloqueio.",
+        "Faça somente observações externas e registre indicadores já disponíveis. Não abra painéis, caixas de ligação ou carcaças; não toque em partes móveis nem tente dar impulso no eixo. Não insista em partidas ou rearmes. Serviços internos e testes elétricos exigem equipe habilitada, procedimentos de isolamento e bloqueio, ausência de energia confirmada, pressão controlada e prevenção de partida automática. Capacitores e inversores podem manter energia armazenada após desligar.",
+        "Ficou muito tempo parada ou houve ruído antes da falha?",
+        "Existe histórico de partículas ou sujeira no líquido?",
+        "Confirmação técnica: encaminhar à equipe habilitada conforme o manual e o diagrama do equipamento."
+      ],
+      "action": "Após tornar o conjunto seguro, manutenção autorizada inspeciona eixo, impulsor e mancais, elimina a causa do travamento e repara danos. Confirma livre movimentação por procedimento seguro antes da liberação.",
+      "avoid": "Não tentar girar com a mão, dar impulso no eixo ou retirar proteção durante uma tentativa de partida.",
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "A equipe responsável libera a partida supervisionada, confere os alarmes e o funcionamento dentro dos parâmetros do modelo. O registro inicial é uma hipótese, não uma confirmação de falha."
+        }
+      ]
+    },
+    {
+      "id": "b01_tensao",
+      "codigo": "B01.07",
+      "title": "B01.07 — Tensão elétrica inadequada",
+      "area": [
+        "motor"
+      ],
+      "sources": [
+        "b01_grundfos_submersivel",
+        "b01_pentair"
+      ],
+      "why": "Uma alimentação fora das condições previstas pode impedir a aceleração ou provocar atuação de proteção.",
+      "signs": "Alarme de tensão, dificuldade de partida ou comportamento anormal de outros equipamentos.",
+      "checks": [
+        "Aplicação: Compatibilidade definida pela placa, acionamento e manual do modelo.",
+        "Faça somente observações externas e registre indicadores já disponíveis. Não abra painéis, caixas de ligação ou carcaças; não toque em partes móveis nem tente dar impulso no eixo. Não insista em partidas ou rearmes. Serviços internos e testes elétricos exigem equipe habilitada, procedimentos de isolamento e bloqueio, ausência de energia confirmada, pressão controlada e prevenção de partida automática. Capacitores e inversores podem manter energia armazenada após desligar.",
+        "Há código de subtensão ou sobretensão disponível?",
+        "Outros equipamentos apresentaram anomalia no mesmo período?",
+        "Confirmação técnica: encaminhar à equipe habilitada conforme o manual e o diagrama do equipamento."
+      ],
+      "action": "A equipe elétrica verifica alimentação, ligações e condições de partida, compara com os limites do fabricante e corrige a origem da anomalia.",
+      "avoid": "Não medir partes energizadas por conta própria nem usar uma tolerância de tensão como regra universal.",
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "A equipe responsável libera a partida supervisionada, confere os alarmes e o funcionamento dentro dos parâmetros do modelo. O registro inicial é uma hipótese, não uma confirmação de falha."
+        }
+      ]
+    },
+    {
+      "id": "b01_termico",
+      "codigo": "B01.08",
+      "title": "B01.08 — Proteção térmica acionada",
+      "area": [
+        "motor"
+      ],
+      "sources": [
+        "b01_grundfos_cr",
+        "b01_grundfos_submersivel"
+      ],
+      "why": "A proteção pode interromper a operação para limitar aquecimento. A atuação é um efeito a investigar, não a causa final do defeito.",
+      "signs": "Parou após funcionar, alarme térmico ou de sobrecarga, ventilação aparentemente obstruída.",
+      "checks": [
+        "Aplicação: Motores e acionamentos com proteção térmica ou de sobrecarga.",
+        "Faça somente observações externas e registre indicadores já disponíveis. Não abra painéis, caixas de ligação ou carcaças; não toque em partes móveis nem tente dar impulso no eixo. Não insista em partidas ou rearmes. Serviços internos e testes elétricos exigem equipe habilitada, procedimentos de isolamento e bloqueio, ausência de energia confirmada, pressão controlada e prevenção de partida automática. Capacitores e inversores podem manter energia armazenada após desligar.",
+        "Quanto tempo funcionou antes de parar?",
+        "Qual alarme está visível e há obstrução externa da ventilação? Observe sem tocar.",
+        "Confirmação técnica: encaminhar à equipe habilitada conforme o manual e o diagrama do equipamento."
+      ],
+      "action": "O técnico investiga carga, ventilação, condições térmicas e alimentação. Corrige a causa e libera o teste nas condições previstas pelo fabricante.",
+      "avoid": "Não considerar resolvido apenas porque esfriou. Algumas proteções podem permitir religamento automático.",
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "A equipe responsável libera a partida supervisionada, confere os alarmes e o funcionamento dentro dos parâmetros do modelo. O registro inicial é uma hipótese, não uma confirmação de falha."
+        }
+      ]
+    },
+    {
+      "id": "b01_fase",
+      "codigo": "B01.09",
+      "title": "B01.09 — Falta de fase ou desequilíbrio elétrico",
+      "area": [
+        "motor"
+      ],
+      "sources": [
+        "b01_grundfos_submersivel",
+        "b01_grundfos_protecao"
+      ],
+      "why": "A perda de uma fase ou condição elétrica desequilibrada pode comprometer a partida e levar à atuação da proteção.",
+      "signs": "Alarme de fase, sobrecarga ou motor trifásico sem partida.",
+      "checks": [
+        "Aplicação: Motores trifásicos; não é diagnóstico de motor monofásico.",
+        "Faça somente observações externas e registre indicadores já disponíveis. Não abra painéis, caixas de ligação ou carcaças; não toque em partes móveis nem tente dar impulso no eixo. Não insista em partidas ou rearmes. Serviços internos e testes elétricos exigem equipe habilitada, procedimentos de isolamento e bloqueio, ausência de energia confirmada, pressão controlada e prevenção de partida automática. Capacitores e inversores podem manter energia armazenada após desligar.",
+        "A placa ou o cadastro confirma motor trifásico?",
+        "O painel indica falta de fase ou desequilíbrio?",
+        "Confirmação técnica: encaminhar à equipe habilitada conforme o manual e o diagrama do equipamento."
+      ],
+      "action": "Eletricista habilitado verifica as fases, o circuito e os dispositivos envolvidos, corrige a causa e confirma condições adequadas antes da liberação.",
+      "avoid": "Não fazer pontes nem tentar resolver falta de fase apenas trocando fases de posição.",
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "A equipe responsável libera a partida supervisionada, confere os alarmes e o funcionamento dentro dos parâmetros do modelo. O registro inicial é uma hipótese, não uma confirmação de falha."
+        }
+      ]
+    },
+    {
+      "id": "b01_comando",
+      "codigo": "B01.10",
+      "title": "B01.10 — Contator, relé ou circuito de comando",
+      "area": [
+        "motor"
+      ],
+      "sources": [
+        "b01_grundfos_cr",
+        "b01_schneider"
+      ],
+      "why": "Uma falha no caminho de comando pode impedir que o dispositivo de acionamento execute uma solicitação válida.",
+      "signs": "Painel ligado, ausência de partida ou falha intermitente apesar de indicação de comando.",
+      "checks": [
+        "Aplicação: Painéis com esses elementos; a arquitetura depende do acionamento.",
+        "Faça somente observações externas e registre indicadores já disponíveis. Não abra painéis, caixas de ligação ou carcaças; não toque em partes móveis nem tente dar impulso no eixo. Não insista em partidas ou rearmes. Serviços internos e testes elétricos exigem equipe habilitada, procedimentos de isolamento e bloqueio, ausência de energia confirmada, pressão controlada e prevenção de partida automática. Capacitores e inversores podem manter energia armazenada após desligar.",
+        "O painel mostra comando de partida ou alarme de comando?",
+        "A falha é constante ou intermitente?",
+        "Confirmação técnica: encaminhar à equipe habilitada conforme o manual e o diagrama do equipamento."
+      ],
+      "action": "O eletricista verifica o circuito conforme o diagrama, localiza o componente ou sinal defeituoso e efetua o reparo. Valida comando e proteções após a intervenção.",
+      "avoid": "Não pressionar contatores manualmente, trocar fios por tentativa ou contornar intertravamentos.",
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "A equipe responsável libera a partida supervisionada, confere os alarmes e o funcionamento dentro dos parâmetros do modelo. O registro inicial é uma hipótese, não uma confirmação de falha."
+        }
+      ]
+    },
+    {
+      "id": "b01_nivel",
+      "codigo": "B01.11",
+      "title": "B01.11 — Nível insuficiente, boia ou sensor de nível",
+      "area": [
+        "motor"
+      ],
+      "sources": [
+        "b01_grundfos_drenagem",
+        "b01_scala"
+      ],
+      "why": "O controle pode impedir o funcionamento quando falta líquido. Se o nível real é adequado, o circuito de detecção também precisa ser avaliado.",
+      "signs": "Alarme de nível, proteção contra funcionamento a seco ou indicação de reservatório baixo.",
+      "checks": [
+        "Aplicação: Somente instalações que utilizam nível como condição de operação ou proteção.",
+        "Faça somente observações externas e registre indicadores já disponíveis. Não abra painéis, caixas de ligação ou carcaças; não toque em partes móveis nem tente dar impulso no eixo. Não insista em partidas ou rearmes. Serviços internos e testes elétricos exigem equipe habilitada, procedimentos de isolamento e bloqueio, ausência de energia confirmada, pressão controlada e prevenção de partida automática. Capacitores e inversores podem manter energia armazenada após desligar.",
+        "Qual nível aparece no indicador disponível?",
+        "Há alarme de nível ou de funcionamento a seco?",
+        "Confirmação técnica: encaminhar à equipe habilitada conforme o manual e o diagrama do equipamento."
+      ],
+      "action": "Operação identifica a causa de nível insuficiente. Se o nível é adequado, equipe técnica verifica boia, sensor e lógica, corrige o defeito e valida os permissivos.",
+      "avoid": "Não entrar em reservatórios, acessar bordas desprotegidas, prender boias ou ignorar proteção contra funcionamento a seco.",
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "A equipe responsável libera a partida supervisionada, confere os alarmes e o funcionamento dentro dos parâmetros do modelo. O registro inicial é uma hipótese, não uma confirmação de falha."
+        }
+      ]
+    },
+    {
+      "id": "b01_acionamento",
+      "codigo": "B01.12",
+      "title": "B01.12 — Defeito no motor ou acionamento eletrônico",
+      "area": [
+        "motor"
+      ],
+      "sources": [
+        "b01_schneider",
+        "b01_grundfos_cr"
+      ],
+      "why": "Pode haver defeito interno, alarme ou condição de parada que impede o acionamento. Um inversor em espera não está necessariamente defeituoso.",
+      "signs": "Código no display, evento elétrico anterior ou ausência de rotação apesar de demanda aparentemente válida.",
+      "checks": [
+        "Aplicação: Motor, inversor ou soft-starter conforme o conjunto; hipóteses devem ser diferenciadas do estado normal de espera.",
+        "Faça somente observações externas e registre indicadores já disponíveis. Não abra painéis, caixas de ligação ou carcaças; não toque em partes móveis nem tente dar impulso no eixo. Não insista em partidas ou rearmes. Serviços internos e testes elétricos exigem equipe habilitada, procedimentos de isolamento e bloqueio, ausência de energia confirmada, pressão controlada e prevenção de partida automática. Capacitores e inversores podem manter energia armazenada após desligar.",
+        "O equipamento tem inversor ou soft-starter? Registre marca e modelo.",
+        "Qual código ou estado aparece no display?",
+        "Confirmação técnica: encaminhar à equipe habilitada conforme o manual e o diagrama do equipamento."
+      ],
+      "action": "Manutenção habilitada consulta o manual específico, distingue comando ausente, parada de segurança e falha real, realiza os testes previstos e corrige o defeito confirmado.",
+      "avoid": "Não alterar parâmetros, desabilitar funções de segurança ou executar resets sucessivos. Respeitar a energia armazenada no acionamento.",
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "A equipe responsável libera a partida supervisionada, confere os alarmes e o funcionamento dentro dos parâmetros do modelo. O registro inicial é uma hipótese, não uma confirmação de falha."
+        }
+      ]
     }
   ],
   "perguntas": [
@@ -428,6 +889,801 @@
         {
           "tipo": "aviso",
           "texto": "Os registros de inspeção ficam neste aparelho. Desinstalar o aplicativo ou limpar seus dados pode apagar os registros."
+        }
+      ]
+    },
+    {
+      "id": "b01-guia",
+      "title": "B01 — A bomba não liga: comece pelo sinal",
+      "desc": "Motor não entra em operação. Escolha uma das quatro situações observadas.",
+      "mostrar_inicio": true,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Faça somente observações externas e registre indicadores já disponíveis. Não abra painéis, caixas de ligação ou carcaças; não toque em partes móveis nem tente dar impulso no eixo. Não insista em partidas ou rearmes. Serviços internos e testes elétricos exigem equipe habilitada, procedimentos de isolamento e bloqueio, ausência de energia confirmada, pressão controlada e prevenção de partida automática. Capacitores e inversores podem manter energia armazenada após desligar."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "O que acontece quando tenta ligar?"
+        },
+        {
+          "tipo": "pagina",
+          "title": "A — Não acontece nada",
+          "id": "b01-silencio"
+        },
+        {
+          "tipo": "pagina",
+          "title": "B — Há zumbido, mas não gira",
+          "id": "b01-zumbido"
+        },
+        {
+          "tipo": "pagina",
+          "title": "C — Tenta ligar e a proteção desarma",
+          "id": "b01-desarme"
+        },
+        {
+          "tipo": "pagina",
+          "title": "D — Funcionava e parou de ligar",
+          "id": "b01-parou"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Uma mesma causa pode aparecer em mais de uma situação. Motor parado é diferente de motor girando sem bombear. As fichas B01.01 a B01.12 também estão disponíveis na busca da biblioteca e no mapa do sintoma."
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Capacitor depende do projeto de um motor monofásico; falta de fase se refere ao trifásico. Se não souber o tipo, registre essa dúvida para a manutenção. Estas páginas são caminhos de consulta, não um diagnóstico automático."
+        },
+        {
+          "tipo": "link",
+          "title": "Grundfos • CR: motor não parte e falhas de comando",
+          "url": "https://www.grundfos.com/content/dam/local/en-in/page-assets/support/documents/1_CR.pdf"
+        },
+        {
+          "tipo": "link",
+          "title": "Grundfos • Bomba de drenagem não inicia",
+          "url": "https://www.grundfos.com/solutions/support/faq/why-does-my-drainage-pump-not-start"
+        },
+        {
+          "tipo": "link",
+          "title": "Grundfos • Motivos de atuação das proteções",
+          "url": "https://www.grundfos.com/solutions/support/faq/the-circuit-breaker-or-fuses-on-a-circulator-pump-have-tripped-what-might-be-the-cause"
+        },
+        {
+          "tipo": "link",
+          "title": "Grundfos • Falhas de partida em bombas submersíveis",
+          "url": "https://api.grundfos.com/literature/Grundfosliterature-5903490.pdf"
+        },
+        {
+          "tipo": "link",
+          "title": "Grundfos • Controle automático SCALA2",
+          "url": "https://www.grundfos.com/content/dam/local/en-us/activity-assets/domestic-cold-water/downloads/Grundfosliterature-5769057-SCALA2-IO.pdf"
+        },
+        {
+          "tipo": "link",
+          "title": "Pentair • Motor não funciona: centrífugas e irrigação",
+          "url": "https://www.pentair.com/content/dam/extranet/web/nam/pentair/manuals/p15006-centrifugals-and-sprinklers-iom.pdf"
+        },
+        {
+          "tipo": "link",
+          "title": "Schneider Electric • ATV320 sem partida",
+          "url": "https://www.se.com/us/en/faqs/FAQ000223655/"
+        }
+      ]
+    },
+    {
+      "id": "b01-silencio",
+      "title": "A — Não acontece nada",
+      "desc": "Sem ruído, movimento ou sinal aparente de funcionamento.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Faça somente observações externas e registre indicadores já disponíveis. Não abra painéis, caixas de ligação ou carcaças; não toque em partes móveis nem tente dar impulso no eixo. Não insista em partidas ou rearmes. Serviços internos e testes elétricos exigem equipe habilitada, procedimentos de isolamento e bloqueio, ausência de energia confirmada, pressão controlada e prevenção de partida automática. Capacitores e inversores podem manter energia armazenada após desligar."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "B01.01 — Falta de alimentação elétrica"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Aplicação: Conjuntos com motor elétrico."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Sinais: Silêncio, indicadores apagados ou relato de outros equipamentos sem energia."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "O painel tem alguma luz ou informação visível?",
+            "Há notícia de falta geral de energia?"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Encaminhamento: A equipe elétrica verifica o fornecimento e a chegada de energia ao equipamento, identifica a interrupção e restabelece o circuito conforme o procedimento."
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Não abrir o painel para medir nem concluir que está sem tensão porque as luzes estão apagadas."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "B01.02 — Disjuntor ou fusível atuado"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Aplicação: Circuitos que possuem esses dispositivos."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Sinais: Parada súbita, registro de proteção ou indicação externa de desligamento."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "O controlador informa atuação de proteção?",
+            "A indicação surgiu durante a partida?"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Encaminhamento: O eletricista identifica a causa, corrige o defeito e confere a proteção especificada. Rearme ou substituição e partida somente após liberação."
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Não rearmar repetidamente, fazer pontes ou instalar proteção de maior capacidade por tentativa."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "B01.03 — Ausência de solicitação de partida"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Aplicação: Sistemas automáticos ou comandados remotamente."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Sinais: Painel ligado e bomba parada, eventualmente sem alarme."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "Qual modo aparece: automático, manual ou remoto?",
+            "O controlador indica demanda de funcionamento?"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Encaminhamento: Operação e manutenção conferem a lógica prevista e os sinais do controlador. Se há demanda válida e não ocorre partida, investigam o circuito de comando."
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Não forçar uma partida manual nem ignorar permissivos para testar se a bomba funciona."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "B01.04 — Pressostato ou sensor de pressão"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Aplicação: Somente controles de partida que utilizam pressão."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Sinais: Falha no automático, alarme de sensor ou leitura incompatível com o processo."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "Existe leitura de pressão ou alarme no display?",
+            "A falha foi observada somente no modo automático?"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Encaminhamento: A equipe compara a indicação com uma referência válida e verifica o sinal e a lógica. Corrige sensor, pressostato, conexão ou ajuste identificado e valida conforme o projeto."
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Não ajustar pressão por tentativa nem jumpear o pressostato ou o sinal do sensor."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "B01.10 — Contator, relé ou circuito de comando"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Aplicação: Painéis com esses elementos; a arquitetura depende do acionamento."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Sinais: Painel ligado, ausência de partida ou falha intermitente apesar de indicação de comando."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "O painel mostra comando de partida ou alarme de comando?",
+            "A falha é constante ou intermitente?"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Encaminhamento: O eletricista verifica o circuito conforme o diagrama, localiza o componente ou sinal defeituoso e efetua o reparo. Valida comando e proteções após a intervenção."
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Não pressionar contatores manualmente, trocar fios por tentativa ou contornar intertravamentos."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "B01.11 — Nível insuficiente, boia ou sensor de nível"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Aplicação: Somente instalações que utilizam nível como condição de operação ou proteção."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Sinais: Alarme de nível, proteção contra funcionamento a seco ou indicação de reservatório baixo."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "Qual nível aparece no indicador disponível?",
+            "Há alarme de nível ou de funcionamento a seco?"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Encaminhamento: Operação identifica a causa de nível insuficiente. Se o nível é adequado, equipe técnica verifica boia, sensor e lógica, corrige o defeito e valida os permissivos."
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Não entrar em reservatórios, acessar bordas desprotegidas, prender boias ou ignorar proteção contra funcionamento a seco."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "B01.12 — Defeito no motor ou acionamento eletrônico"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Aplicação: Motor, inversor ou soft-starter conforme o conjunto; hipóteses devem ser diferenciadas do estado normal de espera."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Sinais: Código no display, evento elétrico anterior ou ausência de rotação apesar de demanda aparentemente válida."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "O equipamento tem inversor ou soft-starter? Registre marca e modelo.",
+            "Qual código ou estado aparece no display?"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Encaminhamento: Manutenção habilitada consulta o manual específico, distingue comando ausente, parada de segurança e falha real, realiza os testes previstos e corrige o defeito confirmado."
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Não alterar parâmetros, desabilitar funções de segurança ou executar resets sucessivos. Respeitar a energia armazenada no acionamento."
+        },
+        {
+          "tipo": "pagina",
+          "title": "Voltar às quatro situações",
+          "id": "b01-guia"
+        }
+      ]
+    },
+    {
+      "id": "b01-zumbido",
+      "title": "B — Há zumbido, mas não gira",
+      "desc": "Registre o sinal já observado; não repita partidas para reproduzir o ruído.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Faça somente observações externas e registre indicadores já disponíveis. Não abra painéis, caixas de ligação ou carcaças; não toque em partes móveis nem tente dar impulso no eixo. Não insista em partidas ou rearmes. Serviços internos e testes elétricos exigem equipe habilitada, procedimentos de isolamento e bloqueio, ausência de energia confirmada, pressão controlada e prevenção de partida automática. Capacitores e inversores podem manter energia armazenada após desligar."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "B01.05 — Capacitor ou circuito de partida"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Aplicação: Apenas motor monofásico cujo modelo utiliza capacitor; não se aplica automaticamente a trifásicos."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Sinais: Zumbido sem rotação, eventualmente com atuação de proteção. O mesmo sinal pode ter outras causas."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "A placa identifica motor monofásico? Se não souber, registre a dúvida.",
+            "O zumbido ocorreu sem o motor iniciar a rotação? Não provoque nova tentativa para confirmar."
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Encaminhamento: O profissional identifica o circuito do modelo e testa seus componentes com controle da energia armazenada. Substitui apenas o componente comprovadamente defeituoso, conforme especificação."
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Não tocar nos terminais nem tentar descarregar o capacitor com ferramenta. Não sugerir essa hipótese como solução de um motor trifásico."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "B01.06 — Rotor ou eixo mecanicamente travado"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Aplicação: Conjunto girante de bomba e motor; exige inspeção para localizar o bloqueio."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Sinais: Tentativa de partida sem rotação, ruído anterior ou longo período de inatividade."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "Ficou muito tempo parada ou houve ruído antes da falha?",
+            "Existe histórico de partículas ou sujeira no líquido?"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Encaminhamento: Após tornar o conjunto seguro, manutenção autorizada inspeciona eixo, impulsor e mancais, elimina a causa do travamento e repara danos. Confirma livre movimentação por procedimento seguro antes da liberação."
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Não tentar girar com a mão, dar impulso no eixo ou retirar proteção durante uma tentativa de partida."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "B01.07 — Tensão elétrica inadequada"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Aplicação: Compatibilidade definida pela placa, acionamento e manual do modelo."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Sinais: Alarme de tensão, dificuldade de partida ou comportamento anormal de outros equipamentos."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "Há código de subtensão ou sobretensão disponível?",
+            "Outros equipamentos apresentaram anomalia no mesmo período?"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Encaminhamento: A equipe elétrica verifica alimentação, ligações e condições de partida, compara com os limites do fabricante e corrige a origem da anomalia."
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Não medir partes energizadas por conta própria nem usar uma tolerância de tensão como regra universal."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "B01.09 — Falta de fase ou desequilíbrio elétrico"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Aplicação: Motores trifásicos; não é diagnóstico de motor monofásico."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Sinais: Alarme de fase, sobrecarga ou motor trifásico sem partida."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "A placa ou o cadastro confirma motor trifásico?",
+            "O painel indica falta de fase ou desequilíbrio?"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Encaminhamento: Eletricista habilitado verifica as fases, o circuito e os dispositivos envolvidos, corrige a causa e confirma condições adequadas antes da liberação."
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Não fazer pontes nem tentar resolver falta de fase apenas trocando fases de posição."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "B01.12 — Defeito no motor ou acionamento eletrônico"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Aplicação: Motor, inversor ou soft-starter conforme o conjunto; hipóteses devem ser diferenciadas do estado normal de espera."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Sinais: Código no display, evento elétrico anterior ou ausência de rotação apesar de demanda aparentemente válida."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "O equipamento tem inversor ou soft-starter? Registre marca e modelo.",
+            "Qual código ou estado aparece no display?"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Encaminhamento: Manutenção habilitada consulta o manual específico, distingue comando ausente, parada de segurança e falha real, realiza os testes previstos e corrige o defeito confirmado."
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Não alterar parâmetros, desabilitar funções de segurança ou executar resets sucessivos. Respeitar a energia armazenada no acionamento."
+        },
+        {
+          "tipo": "pagina",
+          "title": "Voltar às quatro situações",
+          "id": "b01-guia"
+        }
+      ]
+    },
+    {
+      "id": "b01-desarme",
+      "title": "C — Tenta ligar e a proteção desarma",
+      "desc": "Registre o código e o momento da atuação. Não faça rearmes sucessivos.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Faça somente observações externas e registre indicadores já disponíveis. Não abra painéis, caixas de ligação ou carcaças; não toque em partes móveis nem tente dar impulso no eixo. Não insista em partidas ou rearmes. Serviços internos e testes elétricos exigem equipe habilitada, procedimentos de isolamento e bloqueio, ausência de energia confirmada, pressão controlada e prevenção de partida automática. Capacitores e inversores podem manter energia armazenada após desligar."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "B01.02 — Disjuntor ou fusível atuado"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Aplicação: Circuitos que possuem esses dispositivos."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Sinais: Parada súbita, registro de proteção ou indicação externa de desligamento."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "O controlador informa atuação de proteção?",
+            "A indicação surgiu durante a partida?"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Encaminhamento: O eletricista identifica a causa, corrige o defeito e confere a proteção especificada. Rearme ou substituição e partida somente após liberação."
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Não rearmar repetidamente, fazer pontes ou instalar proteção de maior capacidade por tentativa."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "B01.06 — Rotor ou eixo mecanicamente travado"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Aplicação: Conjunto girante de bomba e motor; exige inspeção para localizar o bloqueio."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Sinais: Tentativa de partida sem rotação, ruído anterior ou longo período de inatividade."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "Ficou muito tempo parada ou houve ruído antes da falha?",
+            "Existe histórico de partículas ou sujeira no líquido?"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Encaminhamento: Após tornar o conjunto seguro, manutenção autorizada inspeciona eixo, impulsor e mancais, elimina a causa do travamento e repara danos. Confirma livre movimentação por procedimento seguro antes da liberação."
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Não tentar girar com a mão, dar impulso no eixo ou retirar proteção durante uma tentativa de partida."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "B01.07 — Tensão elétrica inadequada"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Aplicação: Compatibilidade definida pela placa, acionamento e manual do modelo."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Sinais: Alarme de tensão, dificuldade de partida ou comportamento anormal de outros equipamentos."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "Há código de subtensão ou sobretensão disponível?",
+            "Outros equipamentos apresentaram anomalia no mesmo período?"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Encaminhamento: A equipe elétrica verifica alimentação, ligações e condições de partida, compara com os limites do fabricante e corrige a origem da anomalia."
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Não medir partes energizadas por conta própria nem usar uma tolerância de tensão como regra universal."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "B01.08 — Proteção térmica acionada"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Aplicação: Motores e acionamentos com proteção térmica ou de sobrecarga."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Sinais: Parou após funcionar, alarme térmico ou de sobrecarga, ventilação aparentemente obstruída."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "Quanto tempo funcionou antes de parar?",
+            "Qual alarme está visível e há obstrução externa da ventilação? Observe sem tocar."
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Encaminhamento: O técnico investiga carga, ventilação, condições térmicas e alimentação. Corrige a causa e libera o teste nas condições previstas pelo fabricante."
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Não considerar resolvido apenas porque esfriou. Algumas proteções podem permitir religamento automático."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "B01.09 — Falta de fase ou desequilíbrio elétrico"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Aplicação: Motores trifásicos; não é diagnóstico de motor monofásico."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Sinais: Alarme de fase, sobrecarga ou motor trifásico sem partida."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "A placa ou o cadastro confirma motor trifásico?",
+            "O painel indica falta de fase ou desequilíbrio?"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Encaminhamento: Eletricista habilitado verifica as fases, o circuito e os dispositivos envolvidos, corrige a causa e confirma condições adequadas antes da liberação."
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Não fazer pontes nem tentar resolver falta de fase apenas trocando fases de posição."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "B01.12 — Defeito no motor ou acionamento eletrônico"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Aplicação: Motor, inversor ou soft-starter conforme o conjunto; hipóteses devem ser diferenciadas do estado normal de espera."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Sinais: Código no display, evento elétrico anterior ou ausência de rotação apesar de demanda aparentemente válida."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "O equipamento tem inversor ou soft-starter? Registre marca e modelo.",
+            "Qual código ou estado aparece no display?"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Encaminhamento: Manutenção habilitada consulta o manual específico, distingue comando ausente, parada de segurança e falha real, realiza os testes previstos e corrige o defeito confirmado."
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Não alterar parâmetros, desabilitar funções de segurança ou executar resets sucessivos. Respeitar a energia armazenada no acionamento."
+        },
+        {
+          "tipo": "pagina",
+          "title": "Voltar às quatro situações",
+          "id": "b01-guia"
+        }
+      ]
+    },
+    {
+      "id": "b01-parou",
+      "title": "D — Funcionava e parou de ligar",
+      "desc": "Pode coincidir com aquecimento, alteração do nível, falha de energia ou um defeito de comando.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Faça somente observações externas e registre indicadores já disponíveis. Não abra painéis, caixas de ligação ou carcaças; não toque em partes móveis nem tente dar impulso no eixo. Não insista em partidas ou rearmes. Serviços internos e testes elétricos exigem equipe habilitada, procedimentos de isolamento e bloqueio, ausência de energia confirmada, pressão controlada e prevenção de partida automática. Capacitores e inversores podem manter energia armazenada após desligar."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "B01.01 — Falta de alimentação elétrica"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Aplicação: Conjuntos com motor elétrico."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Sinais: Silêncio, indicadores apagados ou relato de outros equipamentos sem energia."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "O painel tem alguma luz ou informação visível?",
+            "Há notícia de falta geral de energia?"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Encaminhamento: A equipe elétrica verifica o fornecimento e a chegada de energia ao equipamento, identifica a interrupção e restabelece o circuito conforme o procedimento."
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Não abrir o painel para medir nem concluir que está sem tensão porque as luzes estão apagadas."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "B01.02 — Disjuntor ou fusível atuado"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Aplicação: Circuitos que possuem esses dispositivos."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Sinais: Parada súbita, registro de proteção ou indicação externa de desligamento."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "O controlador informa atuação de proteção?",
+            "A indicação surgiu durante a partida?"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Encaminhamento: O eletricista identifica a causa, corrige o defeito e confere a proteção especificada. Rearme ou substituição e partida somente após liberação."
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Não rearmar repetidamente, fazer pontes ou instalar proteção de maior capacidade por tentativa."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "B01.08 — Proteção térmica acionada"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Aplicação: Motores e acionamentos com proteção térmica ou de sobrecarga."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Sinais: Parou após funcionar, alarme térmico ou de sobrecarga, ventilação aparentemente obstruída."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "Quanto tempo funcionou antes de parar?",
+            "Qual alarme está visível e há obstrução externa da ventilação? Observe sem tocar."
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Encaminhamento: O técnico investiga carga, ventilação, condições térmicas e alimentação. Corrige a causa e libera o teste nas condições previstas pelo fabricante."
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Não considerar resolvido apenas porque esfriou. Algumas proteções podem permitir religamento automático."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "B01.10 — Contator, relé ou circuito de comando"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Aplicação: Painéis com esses elementos; a arquitetura depende do acionamento."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Sinais: Painel ligado, ausência de partida ou falha intermitente apesar de indicação de comando."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "O painel mostra comando de partida ou alarme de comando?",
+            "A falha é constante ou intermitente?"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Encaminhamento: O eletricista verifica o circuito conforme o diagrama, localiza o componente ou sinal defeituoso e efetua o reparo. Valida comando e proteções após a intervenção."
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Não pressionar contatores manualmente, trocar fios por tentativa ou contornar intertravamentos."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "B01.11 — Nível insuficiente, boia ou sensor de nível"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Aplicação: Somente instalações que utilizam nível como condição de operação ou proteção."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Sinais: Alarme de nível, proteção contra funcionamento a seco ou indicação de reservatório baixo."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "Qual nível aparece no indicador disponível?",
+            "Há alarme de nível ou de funcionamento a seco?"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Encaminhamento: Operação identifica a causa de nível insuficiente. Se o nível é adequado, equipe técnica verifica boia, sensor e lógica, corrige o defeito e valida os permissivos."
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Não entrar em reservatórios, acessar bordas desprotegidas, prender boias ou ignorar proteção contra funcionamento a seco."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "B01.12 — Defeito no motor ou acionamento eletrônico"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Aplicação: Motor, inversor ou soft-starter conforme o conjunto; hipóteses devem ser diferenciadas do estado normal de espera."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Sinais: Código no display, evento elétrico anterior ou ausência de rotação apesar de demanda aparentemente válida."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "O equipamento tem inversor ou soft-starter? Registre marca e modelo.",
+            "Qual código ou estado aparece no display?"
+          ]
+        },
+        {
+          "tipo": "texto",
+          "texto": "Encaminhamento: Manutenção habilitada consulta o manual específico, distingue comando ausente, parada de segurança e falha real, realiza os testes previstos e corrige o defeito confirmado."
+        },
+        {
+          "tipo": "aviso",
+          "texto": "Não alterar parâmetros, desabilitar funções de segurança ou executar resets sucessivos. Respeitar a energia armazenada no acionamento."
+        },
+        {
+          "tipo": "pagina",
+          "title": "Voltar às quatro situações",
+          "id": "b01-guia"
         }
       ]
     }
