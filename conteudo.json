@@ -1,4 +1,5 @@
 {
+  "revisao": 1,
   "fontes": {
     "bearing": {
       "title": "KSB • Aquecimento dos rolamentos",
@@ -79,6 +80,21 @@
       "title": "Schneider Electric • ATV320 sem partida",
       "url": "https://www.se.com/us/en/faqs/FAQ000223655/",
       "note": "Estados de comando, parada e segurança do ATV320. Consultar o manual do inversor instalado; não aplicar pontes nem neutralizar intertravamentos."
+    },
+    "priming": {
+      "title": "KSB • Escorva",
+      "url": "https://www.ksb.com/en-global/centrifugal-pump-lexicon/article/priming-1118660",
+      "note": "Escorva e retenção de líquido na sucção; seguir o modelo e a instalação."
+    },
+    "dry_running": {
+      "title": "KSB • Funcionamento a seco",
+      "url": "https://www.ksb.com/en-global/centrifugal-pump-lexicon/article/dry-running-1116984",
+      "note": "Danos possíveis quando falta líquido nos componentes que dependem dele."
+    },
+    "goulds_b02": {
+      "title": "Xylem / Goulds • Manual e diagnóstico",
+      "url": "https://www.xylem.com/siteassets/brand/goulds-water-technology/resources/manual/iomgwdwtr02.pdf",
+      "note": "Referência de fabricante: ausência de entrega, nível, rotação, obstrução e transmissão. Procedimentos específicos deste equipamento não são universais."
     }
   },
   "sintomas": [
@@ -101,89 +117,33 @@
         "b01_nivel",
         "b01_acionamento"
       ],
-      "blocos": [
-        {
-          "tipo": "pagina",
-          "title": "B01 — Escolher o sinal observado",
-          "id": "b01-guia"
-        },
-        {
-          "tipo": "aviso",
-          "texto": "Faça somente observações externas e registre indicadores já disponíveis. Não abra painéis, caixas de ligação ou carcaças; não toque em partes móveis nem tente dar impulso no eixo. Não insista em partidas ou rearmes. Serviços internos e testes elétricos exigem equipe habilitada, procedimentos de isolamento e bloqueio, ausência de energia confirmada, pressão controlada e prevenção de partida automática. Capacitores e inversores podem manter energia armazenada após desligar."
-        }
-      ]
+      "blocos": [],
+      "pagina_entrada": "b01-guia"
     },
     {
-      "id": "heat",
-      "title": "Aquecimento",
-      "desc": "Carcaça, mancal ou região do selo",
-      "icon": "♨",
+      "id": "no_water",
+      "title": "A bomba liga, mas não bombeia água",
+      "desc": "B02 • Motor acionado, sem entrega no destino esperado.",
       "causes": [
-        "lowflow",
-        "air",
-        "lubrication",
-        "alignment",
-        "seal"
-      ]
-    },
-    {
-      "id": "low",
-      "title": "Baixa vazão",
-      "desc": "Entrega menos líquido que o esperado",
-      "icon": "↘",
-      "causes": [
-        "air",
-        "cavitation",
-        "restriction",
-        "wear",
-        "rotation",
-        "lowflow"
-      ]
-    },
-    {
-      "id": "zero",
-      "title": "Não bombeia",
-      "desc": "Acionamento funciona, mas não há entrega",
-      "icon": "∅",
-      "causes": [
-        "air",
-        "restriction",
-        "rotation"
-      ]
-    },
-    {
-      "id": "vibration",
-      "title": "Vibração",
-      "desc": "Oscilações no conjunto ou na tubulação",
-      "icon": "≈",
-      "causes": [
-        "alignment",
-        "cavitation",
-        "lowflow",
-        "lubrication"
-      ]
-    },
-    {
-      "id": "noise",
-      "title": "Ruído anormal",
-      "desc": "Estalos, ronco ou som de pedriscos",
-      "icon": "◖",
-      "causes": [
-        "cavitation",
-        "air",
-        "lubrication",
-        "alignment"
-      ]
-    },
-    {
-      "id": "leak",
-      "title": "Vazamento",
-      "desc": "Líquido na região do eixo ou das juntas",
-      "icon": "◈",
-      "causes": [
-        "seal",
-        "alignment"
-      ]
+        "b02_01",
+        "b02_02",
+        "b02_03",
+        "b02_04",
+        "b02_05",
+        "b02_06",
+        "b02_07",
+        "b02_08",
+        "b02_09",
+        "b02_10",
+        "b02_11",
+        "b02_12",
+        "b02_13",
+        "b02_14",
+        "b02_15",
+        "b02_16"
+      ],
+      "pagina_entrada": "b02-guia",
+      "blocos": []
     }
   ],
   "causas": [
@@ -748,6 +708,330 @@
           "texto": "A equipe responsável libera a partida supervisionada, confere os alarmes e o funcionamento dentro dos parâmetros do modelo. O registro inicial é uma hipótese, não uma confirmação de falha."
         }
       ]
+    },
+    {
+      "id": "b02_01",
+      "title": "B02.01 • Falta de água no reservatório",
+      "why": "O nível disponível pode ser insuficiente para alimentar a sucção ou manter a submergência exigida.",
+      "signs": "Indicador de nível baixo, entrega inicial que desaparece ou alarme de funcionamento a seco.",
+      "checks": [
+        "Consultar indicadores de nível em local seguro e o histórico do abastecimento.",
+        "Comparar o nível e a submergência com os requisitos do fabricante; não entrar em reservatórios."
+      ],
+      "action": "Restabelecer o abastecimento e corrigir a causa da queda de nível. Confirmar nível, proteções e escorva aplicável antes de uma partida supervisionada.",
+      "avoid": "Não manter a bomba funcionando a seco nem anular a proteção de nível.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "priming",
+        "dry_running",
+        "goulds_b02"
+      ],
+      "blocos": []
+    },
+    {
+      "id": "b02_02",
+      "title": "B02.02 • Bomba sem escorva",
+      "why": "Uma bomba centrífuga não autoescorvante precisa de líquido na carcaça e, conforme a instalação, na sucção para estabelecer o bombeamento.",
+      "signs": "Motor funciona sem entrega, especialmente após instalação, manutenção ou drenagem.",
+      "checks": [
+        "Consultar o procedimento de escorva do modelo e o histórico da última intervenção.",
+        "Investigar perda de escorva se a bomba já operava normalmente."
+      ],
+      "action": "Executar enchimento e escorva pelo procedimento do fabricante, com isolamento e condições seguras. Corrigir a perda de líquido ou entrada de ar antes da liberação.",
+      "avoid": "Autoescorvante não significa funcionamento ilimitado a seco; pode exigir enchimento inicial. Bombas submersíveis têm requisitos próprios de instalação.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "priming",
+        "vent",
+        "dry_running"
+      ],
+      "blocos": []
+    },
+    {
+      "id": "b02_03",
+      "title": "B02.03 • Entrada de ar na sucção",
+      "why": "Ar admitido em juntas, conexões, vedações ou por nível inadequado pode interromper a continuidade do líquido na sucção.",
+      "signs": "Fluxo intermitente, bolhas observáveis em indicador adequado e perda de escorva. Uma fuga de ar pode não apresentar vazamento de água.",
+      "checks": [
+        "Consultar histórico de intervenções e observar externamente as conexões acessíveis.",
+        "Solicitar ensaio de estanqueidade adequado com o sistema isolado; ruído sozinho não confirma entrada de ar."
+      ],
+      "action": "Reparar os pontos de entrada de ar e corrigir a condição de sucção. Restabelecer a escorva conforme o fabricante e validar a operação.",
+      "avoid": "Não apertar juntas nem procurar fugas abrindo a tubulação em operação.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "air",
+        "inlet",
+        "priming"
+      ],
+      "blocos": []
+    },
+    {
+      "id": "b02_04",
+      "title": "B02.04 • Sucção ou filtro obstruído",
+      "why": "Sólidos e depósitos restringem a chegada de líquido e aumentam as perdas na sucção.",
+      "signs": "Perda gradual de desempenho, histórico de líquido sujo ou alteração nos indicadores de sucção existentes.",
+      "checks": [
+        "Comparar indicadores e registros anteriores, considerando a posição e a condição dos instrumentos.",
+        "Planejar inspeção do filtro e da sucção após isolamento, despressurização e drenagem controlada."
+      ],
+      "action": "Limpar ou substituir o componente conforme o procedimento e investigar a origem dos sólidos. Confirmar a condição de sucção antes da partida.",
+      "avoid": "Não remover permanentemente o filtro previsto no projeto nem abrir tampas pressurizadas.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "inlet",
+        "goulds_b02",
+        "nov"
+      ],
+      "blocos": []
+    },
+    {
+      "id": "b02_05",
+      "title": "B02.05 • Válvula de sucção fechada ou parcialmente fechada",
+      "why": "Uma válvula em posição inadequada pode impedir ou restringir a alimentação da bomba.",
+      "signs": "Falha após manutenção ou mudança operacional; indicador de posição incompatível com o alinhamento previsto.",
+      "checks": [
+        "Identificar a válvula pelo diagrama da instalação e conferir os indicadores acessíveis.",
+        "Confirmar com a operação o alinhamento correto e a confiabilidade da indicação."
+      ],
+      "action": "Um operador autorizado deve restabelecer a posição prevista no procedimento e verificar as condições de alimentação antes da liberação.",
+      "avoid": "Não movimentar válvulas desconhecidas nem usar tentativa e erro; mudanças podem afetar outros equipamentos.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "inlet",
+        "nov"
+      ],
+      "blocos": []
+    },
+    {
+      "id": "b02_06",
+      "title": "B02.06 • Válvula de pé ou retenção na sucção defeituosa",
+      "why": "Quando presente, a válvula pode perder vedação e deixar a sucção esvaziar ou travar e bloquear a passagem.",
+      "signs": "Perda de escorva após parada ou ausência de alimentação apesar de nível suficiente.",
+      "checks": [
+        "Confirmar se esse dispositivo existe no sistema e consultar o histórico de perda de escorva.",
+        "Planejar inspeção isolada para distinguir falta de vedação, obstrução e travamento."
+      ],
+      "action": "Limpar, reparar ou substituir o dispositivo adequado ao projeto. Verificar retenção da escorva e alimentação na condição de operação prevista.",
+      "avoid": "Esta hipótese só se aplica a instalações com esse dispositivo. Não desmontar a linha sem isolamento e despressurização.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "priming",
+        "nov"
+      ],
+      "blocos": []
+    },
+    {
+      "id": "b02_07",
+      "title": "B02.07 • Válvula de descarga fechada",
+      "why": "A saída bloqueada pode impedir a entrega mesmo com o conjunto acionado; operar sem vazão pode aquecer o líquido e danificar a bomba.",
+      "signs": "Ausência de fluxo e pressão elevada no ponto de medição adequado a montante do bloqueio.",
+      "checks": [
+        "Consultar os indicadores já instalados, o diagrama e o alinhamento operacional.",
+        "Confirmar a posição da válvula com a operação, sem prolongar uma condição sem vazão para fazer o diagnóstico."
+      ],
+      "action": "Seguir o procedimento de parada e correção do alinhamento por pessoal autorizado. Antes de reiniciar, confirmar destino do líquido, proteções e vazão mínima exigida.",
+      "avoid": "Não abrir válvulas por tentativa e erro nem manter a bomba funcionando contra uma descarga fechada.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "flow",
+        "nov"
+      ],
+      "blocos": []
+    },
+    {
+      "id": "b02_08",
+      "title": "B02.08 • Descarga obstruída ou retenção travada",
+      "why": "Uma obstrução ou retenção que não abre pode bloquear o caminho de descarga.",
+      "signs": "Pressão elevada antes do bloqueio e falta de entrega; histórico de sólidos, incrustação ou manutenção.",
+      "checks": [
+        "Localizar os instrumentos no diagrama para interpretar corretamente as pressões.",
+        "Planejar inspeção da linha e retenção após isolamento, despressurização e temperatura segura."
+      ],
+      "action": "Remover a obstrução ou reparar o dispositivo pelo procedimento aprovado e verificar a passagem até o destino correto.",
+      "avoid": "Não soltar flanges, golpear dispositivos ou abrir tampas sob pressão. A pressão pode ficar retida entre válvulas.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "nov",
+        "flow"
+      ],
+      "blocos": []
+    },
+    {
+      "id": "b02_09",
+      "title": "B02.09 • Ar acumulado na bomba ou tubulação",
+      "why": "Bolsões de ar podem impedir o enchimento e o estabelecimento do fluxo. Algumas instalações submersíveis também podem apresentar bloqueio por ar.",
+      "signs": "Falha após drenagem ou instalação, fluxo intermitente e comportamento compatível com ar retido.",
+      "checks": [
+        "Verificar histórico de enchimento e os pontos de purga previstos no projeto.",
+        "Consultar o manual do modelo para distinguir ventilação normal de falha de instalação."
+      ],
+      "action": "Realizar enchimento e retirada de ar pelo procedimento do fabricante, em condições seguras e por pessoal autorizado. Corrigir trechos que favoreçam acúmulo de ar.",
+      "avoid": "Não abrir respiros ou conexões em operação, quentes ou pressurizados.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "air",
+        "vent"
+      ],
+      "blocos": []
+    },
+    {
+      "id": "b02_10",
+      "title": "B02.10 • Altura manométrica do sistema excede a capacidade",
+      "why": "Se a altura requerida pelo sistema superar a que a bomba desenvolve na condição real, pode não existir ponto de operação com entrega.",
+      "signs": "Problema após elevar o destino, alterar tubulações ou trocar bomba, rotor ou velocidade.",
+      "checks": [
+        "Reunir modelo, diâmetro do rotor, velocidade, fluido e curva do fabricante.",
+        "Solicitar comparação entre curva da bomba e curva do sistema, incluindo desnível, pressões e perdas."
+      ],
+      "action": "Revisar o dimensionamento e a condição de operação com o responsável técnico; corrigir a instalação ou selecionar equipamento adequado.",
+      "avoid": "Não aumentar velocidade ou alterar rotor sem verificar limites mecânicos, potência e requisitos hidráulicos.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "flow",
+        "nov"
+      ],
+      "blocos": []
+    },
+    {
+      "id": "b02_11",
+      "title": "B02.11 • Sentido de rotação incorreto",
+      "why": "A rotação contrária à prevista pode reduzir fortemente a altura e a vazão. O comportamento depende da construção da bomba.",
+      "signs": "Falha após ligação elétrica, troca de motor ou intervenção no acionamento.",
+      "checks": [
+        "Consultar seta de rotação, manual e histórico elétrico; não retirar proteções nem operar a seco para conferir.",
+        "Solicitar verificação por profissional habilitado com método aprovado e condições hidráulicas seguras."
+      ],
+      "action": "Em motor trifásico ligado diretamente à rede, um eletricista habilitado pode corrigir a sequência trocando duas fases, após isolamento, bloqueio e confirmação de ausência de tensão, respeitando as restrições do motor. Com inversor, conferir comando e parâmetros conforme o fabricante; trocar fases na entrada do inversor não corrige o sentido da saída. Motor monofásico exige procedimento próprio.",
+      "avoid": "Não intervir em circuito energizado, inverter motor com restrição unidirecional ou alterar parâmetros sem autorização.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "goulds_b02",
+        "nov"
+      ],
+      "blocos": []
+    },
+    {
+      "id": "b02_12",
+      "title": "B02.12 • Rotor obstruído, desgastado ou danificado",
+      "why": "Obstrução ou dano no rotor reduz a transferência de energia ao líquido; em condição grave pode impedir a entrega.",
+      "signs": "Histórico de sólidos, perda progressiva de desempenho ou ruído incomum; esses sinais não confirmam a causa isoladamente.",
+      "checks": [
+        "Comparar desempenho e histórico de serviço com a condição anterior.",
+        "Programar inspeção interna somente após bloqueio, isolamento hidráulico, despressurização e resfriamento."
+      ],
+      "action": "Limpar, reparar ou substituir os componentes conforme o fabricante, verificando folgas e montagem específicas do modelo.",
+      "avoid": "Não usar folgas universais nem introduzir ferramentas ou mãos em partes com possibilidade de movimento.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "nov",
+        "goulds_b02"
+      ],
+      "blocos": []
+    },
+    {
+      "id": "b02_13",
+      "title": "B02.13 • Acoplamento ou eixo danificado",
+      "why": "O motor acionado não garante que o rotor da bomba esteja recebendo movimento; a transmissão pode ter falhado.",
+      "signs": "Motor funciona sem a resposta hidráulica esperada, possivelmente após ruído ou falha mecânica.",
+      "checks": [
+        "Consultar o histórico e observar apenas do lado externo das proteções.",
+        "Solicitar inspeção da transmissão, fixações e eixo com todas as energias bloqueadas."
+      ],
+      "action": "Reparar ou substituir os componentes, conferir alinhamento conforme o modelo e recolocar as proteções antes da validação autorizada.",
+      "avoid": "Não tocar no eixo, retirar proteções ou aproximar objetos de partes em movimento.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "goulds_b02",
+        "nov"
+      ],
+      "blocos": []
+    },
+    {
+      "id": "b02_14",
+      "title": "B02.14 • Velocidade insuficiente",
+      "why": "A bomba pode não desenvolver altura suficiente quando opera abaixo da velocidade necessária ao sistema.",
+      "signs": "Frequência indicada baixa, mudança de parâmetros ou ausência de pressão após alteração no acionamento.",
+      "checks": [
+        "Consultar indicação de frequência ou velocidade já disponível e os registros de ajuste.",
+        "Conferir a condição prevista no projeto e a curva da bomba com o responsável pelo acionamento."
+      ],
+      "action": "Corrigir comando ou parâmetros autorizados conforme os manuais e confirmar potência, limites de velocidade e condição hidráulica.",
+      "avoid": "Não aumentar a frequência arbitrariamente nem ultrapassar os limites do conjunto.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "flow",
+        "nov"
+      ],
+      "blocos": []
+    },
+    {
+      "id": "b02_15",
+      "title": "B02.15 • Cavitação severa ou sucção inadequada",
+      "why": "Pressão local insuficiente pode formar vapor no líquido e prejudicar a operação. Em situação severa, pode contribuir para grande perda de desempenho.",
+      "signs": "Ruído semelhante a pedrisco, vibração e instabilidade; esses sinais também podem ter outras causas.",
+      "checks": [
+        "Consultar temperatura do líquido, nível, perdas na sucção e indicadores existentes.",
+        "Solicitar avaliação do NPSH disponível frente ao requerido pelo fabricante, com margem adequada ao serviço."
+      ],
+      "action": "Corrigir as condições de sucção e operação identificadas na análise técnica, considerando temperatura, nível e perdas da instalação.",
+      "avoid": "Ruído sozinho não confirma cavitação. Não adotar margem de NPSH universal nem estrangular a sucção como correção.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "cav",
+        "inlet"
+      ],
+      "blocos": []
+    },
+    {
+      "id": "b02_16",
+      "title": "B02.16 • Bypass ou recirculação indevida",
+      "why": "O líquido pode estar circulando por outro caminho em vez de chegar ao destino esperado.",
+      "signs": "Indicação de circulação ou consumo de potência sem entrega no ponto desejado; alteração de alinhamento de válvulas.",
+      "checks": [
+        "Consultar o diagrama, o modo de operação e os indicadores já disponíveis.",
+        "Identificar a função de cada retorno: alguns mantêm a vazão mínima obrigatória da bomba."
+      ],
+      "action": "A operação autorizada deve corrigir o alinhamento ou reparar o dispositivo defeituoso conforme o projeto, preservando a proteção de vazão mínima.",
+      "avoid": "Nunca fechar um bypass sem identificar sua função; pode ser indispensável para proteger a bomba.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "flow",
+        "nov"
+      ],
+      "blocos": []
     }
   ],
   "perguntas": [
@@ -843,8 +1127,8 @@
   },
   "apresentacao": {
     "nome": "BombaGuia",
-    "titulo_inicio": "Mapas mentais de soluções",
-    "subtitulo_inicio": "Escolha um sintoma. Explore possíveis causas, sinais, verificações e soluções.",
+    "titulo_inicio": "O que acontece com a bomba?",
+    "subtitulo_inicio": "Escolha uma opção para consultar as possíveis causas e soluções.",
     "rodape": "Desenvolvedor\ncloviscoutinho2017@gmail.com",
     "titulo_biblioteca": "Biblioteca técnica",
     "titulo_fontes": "Fontes técnicas",
@@ -852,7 +1136,7 @@
     "nota_fontes": "Sínteses educativas, ainda sem validação técnica de campo. Limites, folgas e ajustes são específicos do modelo e da instalação."
   },
   "navegacao": {
-    "inicio": "Mapas",
+    "inicio": "Sintomas",
     "biblioteca": "Biblioteca",
     "registro": "Registro",
     "fontes": "Fontes"
@@ -868,11 +1152,11 @@
       "blocos": [
         {
           "tipo": "titulo",
-          "texto": "Escolha o sintoma e consulte as hipóteses"
+          "texto": "Escolha uma opção e consulte as hipóteses"
         },
         {
           "tipo": "texto",
-          "texto": "Os mapas organizam possíveis causas, sinais, verificações e soluções. Eles não confirmam defeitos. Consulte o manual do equipamento e siga os procedimentos da instalação."
+          "texto": "Escolha o sintoma, depois uma possível causa e o tópico desejado. Use Voltar para retornar à etapa anterior. Consulte o manual e os procedimentos da instalação. As hipóteses não confirmam defeitos."
         },
         {
           "tipo": "titulo",
@@ -894,17 +1178,13 @@
     },
     {
       "id": "b01-guia",
-      "title": "B01 — A bomba não liga: comece pelo sinal",
-      "desc": "Motor não entra em operação. Escolha uma das quatro situações observadas.",
-      "mostrar_inicio": true,
+      "title": "A bomba não liga",
+      "desc": "B01 • Escolha o sinal que você observou.",
+      "mostrar_inicio": false,
       "blocos": [
         {
           "tipo": "aviso",
-          "texto": "Faça somente observações externas e registre indicadores já disponíveis. Não abra painéis, caixas de ligação ou carcaças; não toque em partes móveis nem tente dar impulso no eixo. Não insista em partidas ou rearmes. Serviços internos e testes elétricos exigem equipe habilitada, procedimentos de isolamento e bloqueio, ausência de energia confirmada, pressão controlada e prevenção de partida automática. Capacitores e inversores podem manter energia armazenada após desligar."
-        },
-        {
-          "tipo": "titulo",
-          "texto": "O que acontece quando tenta ligar?"
+          "texto": "Observe de uma posição segura. Não abra painéis, não faça pontes nem repita partidas ou rearmes. Intervenções exigem equipe habilitada e isolamento de energias."
         },
         {
           "tipo": "pagina",
@@ -928,46 +1208,7 @@
         },
         {
           "tipo": "texto",
-          "texto": "Uma mesma causa pode aparecer em mais de uma situação. Motor parado é diferente de motor girando sem bombear. As fichas B01.01 a B01.12 também estão disponíveis na busca da biblioteca e no mapa do sintoma."
-        },
-        {
-          "tipo": "aviso",
-          "texto": "Capacitor depende do projeto de um motor monofásico; falta de fase se refere ao trifásico. Se não souber o tipo, registre essa dúvida para a manutenção. Estas páginas são caminhos de consulta, não um diagnóstico automático."
-        },
-        {
-          "tipo": "link",
-          "title": "Grundfos • CR: motor não parte e falhas de comando",
-          "url": "https://www.grundfos.com/content/dam/local/en-in/page-assets/support/documents/1_CR.pdf"
-        },
-        {
-          "tipo": "link",
-          "title": "Grundfos • Bomba de drenagem não inicia",
-          "url": "https://www.grundfos.com/solutions/support/faq/why-does-my-drainage-pump-not-start"
-        },
-        {
-          "tipo": "link",
-          "title": "Grundfos • Motivos de atuação das proteções",
-          "url": "https://www.grundfos.com/solutions/support/faq/the-circuit-breaker-or-fuses-on-a-circulator-pump-have-tripped-what-might-be-the-cause"
-        },
-        {
-          "tipo": "link",
-          "title": "Grundfos • Falhas de partida em bombas submersíveis",
-          "url": "https://api.grundfos.com/literature/Grundfosliterature-5903490.pdf"
-        },
-        {
-          "tipo": "link",
-          "title": "Grundfos • Controle automático SCALA2",
-          "url": "https://www.grundfos.com/content/dam/local/en-us/activity-assets/domestic-cold-water/downloads/Grundfosliterature-5769057-SCALA2-IO.pdf"
-        },
-        {
-          "tipo": "link",
-          "title": "Pentair • Motor não funciona: centrífugas e irrigação",
-          "url": "https://www.pentair.com/content/dam/extranet/web/nam/pentair/manuals/p15006-centrifugals-and-sprinklers-iom.pdf"
-        },
-        {
-          "tipo": "link",
-          "title": "Schneider Electric • ATV320 sem partida",
-          "url": "https://www.se.com/us/en/faqs/FAQ000223655/"
+          "texto": "Uma mesma causa pode aparecer em mais de uma situação. A escolha organiza a consulta; não confirma o defeito."
         }
       ]
     },
@@ -979,201 +1220,42 @@
       "blocos": [
         {
           "tipo": "aviso",
-          "texto": "Faça somente observações externas e registre indicadores já disponíveis. Não abra painéis, caixas de ligação ou carcaças; não toque em partes móveis nem tente dar impulso no eixo. Não insista em partidas ou rearmes. Serviços internos e testes elétricos exigem equipe habilitada, procedimentos de isolamento e bloqueio, ausência de energia confirmada, pressão controlada e prevenção de partida automática. Capacitores e inversores podem manter energia armazenada após desligar."
+          "texto": "Observe de uma posição segura. Não abra painéis, não faça pontes nem repita partidas ou rearmes. Intervenções exigem equipe habilitada e isolamento de energias."
         },
         {
-          "tipo": "titulo",
-          "texto": "B01.01 — Falta de alimentação elétrica"
+          "tipo": "causa",
+          "title": "B01.01 — Falta de alimentação elétrica",
+          "id": "b01_alimentacao"
         },
         {
-          "tipo": "texto",
-          "texto": "Aplicação: Conjuntos com motor elétrico."
+          "tipo": "causa",
+          "title": "B01.02 — Disjuntor ou fusível atuado",
+          "id": "b01_protecao"
         },
         {
-          "tipo": "texto",
-          "texto": "Sinais: Silêncio, indicadores apagados ou relato de outros equipamentos sem energia."
+          "tipo": "causa",
+          "title": "B01.03 — Ausência de solicitação de partida",
+          "id": "b01_demanda"
         },
         {
-          "tipo": "lista",
-          "itens": [
-            "O painel tem alguma luz ou informação visível?",
-            "Há notícia de falta geral de energia?"
-          ]
+          "tipo": "causa",
+          "title": "B01.04 — Pressostato ou sensor de pressão",
+          "id": "b01_pressao"
         },
         {
-          "tipo": "texto",
-          "texto": "Encaminhamento: A equipe elétrica verifica o fornecimento e a chegada de energia ao equipamento, identifica a interrupção e restabelece o circuito conforme o procedimento."
+          "tipo": "causa",
+          "title": "B01.10 — Contator, relé ou circuito de comando",
+          "id": "b01_comando"
         },
         {
-          "tipo": "aviso",
-          "texto": "Não abrir o painel para medir nem concluir que está sem tensão porque as luzes estão apagadas."
+          "tipo": "causa",
+          "title": "B01.11 — Nível insuficiente, boia ou sensor de nível",
+          "id": "b01_nivel"
         },
         {
-          "tipo": "titulo",
-          "texto": "B01.02 — Disjuntor ou fusível atuado"
-        },
-        {
-          "tipo": "texto",
-          "texto": "Aplicação: Circuitos que possuem esses dispositivos."
-        },
-        {
-          "tipo": "texto",
-          "texto": "Sinais: Parada súbita, registro de proteção ou indicação externa de desligamento."
-        },
-        {
-          "tipo": "lista",
-          "itens": [
-            "O controlador informa atuação de proteção?",
-            "A indicação surgiu durante a partida?"
-          ]
-        },
-        {
-          "tipo": "texto",
-          "texto": "Encaminhamento: O eletricista identifica a causa, corrige o defeito e confere a proteção especificada. Rearme ou substituição e partida somente após liberação."
-        },
-        {
-          "tipo": "aviso",
-          "texto": "Não rearmar repetidamente, fazer pontes ou instalar proteção de maior capacidade por tentativa."
-        },
-        {
-          "tipo": "titulo",
-          "texto": "B01.03 — Ausência de solicitação de partida"
-        },
-        {
-          "tipo": "texto",
-          "texto": "Aplicação: Sistemas automáticos ou comandados remotamente."
-        },
-        {
-          "tipo": "texto",
-          "texto": "Sinais: Painel ligado e bomba parada, eventualmente sem alarme."
-        },
-        {
-          "tipo": "lista",
-          "itens": [
-            "Qual modo aparece: automático, manual ou remoto?",
-            "O controlador indica demanda de funcionamento?"
-          ]
-        },
-        {
-          "tipo": "texto",
-          "texto": "Encaminhamento: Operação e manutenção conferem a lógica prevista e os sinais do controlador. Se há demanda válida e não ocorre partida, investigam o circuito de comando."
-        },
-        {
-          "tipo": "aviso",
-          "texto": "Não forçar uma partida manual nem ignorar permissivos para testar se a bomba funciona."
-        },
-        {
-          "tipo": "titulo",
-          "texto": "B01.04 — Pressostato ou sensor de pressão"
-        },
-        {
-          "tipo": "texto",
-          "texto": "Aplicação: Somente controles de partida que utilizam pressão."
-        },
-        {
-          "tipo": "texto",
-          "texto": "Sinais: Falha no automático, alarme de sensor ou leitura incompatível com o processo."
-        },
-        {
-          "tipo": "lista",
-          "itens": [
-            "Existe leitura de pressão ou alarme no display?",
-            "A falha foi observada somente no modo automático?"
-          ]
-        },
-        {
-          "tipo": "texto",
-          "texto": "Encaminhamento: A equipe compara a indicação com uma referência válida e verifica o sinal e a lógica. Corrige sensor, pressostato, conexão ou ajuste identificado e valida conforme o projeto."
-        },
-        {
-          "tipo": "aviso",
-          "texto": "Não ajustar pressão por tentativa nem jumpear o pressostato ou o sinal do sensor."
-        },
-        {
-          "tipo": "titulo",
-          "texto": "B01.10 — Contator, relé ou circuito de comando"
-        },
-        {
-          "tipo": "texto",
-          "texto": "Aplicação: Painéis com esses elementos; a arquitetura depende do acionamento."
-        },
-        {
-          "tipo": "texto",
-          "texto": "Sinais: Painel ligado, ausência de partida ou falha intermitente apesar de indicação de comando."
-        },
-        {
-          "tipo": "lista",
-          "itens": [
-            "O painel mostra comando de partida ou alarme de comando?",
-            "A falha é constante ou intermitente?"
-          ]
-        },
-        {
-          "tipo": "texto",
-          "texto": "Encaminhamento: O eletricista verifica o circuito conforme o diagrama, localiza o componente ou sinal defeituoso e efetua o reparo. Valida comando e proteções após a intervenção."
-        },
-        {
-          "tipo": "aviso",
-          "texto": "Não pressionar contatores manualmente, trocar fios por tentativa ou contornar intertravamentos."
-        },
-        {
-          "tipo": "titulo",
-          "texto": "B01.11 — Nível insuficiente, boia ou sensor de nível"
-        },
-        {
-          "tipo": "texto",
-          "texto": "Aplicação: Somente instalações que utilizam nível como condição de operação ou proteção."
-        },
-        {
-          "tipo": "texto",
-          "texto": "Sinais: Alarme de nível, proteção contra funcionamento a seco ou indicação de reservatório baixo."
-        },
-        {
-          "tipo": "lista",
-          "itens": [
-            "Qual nível aparece no indicador disponível?",
-            "Há alarme de nível ou de funcionamento a seco?"
-          ]
-        },
-        {
-          "tipo": "texto",
-          "texto": "Encaminhamento: Operação identifica a causa de nível insuficiente. Se o nível é adequado, equipe técnica verifica boia, sensor e lógica, corrige o defeito e valida os permissivos."
-        },
-        {
-          "tipo": "aviso",
-          "texto": "Não entrar em reservatórios, acessar bordas desprotegidas, prender boias ou ignorar proteção contra funcionamento a seco."
-        },
-        {
-          "tipo": "titulo",
-          "texto": "B01.12 — Defeito no motor ou acionamento eletrônico"
-        },
-        {
-          "tipo": "texto",
-          "texto": "Aplicação: Motor, inversor ou soft-starter conforme o conjunto; hipóteses devem ser diferenciadas do estado normal de espera."
-        },
-        {
-          "tipo": "texto",
-          "texto": "Sinais: Código no display, evento elétrico anterior ou ausência de rotação apesar de demanda aparentemente válida."
-        },
-        {
-          "tipo": "lista",
-          "itens": [
-            "O equipamento tem inversor ou soft-starter? Registre marca e modelo.",
-            "Qual código ou estado aparece no display?"
-          ]
-        },
-        {
-          "tipo": "texto",
-          "texto": "Encaminhamento: Manutenção habilitada consulta o manual específico, distingue comando ausente, parada de segurança e falha real, realiza os testes previstos e corrige o defeito confirmado."
-        },
-        {
-          "tipo": "aviso",
-          "texto": "Não alterar parâmetros, desabilitar funções de segurança ou executar resets sucessivos. Respeitar a energia armazenada no acionamento."
-        },
-        {
-          "tipo": "pagina",
-          "title": "Voltar às quatro situações",
-          "id": "b01-guia"
+          "tipo": "causa",
+          "title": "B01.12 — Defeito no motor ou acionamento eletrônico",
+          "id": "b01_acionamento"
         }
       ]
     },
@@ -1185,147 +1267,32 @@
       "blocos": [
         {
           "tipo": "aviso",
-          "texto": "Faça somente observações externas e registre indicadores já disponíveis. Não abra painéis, caixas de ligação ou carcaças; não toque em partes móveis nem tente dar impulso no eixo. Não insista em partidas ou rearmes. Serviços internos e testes elétricos exigem equipe habilitada, procedimentos de isolamento e bloqueio, ausência de energia confirmada, pressão controlada e prevenção de partida automática. Capacitores e inversores podem manter energia armazenada após desligar."
+          "texto": "Observe de uma posição segura. Não abra painéis, não faça pontes nem repita partidas ou rearmes. Intervenções exigem equipe habilitada e isolamento de energias."
         },
         {
-          "tipo": "titulo",
-          "texto": "B01.05 — Capacitor ou circuito de partida"
+          "tipo": "causa",
+          "title": "B01.05 — Capacitor ou circuito de partida",
+          "id": "b01_capacitor"
         },
         {
-          "tipo": "texto",
-          "texto": "Aplicação: Apenas motor monofásico cujo modelo utiliza capacitor; não se aplica automaticamente a trifásicos."
+          "tipo": "causa",
+          "title": "B01.06 — Rotor ou eixo mecanicamente travado",
+          "id": "b01_travamento"
         },
         {
-          "tipo": "texto",
-          "texto": "Sinais: Zumbido sem rotação, eventualmente com atuação de proteção. O mesmo sinal pode ter outras causas."
+          "tipo": "causa",
+          "title": "B01.07 — Tensão elétrica inadequada",
+          "id": "b01_tensao"
         },
         {
-          "tipo": "lista",
-          "itens": [
-            "A placa identifica motor monofásico? Se não souber, registre a dúvida.",
-            "O zumbido ocorreu sem o motor iniciar a rotação? Não provoque nova tentativa para confirmar."
-          ]
+          "tipo": "causa",
+          "title": "B01.09 — Falta de fase ou desequilíbrio elétrico",
+          "id": "b01_fase"
         },
         {
-          "tipo": "texto",
-          "texto": "Encaminhamento: O profissional identifica o circuito do modelo e testa seus componentes com controle da energia armazenada. Substitui apenas o componente comprovadamente defeituoso, conforme especificação."
-        },
-        {
-          "tipo": "aviso",
-          "texto": "Não tocar nos terminais nem tentar descarregar o capacitor com ferramenta. Não sugerir essa hipótese como solução de um motor trifásico."
-        },
-        {
-          "tipo": "titulo",
-          "texto": "B01.06 — Rotor ou eixo mecanicamente travado"
-        },
-        {
-          "tipo": "texto",
-          "texto": "Aplicação: Conjunto girante de bomba e motor; exige inspeção para localizar o bloqueio."
-        },
-        {
-          "tipo": "texto",
-          "texto": "Sinais: Tentativa de partida sem rotação, ruído anterior ou longo período de inatividade."
-        },
-        {
-          "tipo": "lista",
-          "itens": [
-            "Ficou muito tempo parada ou houve ruído antes da falha?",
-            "Existe histórico de partículas ou sujeira no líquido?"
-          ]
-        },
-        {
-          "tipo": "texto",
-          "texto": "Encaminhamento: Após tornar o conjunto seguro, manutenção autorizada inspeciona eixo, impulsor e mancais, elimina a causa do travamento e repara danos. Confirma livre movimentação por procedimento seguro antes da liberação."
-        },
-        {
-          "tipo": "aviso",
-          "texto": "Não tentar girar com a mão, dar impulso no eixo ou retirar proteção durante uma tentativa de partida."
-        },
-        {
-          "tipo": "titulo",
-          "texto": "B01.07 — Tensão elétrica inadequada"
-        },
-        {
-          "tipo": "texto",
-          "texto": "Aplicação: Compatibilidade definida pela placa, acionamento e manual do modelo."
-        },
-        {
-          "tipo": "texto",
-          "texto": "Sinais: Alarme de tensão, dificuldade de partida ou comportamento anormal de outros equipamentos."
-        },
-        {
-          "tipo": "lista",
-          "itens": [
-            "Há código de subtensão ou sobretensão disponível?",
-            "Outros equipamentos apresentaram anomalia no mesmo período?"
-          ]
-        },
-        {
-          "tipo": "texto",
-          "texto": "Encaminhamento: A equipe elétrica verifica alimentação, ligações e condições de partida, compara com os limites do fabricante e corrige a origem da anomalia."
-        },
-        {
-          "tipo": "aviso",
-          "texto": "Não medir partes energizadas por conta própria nem usar uma tolerância de tensão como regra universal."
-        },
-        {
-          "tipo": "titulo",
-          "texto": "B01.09 — Falta de fase ou desequilíbrio elétrico"
-        },
-        {
-          "tipo": "texto",
-          "texto": "Aplicação: Motores trifásicos; não é diagnóstico de motor monofásico."
-        },
-        {
-          "tipo": "texto",
-          "texto": "Sinais: Alarme de fase, sobrecarga ou motor trifásico sem partida."
-        },
-        {
-          "tipo": "lista",
-          "itens": [
-            "A placa ou o cadastro confirma motor trifásico?",
-            "O painel indica falta de fase ou desequilíbrio?"
-          ]
-        },
-        {
-          "tipo": "texto",
-          "texto": "Encaminhamento: Eletricista habilitado verifica as fases, o circuito e os dispositivos envolvidos, corrige a causa e confirma condições adequadas antes da liberação."
-        },
-        {
-          "tipo": "aviso",
-          "texto": "Não fazer pontes nem tentar resolver falta de fase apenas trocando fases de posição."
-        },
-        {
-          "tipo": "titulo",
-          "texto": "B01.12 — Defeito no motor ou acionamento eletrônico"
-        },
-        {
-          "tipo": "texto",
-          "texto": "Aplicação: Motor, inversor ou soft-starter conforme o conjunto; hipóteses devem ser diferenciadas do estado normal de espera."
-        },
-        {
-          "tipo": "texto",
-          "texto": "Sinais: Código no display, evento elétrico anterior ou ausência de rotação apesar de demanda aparentemente válida."
-        },
-        {
-          "tipo": "lista",
-          "itens": [
-            "O equipamento tem inversor ou soft-starter? Registre marca e modelo.",
-            "Qual código ou estado aparece no display?"
-          ]
-        },
-        {
-          "tipo": "texto",
-          "texto": "Encaminhamento: Manutenção habilitada consulta o manual específico, distingue comando ausente, parada de segurança e falha real, realiza os testes previstos e corrige o defeito confirmado."
-        },
-        {
-          "tipo": "aviso",
-          "texto": "Não alterar parâmetros, desabilitar funções de segurança ou executar resets sucessivos. Respeitar a energia armazenada no acionamento."
-        },
-        {
-          "tipo": "pagina",
-          "title": "Voltar às quatro situações",
-          "id": "b01-guia"
+          "tipo": "causa",
+          "title": "B01.12 — Defeito no motor ou acionamento eletrônico",
+          "id": "b01_acionamento"
         }
       ]
     },
@@ -1337,174 +1304,37 @@
       "blocos": [
         {
           "tipo": "aviso",
-          "texto": "Faça somente observações externas e registre indicadores já disponíveis. Não abra painéis, caixas de ligação ou carcaças; não toque em partes móveis nem tente dar impulso no eixo. Não insista em partidas ou rearmes. Serviços internos e testes elétricos exigem equipe habilitada, procedimentos de isolamento e bloqueio, ausência de energia confirmada, pressão controlada e prevenção de partida automática. Capacitores e inversores podem manter energia armazenada após desligar."
+          "texto": "Observe de uma posição segura. Não abra painéis, não faça pontes nem repita partidas ou rearmes. Intervenções exigem equipe habilitada e isolamento de energias."
         },
         {
-          "tipo": "titulo",
-          "texto": "B01.02 — Disjuntor ou fusível atuado"
+          "tipo": "causa",
+          "title": "B01.02 — Disjuntor ou fusível atuado",
+          "id": "b01_protecao"
         },
         {
-          "tipo": "texto",
-          "texto": "Aplicação: Circuitos que possuem esses dispositivos."
+          "tipo": "causa",
+          "title": "B01.06 — Rotor ou eixo mecanicamente travado",
+          "id": "b01_travamento"
         },
         {
-          "tipo": "texto",
-          "texto": "Sinais: Parada súbita, registro de proteção ou indicação externa de desligamento."
+          "tipo": "causa",
+          "title": "B01.07 — Tensão elétrica inadequada",
+          "id": "b01_tensao"
         },
         {
-          "tipo": "lista",
-          "itens": [
-            "O controlador informa atuação de proteção?",
-            "A indicação surgiu durante a partida?"
-          ]
+          "tipo": "causa",
+          "title": "B01.08 — Proteção térmica acionada",
+          "id": "b01_termico"
         },
         {
-          "tipo": "texto",
-          "texto": "Encaminhamento: O eletricista identifica a causa, corrige o defeito e confere a proteção especificada. Rearme ou substituição e partida somente após liberação."
+          "tipo": "causa",
+          "title": "B01.09 — Falta de fase ou desequilíbrio elétrico",
+          "id": "b01_fase"
         },
         {
-          "tipo": "aviso",
-          "texto": "Não rearmar repetidamente, fazer pontes ou instalar proteção de maior capacidade por tentativa."
-        },
-        {
-          "tipo": "titulo",
-          "texto": "B01.06 — Rotor ou eixo mecanicamente travado"
-        },
-        {
-          "tipo": "texto",
-          "texto": "Aplicação: Conjunto girante de bomba e motor; exige inspeção para localizar o bloqueio."
-        },
-        {
-          "tipo": "texto",
-          "texto": "Sinais: Tentativa de partida sem rotação, ruído anterior ou longo período de inatividade."
-        },
-        {
-          "tipo": "lista",
-          "itens": [
-            "Ficou muito tempo parada ou houve ruído antes da falha?",
-            "Existe histórico de partículas ou sujeira no líquido?"
-          ]
-        },
-        {
-          "tipo": "texto",
-          "texto": "Encaminhamento: Após tornar o conjunto seguro, manutenção autorizada inspeciona eixo, impulsor e mancais, elimina a causa do travamento e repara danos. Confirma livre movimentação por procedimento seguro antes da liberação."
-        },
-        {
-          "tipo": "aviso",
-          "texto": "Não tentar girar com a mão, dar impulso no eixo ou retirar proteção durante uma tentativa de partida."
-        },
-        {
-          "tipo": "titulo",
-          "texto": "B01.07 — Tensão elétrica inadequada"
-        },
-        {
-          "tipo": "texto",
-          "texto": "Aplicação: Compatibilidade definida pela placa, acionamento e manual do modelo."
-        },
-        {
-          "tipo": "texto",
-          "texto": "Sinais: Alarme de tensão, dificuldade de partida ou comportamento anormal de outros equipamentos."
-        },
-        {
-          "tipo": "lista",
-          "itens": [
-            "Há código de subtensão ou sobretensão disponível?",
-            "Outros equipamentos apresentaram anomalia no mesmo período?"
-          ]
-        },
-        {
-          "tipo": "texto",
-          "texto": "Encaminhamento: A equipe elétrica verifica alimentação, ligações e condições de partida, compara com os limites do fabricante e corrige a origem da anomalia."
-        },
-        {
-          "tipo": "aviso",
-          "texto": "Não medir partes energizadas por conta própria nem usar uma tolerância de tensão como regra universal."
-        },
-        {
-          "tipo": "titulo",
-          "texto": "B01.08 — Proteção térmica acionada"
-        },
-        {
-          "tipo": "texto",
-          "texto": "Aplicação: Motores e acionamentos com proteção térmica ou de sobrecarga."
-        },
-        {
-          "tipo": "texto",
-          "texto": "Sinais: Parou após funcionar, alarme térmico ou de sobrecarga, ventilação aparentemente obstruída."
-        },
-        {
-          "tipo": "lista",
-          "itens": [
-            "Quanto tempo funcionou antes de parar?",
-            "Qual alarme está visível e há obstrução externa da ventilação? Observe sem tocar."
-          ]
-        },
-        {
-          "tipo": "texto",
-          "texto": "Encaminhamento: O técnico investiga carga, ventilação, condições térmicas e alimentação. Corrige a causa e libera o teste nas condições previstas pelo fabricante."
-        },
-        {
-          "tipo": "aviso",
-          "texto": "Não considerar resolvido apenas porque esfriou. Algumas proteções podem permitir religamento automático."
-        },
-        {
-          "tipo": "titulo",
-          "texto": "B01.09 — Falta de fase ou desequilíbrio elétrico"
-        },
-        {
-          "tipo": "texto",
-          "texto": "Aplicação: Motores trifásicos; não é diagnóstico de motor monofásico."
-        },
-        {
-          "tipo": "texto",
-          "texto": "Sinais: Alarme de fase, sobrecarga ou motor trifásico sem partida."
-        },
-        {
-          "tipo": "lista",
-          "itens": [
-            "A placa ou o cadastro confirma motor trifásico?",
-            "O painel indica falta de fase ou desequilíbrio?"
-          ]
-        },
-        {
-          "tipo": "texto",
-          "texto": "Encaminhamento: Eletricista habilitado verifica as fases, o circuito e os dispositivos envolvidos, corrige a causa e confirma condições adequadas antes da liberação."
-        },
-        {
-          "tipo": "aviso",
-          "texto": "Não fazer pontes nem tentar resolver falta de fase apenas trocando fases de posição."
-        },
-        {
-          "tipo": "titulo",
-          "texto": "B01.12 — Defeito no motor ou acionamento eletrônico"
-        },
-        {
-          "tipo": "texto",
-          "texto": "Aplicação: Motor, inversor ou soft-starter conforme o conjunto; hipóteses devem ser diferenciadas do estado normal de espera."
-        },
-        {
-          "tipo": "texto",
-          "texto": "Sinais: Código no display, evento elétrico anterior ou ausência de rotação apesar de demanda aparentemente válida."
-        },
-        {
-          "tipo": "lista",
-          "itens": [
-            "O equipamento tem inversor ou soft-starter? Registre marca e modelo.",
-            "Qual código ou estado aparece no display?"
-          ]
-        },
-        {
-          "tipo": "texto",
-          "texto": "Encaminhamento: Manutenção habilitada consulta o manual específico, distingue comando ausente, parada de segurança e falha real, realiza os testes previstos e corrige o defeito confirmado."
-        },
-        {
-          "tipo": "aviso",
-          "texto": "Não alterar parâmetros, desabilitar funções de segurança ou executar resets sucessivos. Respeitar a energia armazenada no acionamento."
-        },
-        {
-          "tipo": "pagina",
-          "title": "Voltar às quatro situações",
-          "id": "b01-guia"
+          "tipo": "causa",
+          "title": "B01.12 — Defeito no motor ou acionamento eletrônico",
+          "id": "b01_acionamento"
         }
       ]
     },
@@ -1516,174 +1346,301 @@
       "blocos": [
         {
           "tipo": "aviso",
-          "texto": "Faça somente observações externas e registre indicadores já disponíveis. Não abra painéis, caixas de ligação ou carcaças; não toque em partes móveis nem tente dar impulso no eixo. Não insista em partidas ou rearmes. Serviços internos e testes elétricos exigem equipe habilitada, procedimentos de isolamento e bloqueio, ausência de energia confirmada, pressão controlada e prevenção de partida automática. Capacitores e inversores podem manter energia armazenada após desligar."
+          "texto": "Observe de uma posição segura. Não abra painéis, não faça pontes nem repita partidas ou rearmes. Intervenções exigem equipe habilitada e isolamento de energias."
         },
         {
-          "tipo": "titulo",
-          "texto": "B01.01 — Falta de alimentação elétrica"
+          "tipo": "causa",
+          "title": "B01.01 — Falta de alimentação elétrica",
+          "id": "b01_alimentacao"
         },
         {
-          "tipo": "texto",
-          "texto": "Aplicação: Conjuntos com motor elétrico."
+          "tipo": "causa",
+          "title": "B01.02 — Disjuntor ou fusível atuado",
+          "id": "b01_protecao"
         },
         {
-          "tipo": "texto",
-          "texto": "Sinais: Silêncio, indicadores apagados ou relato de outros equipamentos sem energia."
+          "tipo": "causa",
+          "title": "B01.08 — Proteção térmica acionada",
+          "id": "b01_termico"
         },
         {
-          "tipo": "lista",
-          "itens": [
-            "O painel tem alguma luz ou informação visível?",
-            "Há notícia de falta geral de energia?"
-          ]
+          "tipo": "causa",
+          "title": "B01.10 — Contator, relé ou circuito de comando",
+          "id": "b01_comando"
         },
         {
-          "tipo": "texto",
-          "texto": "Encaminhamento: A equipe elétrica verifica o fornecimento e a chegada de energia ao equipamento, identifica a interrupção e restabelece o circuito conforme o procedimento."
+          "tipo": "causa",
+          "title": "B01.11 — Nível insuficiente, boia ou sensor de nível",
+          "id": "b01_nivel"
         },
         {
-          "tipo": "aviso",
-          "texto": "Não abrir o painel para medir nem concluir que está sem tensão porque as luzes estão apagadas."
-        },
-        {
-          "tipo": "titulo",
-          "texto": "B01.02 — Disjuntor ou fusível atuado"
-        },
-        {
-          "tipo": "texto",
-          "texto": "Aplicação: Circuitos que possuem esses dispositivos."
-        },
-        {
-          "tipo": "texto",
-          "texto": "Sinais: Parada súbita, registro de proteção ou indicação externa de desligamento."
-        },
-        {
-          "tipo": "lista",
-          "itens": [
-            "O controlador informa atuação de proteção?",
-            "A indicação surgiu durante a partida?"
-          ]
-        },
-        {
-          "tipo": "texto",
-          "texto": "Encaminhamento: O eletricista identifica a causa, corrige o defeito e confere a proteção especificada. Rearme ou substituição e partida somente após liberação."
-        },
+          "tipo": "causa",
+          "title": "B01.12 — Defeito no motor ou acionamento eletrônico",
+          "id": "b01_acionamento"
+        }
+      ]
+    },
+    {
+      "id": "b02-guia",
+      "title": "A bomba liga, mas não bombeia água",
+      "desc": "B02 • Escolha a situação observada.",
+      "mostrar_inicio": false,
+      "blocos": [
         {
           "tipo": "aviso",
-          "texto": "Não rearmar repetidamente, fazer pontes ou instalar proteção de maior capacidade por tentativa."
-        },
-        {
-          "tipo": "titulo",
-          "texto": "B01.08 — Proteção térmica acionada"
+          "texto": "Consulta educativa: as opções indicam possibilidades, não confirmam uma falha. Use apenas observações externas e indicadores já disponíveis; não ligue novamente só para responder. Sem água, sem vazão ou com descarga bloqueada, siga o procedimento de parada da instalação. Antes de intervenção: profissional autorizado, bloqueio das energias, isolamento hidráulico, despressurização, resfriamento e confirmação de ausência de energia. Inversores e capacitores podem reter energia. Não retire proteções nem abra flanges, respiros ou drenos em operação."
         },
         {
           "tipo": "texto",
-          "texto": "Aplicação: Motores e acionamentos com proteção térmica ou de sobrecarga."
-        },
-        {
-          "tipo": "texto",
-          "texto": "Sinais: Parou após funcionar, alarme térmico ou de sobrecarga, ventilação aparentemente obstruída."
-        },
-        {
-          "tipo": "lista",
-          "itens": [
-            "Quanto tempo funcionou antes de parar?",
-            "Qual alarme está visível e há obstrução externa da ventilação? Observe sem tocar."
-          ]
-        },
-        {
-          "tipo": "texto",
-          "texto": "Encaminhamento: O técnico investiga carga, ventilação, condições térmicas e alimentação. Corrige a causa e libera o teste nas condições previstas pelo fabricante."
-        },
-        {
-          "tipo": "aviso",
-          "texto": "Não considerar resolvido apenas porque esfriou. Algumas proteções podem permitir religamento automático."
-        },
-        {
-          "tipo": "titulo",
-          "texto": "B01.10 — Contator, relé ou circuito de comando"
-        },
-        {
-          "tipo": "texto",
-          "texto": "Aplicação: Painéis com esses elementos; a arquitetura depende do acionamento."
-        },
-        {
-          "tipo": "texto",
-          "texto": "Sinais: Painel ligado, ausência de partida ou falha intermitente apesar de indicação de comando."
-        },
-        {
-          "tipo": "lista",
-          "itens": [
-            "O painel mostra comando de partida ou alarme de comando?",
-            "A falha é constante ou intermitente?"
-          ]
-        },
-        {
-          "tipo": "texto",
-          "texto": "Encaminhamento: O eletricista verifica o circuito conforme o diagrama, localiza o componente ou sinal defeituoso e efetua o reparo. Valida comando e proteções após a intervenção."
-        },
-        {
-          "tipo": "aviso",
-          "texto": "Não pressionar contatores manualmente, trocar fios por tentativa ou contornar intertravamentos."
-        },
-        {
-          "tipo": "titulo",
-          "texto": "B01.11 — Nível insuficiente, boia ou sensor de nível"
-        },
-        {
-          "tipo": "texto",
-          "texto": "Aplicação: Somente instalações que utilizam nível como condição de operação ou proteção."
-        },
-        {
-          "tipo": "texto",
-          "texto": "Sinais: Alarme de nível, proteção contra funcionamento a seco ou indicação de reservatório baixo."
-        },
-        {
-          "tipo": "lista",
-          "itens": [
-            "Qual nível aparece no indicador disponível?",
-            "Há alarme de nível ou de funcionamento a seco?"
-          ]
-        },
-        {
-          "tipo": "texto",
-          "texto": "Encaminhamento: Operação identifica a causa de nível insuficiente. Se o nível é adequado, equipe técnica verifica boia, sensor e lógica, corrige o defeito e valida os permissivos."
-        },
-        {
-          "tipo": "aviso",
-          "texto": "Não entrar em reservatórios, acessar bordas desprotegidas, prender boias ou ignorar proteção contra funcionamento a seco."
-        },
-        {
-          "tipo": "titulo",
-          "texto": "B01.12 — Defeito no motor ou acionamento eletrônico"
-        },
-        {
-          "tipo": "texto",
-          "texto": "Aplicação: Motor, inversor ou soft-starter conforme o conjunto; hipóteses devem ser diferenciadas do estado normal de espera."
-        },
-        {
-          "tipo": "texto",
-          "texto": "Sinais: Código no display, evento elétrico anterior ou ausência de rotação apesar de demanda aparentemente válida."
-        },
-        {
-          "tipo": "lista",
-          "itens": [
-            "O equipamento tem inversor ou soft-starter? Registre marca e modelo.",
-            "Qual código ou estado aparece no display?"
-          ]
-        },
-        {
-          "tipo": "texto",
-          "texto": "Encaminhamento: Manutenção habilitada consulta o manual específico, distingue comando ausente, parada de segurança e falha real, realiza os testes previstos e corrige o defeito confirmado."
-        },
-        {
-          "tipo": "aviso",
-          "texto": "Não alterar parâmetros, desabilitar funções de segurança ou executar resets sucessivos. Respeitar a energia armazenada no acionamento."
+          "texto": "A seleção organiza a consulta e não exclui outras causas. Considere o modelo e a posição dos instrumentos; não faça novas partidas para escolher uma opção."
         },
         {
           "tipo": "pagina",
-          "title": "Voltar às quatro situações",
-          "id": "b01-guia"
+          "id": "b02-sem-agua",
+          "title": "A — O motor liga, mas não sai nenhuma água"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b02-pressao-alta",
+          "title": "B — A pressão está muito alta, mas não há fluxo"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b02-para-depois",
+          "title": "C — A água sai por alguns segundos e depois para"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b02-sem-pressao",
+          "title": "D — O motor funciona, mas a bomba não parece produzir pressão"
+        }
+      ]
+    },
+    {
+      "id": "b02-sem-agua",
+      "title": "A — O motor liga, mas não sai nenhuma água",
+      "desc": "Possíveis causas • Abra uma opção e escolha o tópico.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Consulta educativa: as opções indicam possibilidades, não confirmam uma falha. Use apenas observações externas e indicadores já disponíveis; não ligue novamente só para responder. Sem água, sem vazão ou com descarga bloqueada, siga o procedimento de parada da instalação. Antes de intervenção: profissional autorizado, bloqueio das energias, isolamento hidráulico, despressurização, resfriamento e confirmação de ausência de energia. Inversores e capacitores podem reter energia. Não retire proteções nem abra flanges, respiros ou drenos em operação."
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_01",
+          "title": "B02.01 • Falta de água no reservatório"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_02",
+          "title": "B02.02 • Bomba sem escorva"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_03",
+          "title": "B02.03 • Entrada de ar na sucção"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_04",
+          "title": "B02.04 • Sucção ou filtro obstruído"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_05",
+          "title": "B02.05 • Válvula de sucção fechada ou parcialmente fechada"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_06",
+          "title": "B02.06 • Válvula de pé ou retenção na sucção defeituosa"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_08",
+          "title": "B02.08 • Descarga obstruída ou retenção travada"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_09",
+          "title": "B02.09 • Ar acumulado na bomba ou tubulação"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_10",
+          "title": "B02.10 • Altura manométrica do sistema excede a capacidade"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_11",
+          "title": "B02.11 • Sentido de rotação incorreto"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_12",
+          "title": "B02.12 • Rotor obstruído, desgastado ou danificado"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_13",
+          "title": "B02.13 • Acoplamento ou eixo danificado"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_14",
+          "title": "B02.14 • Velocidade insuficiente"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_15",
+          "title": "B02.15 • Cavitação severa ou sucção inadequada"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_16",
+          "title": "B02.16 • Bypass ou recirculação indevida"
+        }
+      ]
+    },
+    {
+      "id": "b02-pressao-alta",
+      "title": "B — A pressão está muito alta, mas não há fluxo",
+      "desc": "Possíveis causas • Abra uma opção e escolha o tópico.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Consulta educativa: as opções indicam possibilidades, não confirmam uma falha. Use apenas observações externas e indicadores já disponíveis; não ligue novamente só para responder. Sem água, sem vazão ou com descarga bloqueada, siga o procedimento de parada da instalação. Antes de intervenção: profissional autorizado, bloqueio das energias, isolamento hidráulico, despressurização, resfriamento e confirmação de ausência de energia. Inversores e capacitores podem reter energia. Não retire proteções nem abra flanges, respiros ou drenos em operação."
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_07",
+          "title": "B02.07 • Válvula de descarga fechada"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_08",
+          "title": "B02.08 • Descarga obstruída ou retenção travada"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_10",
+          "title": "B02.10 • Altura manométrica do sistema excede a capacidade"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_16",
+          "title": "B02.16 • Bypass ou recirculação indevida"
+        }
+      ]
+    },
+    {
+      "id": "b02-para-depois",
+      "title": "C — A água sai por alguns segundos e depois para",
+      "desc": "Possíveis causas • Abra uma opção e escolha o tópico.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Consulta educativa: as opções indicam possibilidades, não confirmam uma falha. Use apenas observações externas e indicadores já disponíveis; não ligue novamente só para responder. Sem água, sem vazão ou com descarga bloqueada, siga o procedimento de parada da instalação. Antes de intervenção: profissional autorizado, bloqueio das energias, isolamento hidráulico, despressurização, resfriamento e confirmação de ausência de energia. Inversores e capacitores podem reter energia. Não retire proteções nem abra flanges, respiros ou drenos em operação."
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_01",
+          "title": "B02.01 • Falta de água no reservatório"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_02",
+          "title": "B02.02 • Bomba sem escorva"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_03",
+          "title": "B02.03 • Entrada de ar na sucção"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_04",
+          "title": "B02.04 • Sucção ou filtro obstruído"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_06",
+          "title": "B02.06 • Válvula de pé ou retenção na sucção defeituosa"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_09",
+          "title": "B02.09 • Ar acumulado na bomba ou tubulação"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_15",
+          "title": "B02.15 • Cavitação severa ou sucção inadequada"
+        }
+      ]
+    },
+    {
+      "id": "b02-sem-pressao",
+      "title": "D — O motor funciona, mas a bomba não parece produzir pressão",
+      "desc": "Possíveis causas • Abra uma opção e escolha o tópico.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Consulta educativa: as opções indicam possibilidades, não confirmam uma falha. Use apenas observações externas e indicadores já disponíveis; não ligue novamente só para responder. Sem água, sem vazão ou com descarga bloqueada, siga o procedimento de parada da instalação. Antes de intervenção: profissional autorizado, bloqueio das energias, isolamento hidráulico, despressurização, resfriamento e confirmação de ausência de energia. Inversores e capacitores podem reter energia. Não retire proteções nem abra flanges, respiros ou drenos em operação."
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_01",
+          "title": "B02.01 • Falta de água no reservatório"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_02",
+          "title": "B02.02 • Bomba sem escorva"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_03",
+          "title": "B02.03 • Entrada de ar na sucção"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_05",
+          "title": "B02.05 • Válvula de sucção fechada ou parcialmente fechada"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_06",
+          "title": "B02.06 • Válvula de pé ou retenção na sucção defeituosa"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_09",
+          "title": "B02.09 • Ar acumulado na bomba ou tubulação"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_11",
+          "title": "B02.11 • Sentido de rotação incorreto"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_12",
+          "title": "B02.12 • Rotor obstruído, desgastado ou danificado"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_13",
+          "title": "B02.13 • Acoplamento ou eixo danificado"
+        },
+        {
+          "tipo": "causa",
+          "id": "b02_14",
+          "title": "B02.14 • Velocidade insuficiente"
         }
       ]
     }
