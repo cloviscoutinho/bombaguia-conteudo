@@ -1,5 +1,5 @@
 {
-  "revisao": 1,
+  "revisao": 2,
   "fontes": {
     "bearing": {
       "title": "KSB • Aquecimento dos rolamentos",
@@ -95,6 +95,26 @@
       "title": "Xylem / Goulds • Manual e diagnóstico",
       "url": "https://www.xylem.com/siteassets/brand/goulds-water-technology/resources/manual/iomgwdwtr02.pdf",
       "note": "Referência de fabricante: ausência de entrega, nível, rotação, obstrução e transmissão. Procedimentos específicos deste equipamento não são universais."
+    },
+    "hi_baixa_pressao": {
+      "title": "Hydraulic Institute • Pressão abaixo do esperado",
+      "url": "https://www.pumps.org/2021/09/23/why-pump-pressure-lower-than-expected/",
+      "note": "Comparação com a curva, rotação e folgas internas; critérios específicos do fabricante."
+    },
+    "hi_ponto": {
+      "title": "Hydraulic Institute • Ponto de operação do sistema",
+      "url": "https://datatool.pumps.org/pump-fundamentals/combined",
+      "note": "Interação entre curva da bomba, curva do sistema e perdas em válvulas."
+    },
+    "xylem_b03": {
+      "title": "Xylem / Goulds • Diagnóstico de baixo desempenho",
+      "url": "https://www.xylem.com/siteassets/brand/goulds-water-technology/resources/manual/im078r05.pdf",
+      "note": "Manual de produto: velocidade, ar, obstruções, desgaste e rotação. Conferir o manual do modelo instalado."
+    },
+    "hi_npsh": {
+      "title": "Hydraulic Institute • NPSH e regiões de operação",
+      "url": "https://www.pumps.org/2022/12/07/the-basics-of-npsh-pump-operating-regions/",
+      "note": "Distinguir NPSH disponível e requerido; margem e faixa de operação dependem da aplicação."
     }
   },
   "sintomas": [
@@ -143,6 +163,34 @@
         "b02_16"
       ],
       "pagina_entrada": "b02-guia",
+      "blocos": []
+    },
+    {
+      "id": "low_performance",
+      "title": "A bomba apresenta baixa pressão ou baixa vazão",
+      "desc": "B03 • Entrega água, mas o desempenho está abaixo do esperado.",
+      "causes": [
+        "b03_01",
+        "b03_02",
+        "b03_03",
+        "b03_04",
+        "b03_05",
+        "b03_06",
+        "b03_07",
+        "b03_08",
+        "b03_09",
+        "b03_10",
+        "b03_11",
+        "b03_12",
+        "b03_13",
+        "b03_14",
+        "b03_15",
+        "b03_16",
+        "b03_17",
+        "b03_18",
+        "b03_19"
+      ],
+      "pagina_entrada": "b03-guia",
       "blocos": []
     }
   ],
@@ -1032,6 +1080,609 @@
         "nov"
       ],
       "blocos": []
+    },
+    {
+      "id": "b03_01",
+      "title": "B03.01 — Nível insuficiente de água no reservatório",
+      "why": "O nível disponível pode ser insuficiente para alimentar a sucção ou manter a submergência exigida.",
+      "signs": "Pressão e vazão diminuem à medida que o nível cai; podem ocorrer bolhas ou instabilidade.",
+      "checks": [
+        "Observe somente indicadores e sinais acessíveis de um local seguro. Não reproduza a falha com novas partidas. Falta de fluxo, ruído intenso, aquecimento ou vazamento importante exigem seguir o procedimento autorizado de parada. Não abra filtros ou tubulações, retire proteções ou movimente válvulas desconhecidas. Intervenções exigem profissional habilitado, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Inversores e capacitores podem manter energia armazenada.",
+        "Qual nível aparece no indicador seguro?",
+        "Há registros de melhora quando o abastecimento e o nível se recuperam? Não faça teste deliberado com nível baixo."
+      ],
+      "action": "Restabelecer o abastecimento e corrigir a causa da queda de nível. Confirmar nível, proteções e escorva aplicável antes de uma partida supervisionada.",
+      "avoid": "Não manter a bomba funcionando a seco nem anular a proteção de nível.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "priming",
+        "dry_running",
+        "goulds_b02",
+        "xylem_b03"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após a correção e a liberação pela equipe responsável, comparar pressão e vazão medidas com a condição prevista, registrando velocidade, nível, fluido, local dos instrumentos e consumidores em uso. Verificar estabilidade, alarmes, vazamentos e faixa de operação do fabricante. Sinais de melhora não dispensam a confirmação técnica."
+        }
+      ],
+      "codigo": "B03.01"
+    },
+    {
+      "id": "b03_02",
+      "title": "B03.02 — Filtro ou crivo de sucção parcialmente entupido",
+      "why": "Sólidos e depósitos restringem a chegada de líquido e aumentam as perdas na sucção.",
+      "signs": "Queda gradual de vazão, líquido com partículas e possível indicação de perda de pressão no filtro.",
+      "checks": [
+        "Observe somente indicadores e sinais acessíveis de um local seguro. Não reproduza a falha com novas partidas. Falta de fluxo, ruído intenso, aquecimento ou vazamento importante exigem seguir o procedimento autorizado de parada. Não abra filtros ou tubulações, retire proteções ou movimente válvulas desconhecidas. Intervenções exigem profissional habilitado, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Inversores e capacitores podem manter energia armazenada.",
+        "Há areia, sujeira ou alarme de filtro?",
+        "Comparar indicadores existentes de perda de pressão com os limites do componente e a vazão do momento."
+      ],
+      "action": "Limpar ou substituir o componente conforme o procedimento e investigar a origem dos sólidos. Confirmar a condição de sucção antes da partida.",
+      "avoid": "Não remover permanentemente o filtro previsto no projeto nem abrir tampas pressurizadas.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "inlet",
+        "goulds_b02",
+        "nov",
+        "xylem_b03"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após a correção e a liberação pela equipe responsável, comparar pressão e vazão medidas com a condição prevista, registrando velocidade, nível, fluido, local dos instrumentos e consumidores em uso. Verificar estabilidade, alarmes, vazamentos e faixa de operação do fabricante. Sinais de melhora não dispensam a confirmação técnica."
+        }
+      ],
+      "codigo": "B03.02"
+    },
+    {
+      "id": "b03_03",
+      "title": "B03.03 — Válvula de sucção parcialmente fechada",
+      "why": "Uma válvula em posição inadequada pode impedir ou restringir a alimentação da bomba.",
+      "signs": "Perda de desempenho após manutenção ou mudança de alinhamento; pode haver condição inadequada de sucção.",
+      "checks": [
+        "Observe somente indicadores e sinais acessíveis de um local seguro. Não reproduza a falha com novas partidas. Falta de fluxo, ruído intenso, aquecimento ou vazamento importante exigem seguir o procedimento autorizado de parada. Não abra filtros ou tubulações, retire proteções ou movimente válvulas desconhecidas. Intervenções exigem profissional habilitado, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Inversores e capacitores podem manter energia armazenada.",
+        "Houve manutenção ou mudança operacional?",
+        "Identificar no diagrama a válvula e registrar sua posição indicada sem manipulá-la."
+      ],
+      "action": "Um operador autorizado deve restabelecer a posição prevista no procedimento e verificar as condições de alimentação antes da liberação.",
+      "avoid": "Não movimentar válvulas desconhecidas nem usar tentativa e erro; mudanças podem afetar outros equipamentos.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "inlet",
+        "nov",
+        "xylem_b03"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após a correção e a liberação pela equipe responsável, comparar pressão e vazão medidas com a condição prevista, registrando velocidade, nível, fluido, local dos instrumentos e consumidores em uso. Verificar estabilidade, alarmes, vazamentos e faixa de operação do fabricante. Sinais de melhora não dispensam a confirmação técnica."
+        }
+      ],
+      "codigo": "B03.03"
+    },
+    {
+      "id": "b03_04",
+      "title": "B03.04 — Entrada de ar na tubulação de sucção",
+      "why": "Ar admitido em juntas, conexões, vedações ou por nível inadequado pode interromper a continuidade do líquido na sucção.",
+      "signs": "Bolhas em indicador apropriado, fluxo irregular, oscilações de pressão ou perda intermitente de escorva.",
+      "checks": [
+        "Observe somente indicadores e sinais acessíveis de um local seguro. Não reproduza a falha com novas partidas. Falta de fluxo, ruído intenso, aquecimento ou vazamento importante exigem seguir o procedimento autorizado de parada. Não abra filtros ou tubulações, retire proteções ou movimente válvulas desconhecidas. Intervenções exigem profissional habilitado, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Inversores e capacitores podem manter energia armazenada.",
+        "Registrar bolhas e oscilações já observadas.",
+        "Revisar o histórico e solicitar investigação de conexões e vedações; fuga de ar pode não vazar água para fora."
+      ],
+      "action": "Reparar os pontos de entrada de ar e corrigir a condição de sucção. Restabelecer a escorva conforme o fabricante e validar a operação.",
+      "avoid": "Não apertar juntas nem procurar fugas abrindo a tubulação em operação.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "air",
+        "inlet",
+        "priming",
+        "xylem_b03"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após a correção e a liberação pela equipe responsável, comparar pressão e vazão medidas com a condição prevista, registrando velocidade, nível, fluido, local dos instrumentos e consumidores em uso. Verificar estabilidade, alarmes, vazamentos e faixa de operação do fabricante. Sinais de melhora não dispensam a confirmação técnica."
+        }
+      ],
+      "codigo": "B03.04"
+    },
+    {
+      "id": "b03_05",
+      "title": "B03.05 — Escorva incompleta ou ar acumulado",
+      "why": "Escorva incompleta e bolsões de ar podem prejudicar a circulação do líquido. O enchimento necessário depende do tipo de bomba e da instalação.",
+      "signs": "Baixo desempenho depois de instalação, manutenção ou esvaziamento; fluxo pode ficar instável.",
+      "checks": [
+        "Observe somente indicadores e sinais acessíveis de um local seguro. Não reproduza a falha com novas partidas. Falta de fluxo, ruído intenso, aquecimento ou vazamento importante exigem seguir o procedimento autorizado de parada. Não abra filtros ou tubulações, retire proteções ou movimente válvulas desconhecidas. Intervenções exigem profissional habilitado, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Inversores e capacitores podem manter energia armazenada.",
+        "O modelo exige escorva? A bomba ou a linha foram drenadas?",
+        "Consultar o procedimento de enchimento e retirada de ar específico do fabricante."
+      ],
+      "action": "Realizar enchimento e retirada de ar pelo procedimento do fabricante, em condições seguras e por pessoal autorizado. Corrigir trechos que favoreçam acúmulo de ar.",
+      "avoid": "Não abrir respiros ou conexões em operação, quentes ou pressurizados.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "air",
+        "vent",
+        "xylem_b03"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após a correção e a liberação pela equipe responsável, comparar pressão e vazão medidas com a condição prevista, registrando velocidade, nível, fluido, local dos instrumentos e consumidores em uso. Verificar estabilidade, alarmes, vazamentos e faixa de operação do fabricante. Sinais de melhora não dispensam a confirmação técnica."
+        }
+      ],
+      "codigo": "B03.05"
+    },
+    {
+      "id": "b03_06",
+      "title": "B03.06 — Cavitação por condições inadequadas de sucção",
+      "why": "Pressão local insuficiente pode formar vapor no líquido e prejudicar a operação. Em situação severa, pode contribuir para grande perda de desempenho.",
+      "signs": "Ruído semelhante a pedrinhas, vibração, queda de desempenho ou oscilação; nenhum desses sinais confirma sozinho cavitação.",
+      "checks": [
+        "Observe somente indicadores e sinais acessíveis de um local seguro. Não reproduza a falha com novas partidas. Falta de fluxo, ruído intenso, aquecimento ou vazamento importante exigem seguir o procedimento autorizado de parada. Não abra filtros ou tubulações, retire proteções ou movimente válvulas desconhecidas. Intervenções exigem profissional habilitado, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Inversores e capacitores podem manter energia armazenada.",
+        "Registrar nível, temperatura do líquido e leituras de sucção disponíveis.",
+        "Solicitar comparação do NPSH disponível com o requerido e margem adequada ao serviço; não há uma margem universal."
+      ],
+      "action": "Corrigir as condições de sucção e operação identificadas na análise técnica, considerando temperatura, nível e perdas da instalação.",
+      "avoid": "Ruído sozinho não confirma cavitação. Não adotar margem de NPSH universal nem estrangular a sucção como correção.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "cav",
+        "inlet",
+        "hi_npsh"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após a correção e a liberação pela equipe responsável, comparar pressão e vazão medidas com a condição prevista, registrando velocidade, nível, fluido, local dos instrumentos e consumidores em uso. Verificar estabilidade, alarmes, vazamentos e faixa de operação do fabricante. Sinais de melhora não dispensam a confirmação técnica."
+        }
+      ],
+      "codigo": "B03.06"
+    },
+    {
+      "id": "b03_07",
+      "title": "B03.07 — Válvula de descarga excessivamente fechada",
+      "why": "Uma restrição excessiva na descarga pode deslocar o ponto de operação para uma vazão menor. A pressão observada depende de onde o instrumento está instalado.",
+      "signs": "Pressão elevada perto da bomba a montante da restrição, com pouca água no destino.",
+      "checks": [
+        "Observe somente indicadores e sinais acessíveis de um local seguro. Não reproduza a falha com novas partidas. Falta de fluxo, ruído intenso, aquecimento ou vazamento importante exigem seguir o procedimento autorizado de parada. Não abra filtros ou tubulações, retire proteções ou movimente válvulas desconhecidas. Intervenções exigem profissional habilitado, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Inversores e capacitores podem manter energia armazenada.",
+        "Registrar localização e leitura do manômetro.",
+        "A operação deve comparar a posição indicada da válvula com a posição prevista para a condição real."
+      ],
+      "action": "A operação autorizada confere o alinhamento previsto e corrige uma restrição indevida pelo procedimento. Depois verifica vazão, pressões e faixa permitida do conjunto, preservando a vazão mínima exigida.",
+      "avoid": "Não abrir válvulas por tentativa e erro nem manter a bomba funcionando contra uma descarga fechada.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "hi_ponto",
+        "nov"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após a correção e a liberação pela equipe responsável, comparar pressão e vazão medidas com a condição prevista, registrando velocidade, nível, fluido, local dos instrumentos e consumidores em uso. Verificar estabilidade, alarmes, vazamentos e faixa de operação do fabricante. Sinais de melhora não dispensam a confirmação técnica."
+        }
+      ],
+      "codigo": "B03.07"
+    },
+    {
+      "id": "b03_08",
+      "title": "B03.08 — Filtro ou tubulação de descarga parcialmente obstruídos",
+      "why": "Depósitos, sólidos ou elemento filtrante sujo aumentam as perdas na descarga e podem reduzir a vazão entregue.",
+      "signs": "Pressão maior antes da restrição e menor depois dela, com vazão reduzida; depende dos pontos de medição.",
+      "checks": [
+        "Observe somente indicadores e sinais acessíveis de um local seguro. Não reproduza a falha com novas partidas. Falta de fluxo, ruído intenso, aquecimento ou vazamento importante exigem seguir o procedimento autorizado de parada. Não abra filtros ou tubulações, retire proteções ou movimente válvulas desconhecidas. Intervenções exigem profissional habilitado, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Inversores e capacitores podem manter energia armazenada.",
+        "Identificar os pontos de pressão e eventual filtro na descarga.",
+        "Comparar leituras e histórico para confirmar a restrição antes de planejar inspeção isolada."
+      ],
+      "action": "Remover a obstrução ou reparar o dispositivo pelo procedimento aprovado e verificar a passagem até o destino correto.",
+      "avoid": "Não soltar flanges, golpear dispositivos ou abrir tampas sob pressão. A pressão pode ficar retida entre válvulas.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "nov",
+        "flow",
+        "xylem_b03"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após a correção e a liberação pela equipe responsável, comparar pressão e vazão medidas com a condição prevista, registrando velocidade, nível, fluido, local dos instrumentos e consumidores em uso. Verificar estabilidade, alarmes, vazamentos e faixa de operação do fabricante. Sinais de melhora não dispensam a confirmação técnica."
+        }
+      ],
+      "codigo": "B03.08"
+    },
+    {
+      "id": "b03_09",
+      "codigo": "B03.09",
+      "title": "B03.09 — Válvula de retenção parcialmente travada",
+      "why": "A abertura incompleta de uma retenção pode acrescentar perda de carga e limitar a vazão.",
+      "signs": "Vazão insuficiente, possível ruído localizado e mudança de desempenho após parada prolongada ou manutenção.",
+      "checks": [
+        "Observe somente indicadores e sinais acessíveis de um local seguro. Não reproduza a falha com novas partidas. Falta de fluxo, ruído intenso, aquecimento ou vazamento importante exigem seguir o procedimento autorizado de parada. Não abra filtros ou tubulações, retire proteções ou movimente válvulas desconhecidas. Intervenções exigem profissional habilitado, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Inversores e capacitores podem manter energia armazenada.",
+        "Confirmar no diagrama se há retenção e identificar sua localização.",
+        "Registrar a ocorrência e consultar indicadores existentes; não golpear a válvula para tentar destravá-la."
+      ],
+      "action": "Equipe habilitada confirma a condição, isola e despressuriza o trecho, limpa, repara ou substitui o componente conforme o projeto. Verifica passagem e função de retenção após a liberação.",
+      "avoid": "Pode haver pressão retida entre válvulas. Não abrir tampas ou conexões para investigar em operação.",
+      "sources": [
+        "nov",
+        "hi_ponto"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após a correção e a liberação pela equipe responsável, comparar pressão e vazão medidas com a condição prevista, registrando velocidade, nível, fluido, local dos instrumentos e consumidores em uso. Verificar estabilidade, alarmes, vazamentos e faixa de operação do fabricante. Sinais de melhora não dispensam a confirmação técnica."
+        }
+      ]
+    },
+    {
+      "id": "b03_10",
+      "codigo": "B03.10",
+      "title": "B03.10 — Vazamento na tubulação de descarga",
+      "why": "Uma fuga na rede pode desviar líquido e reduzir a pressão ou vazão que chega ao consumidor.",
+      "signs": "Vazamento visível, umidade persistente ou água acumulada fora do habitual, com redução de desempenho no destino.",
+      "checks": [
+        "Observe somente indicadores e sinais acessíveis de um local seguro. Não reproduza a falha com novas partidas. Falta de fluxo, ruído intenso, aquecimento ou vazamento importante exigem seguir o procedimento autorizado de parada. Não abra filtros ou tubulações, retire proteções ou movimente válvulas desconhecidas. Intervenções exigem profissional habilitado, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Inversores e capacitores podem manter energia armazenada.",
+        "Registrar o local de um ponto seguro, sem se aproximar de jatos.",
+        "Relacionar o início da falha com o vazamento; avaliar também perdas não visíveis com a equipe responsável."
+      ],
+      "action": "Solicitar isolamento da área e do sistema. Após bloqueio, isolamento hidráulico e despressurização, manutenção repara a tubulação, junta ou conexão conforme o procedimento e valida estanqueidade e desempenho.",
+      "avoid": "Não procurar vazamentos com a mão nem apertar conexões pressurizadas.",
+      "sources": [
+        "hi_ponto",
+        "nov"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após a correção e a liberação pela equipe responsável, comparar pressão e vazão medidas com a condição prevista, registrando velocidade, nível, fluido, local dos instrumentos e consumidores em uso. Verificar estabilidade, alarmes, vazamentos e faixa de operação do fabricante. Sinais de melhora não dispensam a confirmação técnica."
+        }
+      ]
+    },
+    {
+      "id": "b03_11",
+      "title": "B03.11 — Bypass ou recirculação excessiva",
+      "why": "O líquido pode estar circulando por outro caminho em vez de chegar ao destino esperado.",
+      "signs": "Existe circulação, mas a vazão no destino é insuficiente; pode coincidir com mudança operacional ou de controle.",
+      "checks": [
+        "Observe somente indicadores e sinais acessíveis de um local seguro. Não reproduza a falha com novas partidas. Falta de fluxo, ruído intenso, aquecimento ou vazamento importante exigem seguir o procedimento autorizado de parada. Não abra filtros ou tubulações, retire proteções ou movimente válvulas desconhecidas. Intervenções exigem profissional habilitado, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Inversores e capacitores podem manter energia armazenada.",
+        "O diagrama mostra retorno ou bypass?",
+        "Comparar a função e a vazão de recirculação com o projeto; algumas linhas protegem a vazão mínima da bomba."
+      ],
+      "action": "A operação autorizada deve corrigir o alinhamento ou reparar o dispositivo defeituoso conforme o projeto, preservando a proteção de vazão mínima.",
+      "avoid": "Nunca fechar um bypass sem identificar sua função; pode ser indispensável para proteger a bomba.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "flow",
+        "nov",
+        "xylem_b03"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após a correção e a liberação pela equipe responsável, comparar pressão e vazão medidas com a condição prevista, registrando velocidade, nível, fluido, local dos instrumentos e consumidores em uso. Verificar estabilidade, alarmes, vazamentos e faixa de operação do fabricante. Sinais de melhora não dispensam a confirmação técnica."
+        }
+      ],
+      "codigo": "B03.11"
+    },
+    {
+      "id": "b03_12",
+      "title": "B03.12 — Rotor desgastado ou danificado",
+      "why": "Desgaste ou dano no rotor pode alterar a capacidade de transferir energia ao líquido e reduzir o desempenho.",
+      "signs": "Perda gradual de pressão e vazão, histórico de abrasivos, cavitação ou muitas horas de funcionamento.",
+      "checks": [
+        "Observe somente indicadores e sinais acessíveis de um local seguro. Não reproduza a falha com novas partidas. Falta de fluxo, ruído intenso, aquecimento ou vazamento importante exigem seguir o procedimento autorizado de parada. Não abra filtros ou tubulações, retire proteções ou movimente válvulas desconhecidas. Intervenções exigem profissional habilitado, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Inversores e capacitores podem manter energia armazenada.",
+        "Comparar os registros de desempenho e o histórico do líquido.",
+        "Planejar inspeção isolada do rotor e verificar dimensões e condição segundo o fabricante."
+      ],
+      "action": "Limpar, reparar ou substituir os componentes conforme o fabricante, verificando folgas e montagem específicas do modelo.",
+      "avoid": "Não usar folgas universais nem introduzir ferramentas ou mãos em partes com possibilidade de movimento.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "hi_baixa_pressao",
+        "xylem_b03"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após a correção e a liberação pela equipe responsável, comparar pressão e vazão medidas com a condição prevista, registrando velocidade, nível, fluido, local dos instrumentos e consumidores em uso. Verificar estabilidade, alarmes, vazamentos e faixa de operação do fabricante. Sinais de melhora não dispensam a confirmação técnica."
+        }
+      ],
+      "codigo": "B03.12"
+    },
+    {
+      "id": "b03_13",
+      "title": "B03.13 — Rotor parcialmente obstruído",
+      "why": "Resíduos podem reduzir a área de passagem no rotor e prejudicar a vazão e a estabilidade.",
+      "signs": "Redução de vazão após entrada de resíduos, possivelmente acompanhada de vibração ou ruído.",
+      "checks": [
+        "Observe somente indicadores e sinais acessíveis de um local seguro. Não reproduza a falha com novas partidas. Falta de fluxo, ruído intenso, aquecimento ou vazamento importante exigem seguir o procedimento autorizado de parada. Não abra filtros ou tubulações, retire proteções ou movimente válvulas desconhecidas. Intervenções exigem profissional habilitado, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Inversores e capacitores podem manter energia armazenada.",
+        "O líquido contém sólidos? O problema surgiu após entrada de resíduos?",
+        "Solicitar inspeção das passagens hidráulicas em condição isolada; sinais externos não confirmam obstrução do rotor."
+      ],
+      "action": "Manutenção habilitada inspeciona as passagens hidráulicas com bloqueio e isolamento confirmados, remove resíduos e repara eventuais danos conforme o manual. Investiga a origem dos sólidos antes da validação.",
+      "avoid": "Não usar folgas universais nem introduzir ferramentas ou mãos em partes com possibilidade de movimento.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "nov",
+        "goulds_b02",
+        "xylem_b03"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após a correção e a liberação pela equipe responsável, comparar pressão e vazão medidas com a condição prevista, registrando velocidade, nível, fluido, local dos instrumentos e consumidores em uso. Verificar estabilidade, alarmes, vazamentos e faixa de operação do fabricante. Sinais de melhora não dispensam a confirmação técnica."
+        }
+      ],
+      "codigo": "B03.13"
+    },
+    {
+      "id": "b03_14",
+      "title": "B03.14 — Rotação do motor insuficiente",
+      "why": "A bomba pode não desenvolver altura suficiente quando opera abaixo da velocidade necessária ao sistema.",
+      "signs": "Pressão e vazão baixas, com frequência ou velocidade indicada inferior à prevista para a demanda.",
+      "checks": [
+        "Observe somente indicadores e sinais acessíveis de um local seguro. Não reproduza a falha com novas partidas. Falta de fluxo, ruído intenso, aquecimento ou vazamento importante exigem seguir o procedimento autorizado de parada. Não abra filtros ou tubulações, retire proteções ou movimente válvulas desconhecidas. Intervenções exigem profissional habilitado, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Inversores e capacitores podem manter energia armazenada.",
+        "Registrar frequência ou velocidade indicada e o modo de controle, se disponíveis.",
+        "Comparar com a curva da bomba e parâmetros autorizados; velocidade reduzida pode ser uma condição normal do controle."
+      ],
+      "action": "Corrigir comando ou parâmetros autorizados conforme os manuais e confirmar potência, limites de velocidade e condição hidráulica.",
+      "avoid": "Não aumentar a frequência arbitrariamente nem ultrapassar os limites do conjunto.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "flow",
+        "nov",
+        "xylem_b03"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após a correção e a liberação pela equipe responsável, comparar pressão e vazão medidas com a condição prevista, registrando velocidade, nível, fluido, local dos instrumentos e consumidores em uso. Verificar estabilidade, alarmes, vazamentos e faixa de operação do fabricante. Sinais de melhora não dispensam a confirmação técnica."
+        }
+      ],
+      "codigo": "B03.14"
+    },
+    {
+      "id": "b03_15",
+      "title": "B03.15 — Sentido de rotação incorreto",
+      "why": "A rotação contrária à prevista pode reduzir fortemente a altura e a vazão. O comportamento depende da construção da bomba.",
+      "signs": "Baixa pressão e vazão após intervenção elétrica, troca de motor ou alteração no acionamento.",
+      "checks": [
+        "Observe somente indicadores e sinais acessíveis de um local seguro. Não reproduza a falha com novas partidas. Falta de fluxo, ruído intenso, aquecimento ou vazamento importante exigem seguir o procedimento autorizado de parada. Não abra filtros ou tubulações, retire proteções ou movimente válvulas desconhecidas. Intervenções exigem profissional habilitado, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Inversores e capacitores podem manter energia armazenada.",
+        "Registrar quando a falha começou e a intervenção realizada.",
+        "Um eletricista habilitado deve verificar o sentido conforme a seta e o manual; não retirar proteções nem testar a seco."
+      ],
+      "action": "Em motor trifásico ligado diretamente à rede, um eletricista habilitado pode corrigir a sequência trocando duas fases, após isolamento, bloqueio e confirmação de ausência de tensão, respeitando as restrições do motor. Com inversor, conferir comando e parâmetros conforme o fabricante; trocar fases na entrada do inversor não corrige o sentido da saída. Motor monofásico exige procedimento próprio.",
+      "avoid": "Não intervir em circuito energizado, inverter motor com restrição unidirecional ou alterar parâmetros sem autorização.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "goulds_b02",
+        "nov",
+        "xylem_b03"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após a correção e a liberação pela equipe responsável, comparar pressão e vazão medidas com a condição prevista, registrando velocidade, nível, fluido, local dos instrumentos e consumidores em uso. Verificar estabilidade, alarmes, vazamentos e faixa de operação do fabricante. Sinais de melhora não dispensam a confirmação técnica."
+        }
+      ],
+      "codigo": "B03.15"
+    },
+    {
+      "id": "b03_16",
+      "codigo": "B03.16",
+      "title": "B03.16 — Folgas internas excessivas ou anéis de desgaste danificados",
+      "why": "Folgas internas fora da especificação podem aumentar a recirculação interna e reduzir a altura e a vazão. Anéis de desgaste só se aplicam aos modelos que os possuem.",
+      "signs": "Desempenho cai gradualmente ou muda após revisão interna; histórico de líquido abrasivo pode ser relevante.",
+      "checks": [
+        "Observe somente indicadores e sinais acessíveis de um local seguro. Não reproduza a falha com novas partidas. Falta de fluxo, ruído intenso, aquecimento ou vazamento importante exigem seguir o procedimento autorizado de parada. Não abra filtros ou tubulações, retire proteções ou movimente válvulas desconhecidas. Intervenções exigem profissional habilitado, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Inversores e capacitores podem manter energia armazenada.",
+        "Comparar registros na mesma condição de velocidade e serviço.",
+        "Solicitar inspeção isolada e medição das folgas conforme o manual e a construção do equipamento."
+      ],
+      "action": "Recuperar ou substituir elementos fora de tolerância pelo procedimento do fabricante e conferir a montagem. Após liberação, comparar o desempenho com a curva aplicável.",
+      "avoid": "Não usar tolerâncias universais ou valores de outro modelo; não presumir que toda bomba utiliza anéis de desgaste.",
+      "sources": [
+        "hi_baixa_pressao",
+        "xylem_b03"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após a correção e a liberação pela equipe responsável, comparar pressão e vazão medidas com a condição prevista, registrando velocidade, nível, fluido, local dos instrumentos e consumidores em uso. Verificar estabilidade, alarmes, vazamentos e faixa de operação do fabricante. Sinais de melhora não dispensam a confirmação técnica."
+        }
+      ]
+    },
+    {
+      "id": "b03_17",
+      "title": "B03.17 — Bomba inadequada para a instalação atual",
+      "why": "Se a altura requerida pelo sistema superar a que a bomba desenvolve na condição real, pode não existir ponto de operação com entrega.",
+      "signs": "Desempenho insuficiente desde a instalação ou após alteração de altura, pressão de destino, percurso ou demanda.",
+      "checks": [
+        "Observe somente indicadores e sinais acessíveis de um local seguro. Não reproduza a falha com novas partidas. Falta de fluxo, ruído intenso, aquecimento ou vazamento importante exigem seguir o procedimento autorizado de parada. Não abra filtros ou tubulações, retire proteções ou movimente válvulas desconhecidas. Intervenções exigem profissional habilitado, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Inversores e capacitores podem manter energia armazenada.",
+        "Registrar modelo, diâmetro do rotor, velocidade, fluido e alterações da instalação.",
+        "Solicitar comparação das curvas da bomba e do sistema; uma leitura isolada de descarga não representa toda a altura manométrica."
+      ],
+      "action": "Revisar o dimensionamento e a condição de operação com o responsável técnico; corrigir a instalação ou selecionar equipamento adequado.",
+      "avoid": "Não aumentar velocidade ou alterar rotor sem verificar limites mecânicos, potência e requisitos hidráulicos.",
+      "area": [
+        "unknown"
+      ],
+      "sources": [
+        "hi_ponto",
+        "hi_baixa_pressao"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após a correção e a liberação pela equipe responsável, comparar pressão e vazão medidas com a condição prevista, registrando velocidade, nível, fluido, local dos instrumentos e consumidores em uso. Verificar estabilidade, alarmes, vazamentos e faixa de operação do fabricante. Sinais de melhora não dispensam a confirmação técnica."
+        }
+      ],
+      "codigo": "B03.17"
+    },
+    {
+      "id": "b03_18",
+      "codigo": "B03.18",
+      "title": "B03.18 — Sensor, manômetro ou controle de pressão incorreto",
+      "why": "Instrumento com falha pode indicar pressão errada; no controle automático, sinal ou ajuste incorreto também pode alterar a operação real.",
+      "signs": "Leitura fixa, incoerente ou oscilante, alarme, troca recente de sensor ou falha apenas no automático.",
+      "checks": [
+        "Observe somente indicadores e sinais acessíveis de um local seguro. Não reproduza a falha com novas partidas. Falta de fluxo, ruído intenso, aquecimento ou vazamento importante exigem seguir o procedimento autorizado de parada. Não abra filtros ou tubulações, retire proteções ou movimente válvulas desconhecidas. Intervenções exigem profissional habilitado, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Inversores e capacitores podem manter energia armazenada.",
+        "Registrar localização, leitura, alarmes, modo de operação e ajustes apresentados no painel, sem alterá-los.",
+        "Solicitar comparação com uma referência confiável e verificação da escala, unidade e lógica de controle."
+      ],
+      "action": "Profissional habilitado verifica instrumentos e circuito, corrige calibração, configuração ou componente defeituoso e valida o controle nas condições do projeto.",
+      "avoid": "A leitura pode estar errada com pressão real normal. Não alterar o inversor, o setpoint ou desabilitar proteções por tentativa.",
+      "sources": [
+        "hi_baixa_pressao",
+        "b01_scala",
+        "weg_inversor"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após a correção e a liberação pela equipe responsável, comparar pressão e vazão medidas com a condição prevista, registrando velocidade, nível, fluido, local dos instrumentos e consumidores em uso. Verificar estabilidade, alarmes, vazamentos e faixa de operação do fabricante. Sinais de melhora não dispensam a confirmação técnica."
+        }
+      ]
+    },
+    {
+      "id": "b03_19",
+      "codigo": "B03.19",
+      "title": "B03.19 — Consumo de água maior que a capacidade disponível",
+      "why": "A demanda simultânea pode superar o que o conjunto e a rede conseguem fornecer na pressão requerida.",
+      "signs": "Pressão baixa principalmente com vários consumidores ligados; melhora registrada em períodos de menor uso.",
+      "checks": [
+        "Observe somente indicadores e sinais acessíveis de um local seguro. Não reproduza a falha com novas partidas. Falta de fluxo, ruído intenso, aquecimento ou vazamento importante exigem seguir o procedimento autorizado de parada. Não abra filtros ou tubulações, retire proteções ou movimente válvulas desconhecidas. Intervenções exigem profissional habilitado, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Inversores e capacitores podem manter energia armazenada.",
+        "Registrar horários, consumidores em uso e leituras disponíveis.",
+        "Solicitar comparação entre demanda simultânea, capacidade da alimentação, curva da bomba e perdas da rede."
+      ],
+      "action": "Responsável técnico avalia distribuição do consumo, controle e dimensionamento do conjunto e da rede. Corrige a limitação identificada e verifica a entrega nas condições reais de demanda.",
+      "avoid": "Pressão baixa não prova defeito da bomba. Não aumentar velocidade ou pressão programada sem avaliar os limites de todo o sistema.",
+      "sources": [
+        "hi_ponto"
+      ],
+      "area": [
+        "unknown"
+      ],
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Validação após a correção"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Após a correção e a liberação pela equipe responsável, comparar pressão e vazão medidas com a condição prevista, registrando velocidade, nível, fluido, local dos instrumentos e consumidores em uso. Verificar estabilidade, alarmes, vazamentos e faixa de operação do fabricante. Sinais de melhora não dispensam a confirmação técnica."
+        }
+      ]
     }
   ],
   "perguntas": [
@@ -1641,6 +2292,492 @@
           "tipo": "causa",
           "id": "b02_14",
           "title": "B02.14 • Velocidade insuficiente"
+        }
+      ]
+    },
+    {
+      "id": "b03-guia",
+      "title": "Baixa pressão ou baixa vazão",
+      "desc": "B03 • Há entrega de água, com desempenho insuficiente.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Observe somente indicadores e sinais acessíveis de um local seguro. Não reproduza a falha com novas partidas. Falta de fluxo, ruído intenso, aquecimento ou vazamento importante exigem seguir o procedimento autorizado de parada. Não abra filtros ou tubulações, retire proteções ou movimente válvulas desconhecidas. Intervenções exigem profissional habilitado, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Inversores e capacitores podem manter energia armazenada."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Pressão é força por área (por exemplo, bar ou psi). Vazão é volume por tempo (por exemplo, L/min ou m³/h). Pressão alta perto da bomba pode coexistir com pouca água no destino. Registre onde o manômetro está instalado."
+        },
+        {
+          "tipo": "texto",
+          "texto": "Escolha uma situação já observada. As listas orientam a consulta e podem se sobrepor; não confirmam nem excluem causas."
+        },
+        {
+          "tipo": "pagina",
+          "id": "b03-baixa",
+          "title": "A — A pressão está baixa e sai pouca água"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b03-alta",
+          "title": "B — A pressão perto da bomba está alta, mas sai pouca água"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b03-oscila",
+          "title": "C — A pressão e a vazão ficam oscilando"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b03-gradual",
+          "title": "D — A bomba funcionava bem, mas foi perdendo força"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b02-guia",
+          "title": "Não sai nenhuma água? Consultar B02"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b03-conceitos",
+          "title": "Entender pressão, vazão e NPSH"
+        },
+        {
+          "tipo": "pagina",
+          "id": "b03-todas",
+          "title": "Consultar as 19 causas de B03"
+        }
+      ]
+    },
+    {
+      "id": "b03-baixa",
+      "title": "A — A pressão está baixa e sai pouca água",
+      "desc": "Possibilidades para avaliação • Escolha uma causa e um tópico.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Observe somente indicadores e sinais acessíveis de um local seguro. Não reproduza a falha com novas partidas. Falta de fluxo, ruído intenso, aquecimento ou vazamento importante exigem seguir o procedimento autorizado de parada. Não abra filtros ou tubulações, retire proteções ou movimente válvulas desconhecidas. Intervenções exigem profissional habilitado, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Inversores e capacitores podem manter energia armazenada."
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_01",
+          "title": "B03.01 — Nível insuficiente de água no reservatório"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_02",
+          "title": "B03.02 — Filtro ou crivo de sucção parcialmente entupido"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_03",
+          "title": "B03.03 — Válvula de sucção parcialmente fechada"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_04",
+          "title": "B03.04 — Entrada de ar na tubulação de sucção"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_05",
+          "title": "B03.05 — Escorva incompleta ou ar acumulado"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_06",
+          "title": "B03.06 — Cavitação por condições inadequadas de sucção"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_10",
+          "title": "B03.10 — Vazamento na tubulação de descarga"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_11",
+          "title": "B03.11 — Bypass ou recirculação excessiva"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_12",
+          "title": "B03.12 — Rotor desgastado ou danificado"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_13",
+          "title": "B03.13 — Rotor parcialmente obstruído"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_14",
+          "title": "B03.14 — Rotação do motor insuficiente"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_15",
+          "title": "B03.15 — Sentido de rotação incorreto"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_16",
+          "title": "B03.16 — Folgas internas excessivas ou anéis de desgaste danificados"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_17",
+          "title": "B03.17 — Bomba inadequada para a instalação atual"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_18",
+          "title": "B03.18 — Sensor, manômetro ou controle de pressão incorreto"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_19",
+          "title": "B03.19 — Consumo de água maior que a capacidade disponível"
+        }
+      ]
+    },
+    {
+      "id": "b03-alta",
+      "title": "B — A pressão perto da bomba está alta, mas sai pouca água",
+      "desc": "Possibilidades para avaliação • Escolha uma causa e um tópico.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Observe somente indicadores e sinais acessíveis de um local seguro. Não reproduza a falha com novas partidas. Falta de fluxo, ruído intenso, aquecimento ou vazamento importante exigem seguir o procedimento autorizado de parada. Não abra filtros ou tubulações, retire proteções ou movimente válvulas desconhecidas. Intervenções exigem profissional habilitado, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Inversores e capacitores podem manter energia armazenada."
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_07",
+          "title": "B03.07 — Válvula de descarga excessivamente fechada"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_08",
+          "title": "B03.08 — Filtro ou tubulação de descarga parcialmente obstruídos"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_09",
+          "title": "B03.09 — Válvula de retenção parcialmente travada"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_17",
+          "title": "B03.17 — Bomba inadequada para a instalação atual"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_18",
+          "title": "B03.18 — Sensor, manômetro ou controle de pressão incorreto"
+        }
+      ]
+    },
+    {
+      "id": "b03-oscila",
+      "title": "C — A pressão e a vazão ficam oscilando",
+      "desc": "Possibilidades para avaliação • Escolha uma causa e um tópico.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Observe somente indicadores e sinais acessíveis de um local seguro. Não reproduza a falha com novas partidas. Falta de fluxo, ruído intenso, aquecimento ou vazamento importante exigem seguir o procedimento autorizado de parada. Não abra filtros ou tubulações, retire proteções ou movimente válvulas desconhecidas. Intervenções exigem profissional habilitado, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Inversores e capacitores podem manter energia armazenada."
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_01",
+          "title": "B03.01 — Nível insuficiente de água no reservatório"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_02",
+          "title": "B03.02 — Filtro ou crivo de sucção parcialmente entupido"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_03",
+          "title": "B03.03 — Válvula de sucção parcialmente fechada"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_04",
+          "title": "B03.04 — Entrada de ar na tubulação de sucção"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_05",
+          "title": "B03.05 — Escorva incompleta ou ar acumulado"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_06",
+          "title": "B03.06 — Cavitação por condições inadequadas de sucção"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_09",
+          "title": "B03.09 — Válvula de retenção parcialmente travada"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_11",
+          "title": "B03.11 — Bypass ou recirculação excessiva"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_18",
+          "title": "B03.18 — Sensor, manômetro ou controle de pressão incorreto"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_19",
+          "title": "B03.19 — Consumo de água maior que a capacidade disponível"
+        }
+      ]
+    },
+    {
+      "id": "b03-gradual",
+      "title": "D — A bomba funcionava bem, mas foi perdendo força",
+      "desc": "Possibilidades para avaliação • Escolha uma causa e um tópico.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Observe somente indicadores e sinais acessíveis de um local seguro. Não reproduza a falha com novas partidas. Falta de fluxo, ruído intenso, aquecimento ou vazamento importante exigem seguir o procedimento autorizado de parada. Não abra filtros ou tubulações, retire proteções ou movimente válvulas desconhecidas. Intervenções exigem profissional habilitado, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Inversores e capacitores podem manter energia armazenada."
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_01",
+          "title": "B03.01 — Nível insuficiente de água no reservatório"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_02",
+          "title": "B03.02 — Filtro ou crivo de sucção parcialmente entupido"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_04",
+          "title": "B03.04 — Entrada de ar na tubulação de sucção"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_08",
+          "title": "B03.08 — Filtro ou tubulação de descarga parcialmente obstruídos"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_09",
+          "title": "B03.09 — Válvula de retenção parcialmente travada"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_10",
+          "title": "B03.10 — Vazamento na tubulação de descarga"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_11",
+          "title": "B03.11 — Bypass ou recirculação excessiva"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_12",
+          "title": "B03.12 — Rotor desgastado ou danificado"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_13",
+          "title": "B03.13 — Rotor parcialmente obstruído"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_14",
+          "title": "B03.14 — Rotação do motor insuficiente"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_16",
+          "title": "B03.16 — Folgas internas excessivas ou anéis de desgaste danificados"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_17",
+          "title": "B03.17 — Bomba inadequada para a instalação atual"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_18",
+          "title": "B03.18 — Sensor, manômetro ou controle de pressão incorreto"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_19",
+          "title": "B03.19 — Consumo de água maior que a capacidade disponível"
+        }
+      ]
+    },
+    {
+      "id": "b03-todas",
+      "title": "Todas as causas B03",
+      "desc": "Possibilidades para avaliação • Escolha uma causa e um tópico.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "aviso",
+          "texto": "Observe somente indicadores e sinais acessíveis de um local seguro. Não reproduza a falha com novas partidas. Falta de fluxo, ruído intenso, aquecimento ou vazamento importante exigem seguir o procedimento autorizado de parada. Não abra filtros ou tubulações, retire proteções ou movimente válvulas desconhecidas. Intervenções exigem profissional habilitado, bloqueio das energias, isolamento hidráulico, despressurização e temperatura segura. Inversores e capacitores podem manter energia armazenada."
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_01",
+          "title": "B03.01 — Nível insuficiente de água no reservatório"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_02",
+          "title": "B03.02 — Filtro ou crivo de sucção parcialmente entupido"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_03",
+          "title": "B03.03 — Válvula de sucção parcialmente fechada"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_04",
+          "title": "B03.04 — Entrada de ar na tubulação de sucção"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_05",
+          "title": "B03.05 — Escorva incompleta ou ar acumulado"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_06",
+          "title": "B03.06 — Cavitação por condições inadequadas de sucção"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_07",
+          "title": "B03.07 — Válvula de descarga excessivamente fechada"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_08",
+          "title": "B03.08 — Filtro ou tubulação de descarga parcialmente obstruídos"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_09",
+          "title": "B03.09 — Válvula de retenção parcialmente travada"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_10",
+          "title": "B03.10 — Vazamento na tubulação de descarga"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_11",
+          "title": "B03.11 — Bypass ou recirculação excessiva"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_12",
+          "title": "B03.12 — Rotor desgastado ou danificado"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_13",
+          "title": "B03.13 — Rotor parcialmente obstruído"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_14",
+          "title": "B03.14 — Rotação do motor insuficiente"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_15",
+          "title": "B03.15 — Sentido de rotação incorreto"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_16",
+          "title": "B03.16 — Folgas internas excessivas ou anéis de desgaste danificados"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_17",
+          "title": "B03.17 — Bomba inadequada para a instalação atual"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_18",
+          "title": "B03.18 — Sensor, manômetro ou controle de pressão incorreto"
+        },
+        {
+          "tipo": "causa",
+          "id": "b03_19",
+          "title": "B03.19 — Consumo de água maior que a capacidade disponível"
+        }
+      ]
+    },
+    {
+      "id": "b03-conceitos",
+      "title": "Pressão, vazão e condição de operação",
+      "desc": "Conceitos para registrar observações úteis.",
+      "mostrar_inicio": false,
+      "blocos": [
+        {
+          "tipo": "titulo",
+          "texto": "Pressão e vazão são medidas diferentes"
+        },
+        {
+          "tipo": "texto",
+          "texto": "Pressão é força por área. Vazão é volume por unidade de tempo. Anote unidade, horário e localização de cada leitura. Não conclua a vazão apenas pela pressão de um manômetro."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "Curva da bomba e curva do sistema"
+        },
+        {
+          "tipo": "texto",
+          "texto": "O ponto de operação depende da interação entre a bomba e a instalação. Para avaliar a altura desenvolvida pela bomba, a equipe considera sucção, descarga, elevações, velocidades e fluido. Pressão de descarga isolada não basta."
+        },
+        {
+          "tipo": "titulo",
+          "texto": "NPSH disponível e requerido"
+        },
+        {
+          "tipo": "texto",
+          "texto": "NPSH disponível expressa a energia na sucção acima da condição de pressão de vapor do líquido, em altura de líquido. O NPSH requerido vem dos dados do fabricante para uma vazão e um critério de ensaio. A equipe compara ambos e define a margem adequada ao serviço; não há valor universal."
+        },
+        {
+          "tipo": "lista",
+          "itens": [
+            "Modelo e configuração da bomba; tipo e temperatura do líquido.",
+            "Pressão e vazão esperadas e medidas, unidades e localização dos instrumentos.",
+            "Velocidade, nível disponível, modo de controle e consumidores em uso.",
+            "Quando começou: instalação, manutenção, perda gradual ou pico de consumo."
+          ]
+        },
+        {
+          "tipo": "link",
+          "title": "Hydraulic Institute • Ponto de operação",
+          "url": "https://datatool.pumps.org/pump-fundamentals/combined"
+        },
+        {
+          "tipo": "link",
+          "title": "Hydraulic Institute • NPSH",
+          "url": "https://www.pumps.org/2022/12/07/the-basics-of-npsh-pump-operating-regions/"
         }
       ]
     }
