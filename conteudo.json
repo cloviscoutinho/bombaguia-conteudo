@@ -1,5 +1,5 @@
 {
-  "revisao": 5,
+  "revisao": 6,
   "fontes": {
     "bearing": {
       "title": "KSB • Aquecimento dos rolamentos",
@@ -3056,26 +3056,26 @@
   "fotos": [
     {
       "title": "Conjunto bomba e motor",
-      "caption": "Observe o conjunto e o acoplamento entre acionamento e bomba. Esta fotografia não comprova qualquer defeito.",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/0/06/Kreiselpumpe-Elektromotor.jpg",
-      "page": "https://commons.wikimedia.org/wiki/File:Kreiselpumpe-Elektromotor.jpg",
-      "author": "HopuWiki",
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+      "caption": "Conjunto genérico com proteção do acoplamento. Ilustração gerada por IA; não comprova defeitos.",
+      "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/bomba-capa-ia-v1.png",
+      "page": "https://github.com/cloviscoutinho/bombaguia-conteudo/blob/main/IMAGENS-GERADAS.md",
+      "author": "Gerada por IA com OpenAI para o BombaGuia",
+      "license": "Ilustração sintética; não é fotografia nem desenho de montagem",
+      "licenseUrl": "https://github.com/cloviscoutinho/bombaguia-conteudo/blob/main/IMAGENS-GERADAS.md"
     },
     {
       "title": "Bomba em corte",
-      "caption": "Modelo em corte de uma bomba Desmi. Compare a disposição interna com o desenho do equipamento real.",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/2/20/Pump_%28Cut-Away%29.JPG",
-      "page": "https://commons.wikimedia.org/wiki/File:Pump_(Cut-Away).JPG",
-      "author": "S.J. de Waard",
-      "license": "CC BY 2.5",
-      "licenseUrl": "https://creativecommons.org/licenses/by/2.5/"
+      "caption": "Vista conceitual em corte de carcaça, rotor e eixo. Ilustração gerada por IA, simplificada e sem escala; compare sempre com o desenho do fabricante.",
+      "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/biblioteca-corte-ia-v1.png",
+      "page": "https://github.com/cloviscoutinho/bombaguia-conteudo/blob/main/IMAGENS-GERADAS.md",
+      "author": "Gerada por IA com OpenAI para o BombaGuia",
+      "license": "Ilustração sintética; não é fotografia nem desenho de montagem",
+      "licenseUrl": "https://github.com/cloviscoutinho/bombaguia-conteudo/blob/main/IMAGENS-GERADAS.md"
     }
   ],
   "capa": {
-    "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/bomba-capa-v1.png",
-    "caption": "Exemplo de conjunto de bomba centrífuga e motor. A construção varia conforme o modelo."
+    "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/bomba-capa-ia-v1.png",
+    "caption": "Ilustração gerada por IA: conjunto genérico de bomba centrífuga e motor. Não representa fabricante ou modelo específico."
   },
   "formato": 1,
   "aparencia": {
@@ -3156,11 +3156,11 @@
         },
         {
           "tipo": "imagem",
-          "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/b01-imagem-01-v1.jpg",
-          "caption": "Conjunto de bomba centrífuga e motor elétrico usado na abertura do B01. A foto ilustra os componentes; não comprova uma falha de partida.",
-          "author": "Fonte indicada: piping-designer; autoria não confirmada",
-          "license": "Licença de reutilização não informada",
-          "page": "https://www.piping-designer.com/index.php/disciplines/mechanical/rotating-equipment/pump",
+          "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/bomba-capa-ia-v1.png",
+          "caption": "Conjunto de bomba centrífuga e motor. Ilustração gerada por IA; não comprova falha de partida. Construção e proteções variam conforme o modelo.",
+          "author": "Gerada por IA com OpenAI para o BombaGuia",
+          "license": "Ilustração sintética; não é fotografia nem desenho de montagem",
+          "page": "https://github.com/cloviscoutinho/bombaguia-conteudo/blob/main/IMAGENS-GERADAS.md",
           "id_imagem": "b01-01"
         },
         {
@@ -3373,11 +3373,11 @@
         },
         {
           "tipo": "imagem",
-          "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/b02-imagem-01-v1.jpg",
-          "caption": "Instalação de bombeamento e distribuição apresentada no B02. Foto de referência; não demonstra ausência de entrega.",
-          "author": "Fonte indicada: altoswater; autoria não confirmada",
-          "license": "Licença de reutilização não informada",
-          "page": "https://altoswater.com/products/municipal/water-distribution/",
+          "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/b02-ia-v1.png",
+          "caption": "Exemplo conceitual de instalação entre reservatórios. Ilustração gerada por IA; não demonstra ausência de entrega nem dimensiona tubulações.",
+          "author": "Gerada por IA com OpenAI para o BombaGuia",
+          "license": "Ilustração sintética; não é fotografia nem desenho de montagem",
+          "page": "https://github.com/cloviscoutinho/bombaguia-conteudo/blob/main/IMAGENS-GERADAS.md",
           "id_imagem": "b02-01"
         },
         {
@@ -3650,11 +3650,11 @@
         },
         {
           "tipo": "imagem",
-          "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/b03-imagem-01-v1.jpg",
-          "caption": "Conjunto com instrumentos de pressão apresentado no B03. A imagem não permite concluir a vazão nem o desempenho do equipamento.",
-          "author": "Fonte indicada: linkedin; autoria não confirmada",
-          "license": "Licença de reutilização não informada",
-          "page": "https://www.linkedin.com/pulse/flow-vs-pressure-pump-systems-what-you-really-omari-hussein-sabuni-39arf",
+          "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/b03-ia-v1.png",
+          "caption": "Exemplo de instrumentos nas linhas de sucção e descarga. Ilustração gerada por IA; os mostradores não representam medições nem comprovam desempenho.",
+          "author": "Gerada por IA com OpenAI para o BombaGuia",
+          "license": "Ilustração sintética; não é fotografia nem desenho de montagem",
+          "page": "https://github.com/cloviscoutinho/bombaguia-conteudo/blob/main/IMAGENS-GERADAS.md",
           "id_imagem": "b03-01"
         },
         {
@@ -4141,11 +4141,11 @@
         },
         {
           "tipo": "imagem",
-          "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/b04-imagem-01-v1.jpg",
-          "caption": "Conjunto com motor, base e proteção do acoplamento apresentado no B04. Uma imagem estática não confirma ruído ou vibração.",
-          "author": "Fonte indicada: pm-group; autoria não confirmada",
-          "license": "Licença de reutilização não informada",
-          "page": "https://www.pm-group.com/rotating-equipment.php",
+          "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/b04-ia-v1.png",
+          "caption": "Motor, bomba, proteção do acoplamento e fixações na base. Ilustração gerada por IA; uma imagem estática não confirma ruído ou vibração.",
+          "author": "Gerada por IA com OpenAI para o BombaGuia",
+          "license": "Ilustração sintética; não é fotografia nem desenho de montagem",
+          "page": "https://github.com/cloviscoutinho/bombaguia-conteudo/blob/main/IMAGENS-GERADAS.md",
           "id_imagem": "b04-01"
         },
         {
@@ -4665,11 +4665,11 @@
         },
         {
           "tipo": "imagem",
-          "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/b05-imagem-01-v1.jpg",
-          "caption": "Imagem de abertura do B05, ilustrando líquido na região do eixo. A origem real e o tipo de vedação precisam de confirmação.",
-          "author": "Fonte indicada: chengshunmetals; autoria não confirmada",
-          "license": "Licença de reutilização não informada",
-          "page": "https://www.chengshunmetals.com/news/components-metals/bearings/Pump-Shaft-Seals-Leaking-Common-Causes-Failure-Signs-and-Fixes.html",
+          "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/b05-01-ia-v1.png",
+          "caption": "Conjunto com gotejamento ilustrativo. Imagem gerada por IA; a origem do líquido e o tipo de vedação precisam ser confirmados no equipamento real.",
+          "author": "Gerada por IA com OpenAI para o BombaGuia",
+          "license": "Ilustração sintética; não é fotografia nem desenho de montagem",
+          "page": "https://github.com/cloviscoutinho/bombaguia-conteudo/blob/main/IMAGENS-GERADAS.md",
           "id_imagem": "b05-01"
         },
         {
@@ -4740,11 +4740,11 @@
         },
         {
           "tipo": "imagem",
-          "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/b05-imagem-02-v1.jpg",
-          "caption": "Região entre bomba e motor mostrada no B05. Exemplo ilustrativo: não retire proteções nem se aproxime de partes móveis para comparar.",
-          "author": "Fonte indicada: FBU SEALS; autoria não confirmada",
-          "license": "Licença de reutilização não informada",
-          "page": "https://chatgpt.com/s/t_6ad52605ba908191a44f162a6f9b22d2",
+          "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/b05-02-ia-v1.png",
+          "caption": "Região do eixo, caixa de vedação e suporte. Ilustração gerada por IA; não identifica a origem de um vazamento real. Não retire proteções nem se aproxime de partes móveis.",
+          "author": "Gerada por IA com OpenAI para o BombaGuia",
+          "license": "Ilustração sintética; não é fotografia nem desenho de montagem",
+          "page": "https://github.com/cloviscoutinho/bombaguia-conteudo/blob/main/IMAGENS-GERADAS.md",
           "id_imagem": "b05-02"
         },
         {
@@ -4868,11 +4868,11 @@
         },
         {
           "tipo": "imagem",
-          "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/b05-imagem-07-v1.jpg",
-          "caption": "Vista em corte apresentada no grupo de selo mecânico do B05. Exemplo de construção; não representa a montagem de todos os modelos.",
-          "author": "Fonte indicada: arkronix; autoria não confirmada",
-          "license": "Licença de reutilização não informada",
-          "page": "https://www.arkronix.ru/blog/tortsevoe_uplotnenie_nasosa_chto_eto_takoe_ustroystvo_i_printsip_raboty/",
+          "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/b05-07-ia-v1.png",
+          "caption": "Vista conceitual em corte de selo mecânico, com faces de vedação e mola. Ilustração gerada por IA, simplificada e sem escala; não serve para montagem ou seleção de peças.",
+          "author": "Gerada por IA com OpenAI para o BombaGuia",
+          "license": "Ilustração sintética; não é fotografia nem desenho de montagem",
+          "page": "https://github.com/cloviscoutinho/bombaguia-conteudo/blob/main/IMAGENS-GERADAS.md",
           "id_imagem": "b05-07"
         },
         {
@@ -4929,11 +4929,11 @@
         },
         {
           "tipo": "imagem",
-          "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/b05-imagem-08-v1.jpg",
-          "caption": "Ilustração em corte com anéis de gaxeta apresentada no B05. Gotejamento e ajuste devem seguir o fabricante; não apertar para eliminar toda fuga.",
-          "author": "Fonte indicada: sepco; autoria não confirmada",
-          "license": "Licença de reutilização não informada",
-          "page": "https://www.sepco.com/community/white-paper/successful-rotating-equipment-with-pump-packing-best-practices/",
+          "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/b05-08-ia-v1.png",
+          "caption": "Vista conceitual de caixa com anéis de gaxeta e sobreposta. Ilustração gerada por IA, simplificada e sem escala. Gotejamento e ajuste devem seguir o fabricante; não eliminar toda fuga por aperto.",
+          "author": "Gerada por IA com OpenAI para o BombaGuia",
+          "license": "Ilustração sintética; não é fotografia nem desenho de montagem",
+          "page": "https://github.com/cloviscoutinho/bombaguia-conteudo/blob/main/IMAGENS-GERADAS.md",
           "id_imagem": "b05-08"
         },
         {
@@ -4965,11 +4965,11 @@
         },
         {
           "tipo": "imagem",
-          "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/b05-imagem-03-v1.jpg",
-          "caption": "Uniões aparafusadas e fuga de líquido na imagem usada para juntas no B05. Não distingue sozinha junta, flange ou outra origem.",
-          "author": "Fonte indicada: Dobson Gasket; autoria não confirmada",
-          "license": "Licença de reutilização não informada",
-          "page": "https://chatgpt.com/s/t_6ad52605ba908191a44f162a6f9b22d2",
+          "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/b05-03-ia-v1.png",
+          "caption": "Junção aparafusada da tampa e carcaça com junta. Ilustração gerada por IA; não comprova um defeito nem representa todos os modelos.",
+          "author": "Gerada por IA com OpenAI para o BombaGuia",
+          "license": "Ilustração sintética; não é fotografia nem desenho de montagem",
+          "page": "https://github.com/cloviscoutinho/bombaguia-conteudo/blob/main/IMAGENS-GERADAS.md",
           "id_imagem": "b05-03"
         },
         {
@@ -4996,11 +4996,11 @@
         },
         {
           "tipo": "imagem",
-          "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/b05-imagem-04-v1.jpg",
-          "caption": "Exemplo de líquido escapando na região de uma conexão flangeada, como apresentado no B05. Não se aproxime de jatos pressurizados.",
-          "author": "Fonte indicada: Gems Sensors; autoria não confirmada",
-          "license": "Licença de reutilização não informada",
-          "page": "https://chatgpt.com/s/t_6ad52605ba908191a44f162a6f9b22d2",
+          "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/b05-04-ia-v1.png",
+          "caption": "Conexão flangeada de tubulação com gotejamento ilustrativo. Imagem gerada por IA; não se aproxime de vazamentos ou jatos pressurizados.",
+          "author": "Gerada por IA com OpenAI para o BombaGuia",
+          "license": "Ilustração sintética; não é fotografia nem desenho de montagem",
+          "page": "https://github.com/cloviscoutinho/bombaguia-conteudo/blob/main/IMAGENS-GERADAS.md",
           "id_imagem": "b05-04"
         },
         {
@@ -5032,11 +5032,11 @@
         },
         {
           "tipo": "imagem",
-          "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/b05-imagem-05-v1.jpg",
-          "caption": "Exemplo de corrosão em uma união, usado no B05 como referência de deterioração. A foto não comprova fissura na carcaça ou sua espessura remanescente.",
-          "author": "Fonte indicada: Fonte fotográfica não identificada no chat; autoria não confirmada",
-          "license": "Licença de reutilização não informada",
-          "page": "https://chatgpt.com/s/t_6ad52605ba908191a44f162a6f9b22d2",
+          "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/b05-05-ia-v1.png",
+          "caption": "Exemplo conceitual de deterioração superficial da pintura e corrosão externa. Imagem gerada por IA; não comprova fissura, perfuração ou espessura remanescente.",
+          "author": "Gerada por IA com OpenAI para o BombaGuia",
+          "license": "Ilustração sintética; não é fotografia nem desenho de montagem",
+          "page": "https://github.com/cloviscoutinho/bombaguia-conteudo/blob/main/IMAGENS-GERADAS.md",
           "id_imagem": "b05-05"
         },
         {
@@ -5063,11 +5063,11 @@
         },
         {
           "tipo": "imagem",
-          "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/b05-imagem-06-v1.jpg",
-          "caption": "Modelo com indicação “Drain Plug” (tampão de drenagem), apresentado no B05. A posição depende do modelo; não abra tampões pressurizados.",
-          "author": "Fonte indicada: McLanahan; autoria não confirmada",
-          "license": "Licença de reutilização não informada",
-          "page": "https://chatgpt.com/s/t_6ad52605ba908191a44f162a6f9b22d2",
+          "url": "https://cloviscoutinho.github.io/bombaguia-conteudo/b05-06-ia-v1.png",
+          "caption": "Exemplo de tampão de drenagem instalado na carcaça. Imagem gerada por IA; a posição depende do modelo. Não abra tampões com o sistema pressurizado.",
+          "author": "Gerada por IA com OpenAI para o BombaGuia",
+          "license": "Ilustração sintética; não é fotografia nem desenho de montagem",
+          "page": "https://github.com/cloviscoutinho/bombaguia-conteudo/blob/main/IMAGENS-GERADAS.md",
           "id_imagem": "b05-06"
         },
         {
